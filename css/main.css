@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "montserrat-regular";
+    src: url("../fonts/Montserrat-Regular.woff") format('woff');
+    font-weight: normal;    /* font-weight of 400; */
+}
+
+@font-face {
+    font-family: "montserrat-light";
+    src: url("../fonts/Montserrat-Light.woff") format('woff');
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: "montserrat-semibold";
+    src: url("../fonts/Montserrat-SemiBold.woff") format('woff');
+    font-weight: 600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 1px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.btn {
+    font-size: 15px;
+    font-weight: normal;
+    padding: 8px 12px;
+    border: 2px solid black;
+    color: black;
+    margin: 0 5px;
+    background: white;
+    box-shadow: 2px 2px black;
+}
+
+.active {
+    background: #CECECE;
+}
+
+.highlight {
+    color: #b300de;
+}
+
+.main {
+    position: relative;
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 100%;;
+    z-index: -5;
+}
+
+.top-header {
+    text-align: center;
+}
+
+div.container {
+    width: 900px;
+    margin: auto;
+}
+
+.top-header {
+    padding-top: 30px;
+}
+
+.brand h1 {
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+
+.main-content:after {
+    clear: both;
+}
+
+.main-content {
+    margin-top: 100px;
+}
+
+.content-item {
+    display: block;
+    width: 280px;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    border: 2px solid;
+    box-shadow: 2px 2px;
+    height: 160px;
+    background: white;
+    float: left;
+    position: relative;
+    margin: 0 20px 20px 0px
+}
+
+.content-item .header {
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.content-item p.tagline {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.content-item .footer {
+    position: absolute;
+    bottom: 12px;
+}
+
+div.footer span.footer-stat {
+    margin: 0 10px 0 0;
+    font-size: 13px;
+}
+
+.batch-head {
+    position: relative;
+    top: -25px;
+}
+
+.batch-head a {
+    margin: 0 11px 0 0;
+    border: 2px solid;
+    padding: 5px 12px;
+    box-shadow: 2px 2px;
+    font-family: montserrat-regular;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.loading-more {
+    text-align: center;
+    margin: 20px auto 50px;
+}
+
+.loading-more h3 {
+    font-size: 20px;
+}
