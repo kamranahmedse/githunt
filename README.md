@@ -1,6 +1,6 @@
 # Githunt
 
-> Chrome extension - Replaces new tab with a trending github repositories
+> Chrome extension - Replaces new tab with trending github repositories
 
 Whenever you will open a new tab, you will be presented with a page similar to following
 
@@ -17,7 +17,7 @@ Github API has rate limit applied in their API and although the extension implem
 
 Here is how you can do that
    
-- Go to the `[Settings > Personal Access Tokens](https://github.com/settings/tokens)` of your github profile
+- Go to the [`Settings > Personal Access Tokens`](https://github.com/settings/tokens) of your github profile
 - Click `Generate New Token` button. Give the token description and select the scope called `public_repo` under `repo` and click `Generate Token`.
 - You will be presented with the generated token. Copy the token.
 - Right click on the extension icon and click `Options`. Paste the API token in the given field and click save
