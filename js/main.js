@@ -92,17 +92,28 @@ function HubStorage() {
  */
 function HubTab() {
 
-    var trendingRequest = false,            // To make sure that there are no parallel requests
-        repoGroupSelector = '.content-batch',      // Batch of repositories
-        filterSelector = '.repos-filter',   // Selector that matches every repo filter on page
-        mainContainer = '.main-content',     // Main container div
-        dateHead = '.date-head',            // Heading item for the batch of repositories
-        dateAttribute = 'date',             // Date attribute on the date head of batch
-    // token = 'a1a420cbad0a4d3eccda',  // API token. Don't grin, it's a dummy one ¯\_(ツ)_/¯
-        languageFilter = '#language',       // Filter for repositories language
+    var trendingRequest = false,              // To make sure that there are no parallel requests
+        repoGroupSelector = '.content-batch', // Batch of repositories
+        filterSelector = '.repos-filter',     // Selector that matches every repo filter on page
+        mainContainer = '.main-content',      // Main container div
+        dateHead = '.date-head',              // Heading item for the batch of repositories
+        dateAttribute = 'date',               // Date attribute on the date head of batch
+        // token = 'a1a420cbad0a4d3eccda',    // API token. Don't grin, it's a dummy
+        languageFilter = '#language',         // Filter for repositories language
         dateFilter = '#date-jump',            // Date jump filter i.e. weekly, monthly or yearly
         tokenStorageKey = 'githunt_token',    // Storage key for the github token
-        reposApiUrl = 'https://api.github.com/search/repositories'; // URL for the repos
+        requestCount = 0,                     // Track the count of how many times the refresh was tried
+        reposApiUrl = 'https://api.github.com/search/repositories', // URL for the repos
+
+        // All the content from last hunt will be cached in localstorage for some time to avoid
+        // requests on each tab change
+        lastHuntResult = 'last_hunt_result',
+
+        // Minutes for which upon the first request, we won't refresh and just return the cached result
+        refreshDuration = '45',
+
+        // The time for last hunt
+        lastHuntTime = 'last_hunt_time';
 
     var filterStorage = new HubStorage();
 
@@ -200,6 +211,48 @@ function HubTab() {
     };
 
     /**
+     * Saves the hunt result in localstorage to avoid requests on each tab change
+     */
+    var saveHuntResult = function () {
+        // Save the hunt results to storage.
+        filterStorage.getStorage().setItem(lastHuntResult, $('.main-content').html());
+        filterStorage.getStorage().setItem(lastHuntTime, moment().format('YYYY-MM-DD HH:mm:ss'));
+    };
+
+
+    /**
+     * Checks whether the refresh
+     * @returns {boolean}
+     */
+    var shouldRefresh = function () {
+        // Allow refresh if..
+        // ..It is not first request
+        if (requestCount !== 0) {
+            return true;
+        }
+
+        // ..we do not have any hunt results
+        var lastHuntResult = filterStorage.getStorage().getItem(lastHuntResult),
+            lastHuntTime = filterStorage.getStorage().getItem(lastHuntTime);
+        if (!lastHuntResult || !lastHuntTime) {
+            return true;
+        }
+
+        // ..cache is stale
+        var now = moment();
+        var then = moment('2016-03-25 19:10:41', 'YYYY-MM-DD HH:mm:ss');
+        if (now.diff(then, 'minutes') >= refreshDuration) {
+            return true;
+        }
+
+        // Take the content from cache and put it in place
+        // Reset the requestCount
+        // .......
+
+        return false;
+    };
+
+    /**
      * Fetches the trending repositories based upon the filters applied
      * @returns {boolean}
      */
@@ -208,6 +261,10 @@ function HubTab() {
         // If there is some request, already in progress or there was
         // an error, do not allow further requests.
         if ((trendingRequest !== false) || ($('.error-quote').length !== 0)) {
+            return false;
+        }
+
+        if(shouldRefresh() === false) {
             return false;
         }
 
@@ -242,6 +299,8 @@ function HubTab() {
             complete: function () {
                 trendingRequest = false;
                 $('.loading-more').addClass('hide');
+
+                saveHuntResult();
             }
         });
     };
