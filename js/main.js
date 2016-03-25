@@ -109,8 +109,8 @@ function HubTab() {
         // requests on each tab change
         huntResultKey = 'last_hunt_result',
 
-        // Minutes for which upon the first request, we won't refresh and just return the cached result
-        refreshDuration = '45',
+        // Minutes for which cache will be kept
+        refreshDuration = '180',
 
         // The time for last hunt
         huntTImeKey = 'last_hunt_time';
