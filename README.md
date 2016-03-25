@@ -1,6 +1,6 @@
 # Githunt
 
-> Chrome extension - Replaces new tab with a trending github repositories
+> Chrome extension - Replaces new tab with trending github repositories
 
 Whenever you will open a new tab, you will be presented with a page similar to following
 
