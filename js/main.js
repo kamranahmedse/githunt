@@ -36,7 +36,7 @@ function FilterStorage() {
 
             storage.setItem(name, $input.val());
         });
-    }
+    };
 
     /**
      * Retrieves the values for the provided selector from localstorage
@@ -55,12 +55,12 @@ function FilterStorage() {
                 $input.val(value);
             }
         });
-    }
+    };
 
     return {
         /**
          * Persist the fields matching the provided selector to local storage
-         * @param fields
+         * @param selector
          */
         persistFilters: function (selector) {
             persistFilters(selector);
@@ -68,12 +68,12 @@ function FilterStorage() {
 
         /**
          * Populates the filters using the values stored in the localstorage
-         * @param fieldNames
+         * @param selector
          */
         populateFilters: function (selector) {
             return populateFilters(selector);
         }
-    }
+    };
 }
 
 /**
@@ -88,7 +88,7 @@ function HubTab() {
         mainContainer= '.main-content',     // Main container div
         dateHead = '.date-head',            // Heading item for the batch of repositories
         dateAttribute = 'date',             // Date attribute on the date head of batch
-        token = '6d36200a868dab6bab6ad74123ae8d705f0f5691',     // API token to increase the rate limit
+        token = 'be604a0cd14b81bf3523a1a420cbad0a4d3eccda',  // API token. Don't grin, it's a dummy one ¯\_(ツ)_/¯
         languageFilter = '#language',       // Filter for repositories language
         dateFilter = '#date-jump',            // Date jump filter i.e. weekly, monthly or yearly
         reposApiUrl = 'https://api.github.com/search/repositories'; // URL for the repos
@@ -130,7 +130,9 @@ function HubTab() {
         var humanDate = moment(lowerDate).fromNow(),
             formattedLower = moment(lowerDate).format('ll'),
             formattedUpper = moment(upperDate).format('ll');
+
         var finalHtml = '<div class="content-batch"><h1 class="date-head" data-date="' + lowerDate + '">' + humanDate + ' - ' + formattedLower + ' &ndash; ' + formattedUpper + '</h1>' + html + '<div class="clearfix"></div></div></div>';
+
         return finalHtml;
     }
 
@@ -154,7 +156,7 @@ function HubTab() {
         }
 
         return dateRange;
-    }
+    };
 
     /**
      * Gets the filters to be passed to API
@@ -175,7 +177,7 @@ function HubTab() {
             queryParams: '?sort=stars&order=desc&q=' + langCondition + 'created:"' + dateRange.lower + ' .. ' + dateRange.upper  + '"&access_token=' + token,
             dateRange: dateRange
         };
-    }
+    };
 
     /**
      * Fetches the trending repositories based upon the filters applied
@@ -206,7 +208,7 @@ function HubTab() {
                 $('.loading-more').addClass('hide');
             }
         });
-    }
+    };
 
     /**
      * Perform all the UI bindings
