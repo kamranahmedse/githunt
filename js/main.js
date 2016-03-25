@@ -59,7 +59,13 @@ function fetchTrendingRepos() {
 
     var token = '6d36200a868dab6bab6ad74123ae8d705f0f5691';
     var language = $('#language').val();
-    var url = 'https://api.github.com/search/repositories?sort=stars&order=desc&q=language:' + language + ' created:"' + lowerDate + ' .. ' + upperDate + '"&access_token=' + token;
+    var langCondition = '';
+
+    if (language) {
+        langCondition = 'language:' + language + ' ';
+    }
+
+    var url = 'https://api.github.com/search/repositories?sort=stars&order=desc&q=' + langCondition + 'created:"' + lowerDate + ' .. ' + upperDate + '"&access_token=' + token;
 
     trendingRequest = $.ajax({
         url: url,
