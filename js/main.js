@@ -5,7 +5,7 @@
  * @returns {{persistFilters: persistFilters, populateFilters: populateFilters}}
  * @constructor
  */
-function FilterStorage() {
+function HubStorage() {
 
     /**
      * Returns the storage object if available, otherwise
@@ -18,8 +18,10 @@ function FilterStorage() {
         }
 
         return {
-            setItem: function () {},
-            getItem: function () {}
+            setItem: function () {
+            },
+            getItem: function () {
+            }
         }
     };
 
@@ -30,7 +32,7 @@ function FilterStorage() {
     var persistFilters = function (selector) {
         var storage = getStorage();
 
-        $(selector).each(function(index, input){
+        $(selector).each(function (index, input) {
             var $input = $(input),
                 name = $input.attr('name');
 
@@ -46,7 +48,7 @@ function FilterStorage() {
     var populateFilters = function (selector) {
         var storage = getStorage();
 
-        $(selector).each(function(index, input){
+        $(selector).each(function (index, input) {
             var $input = $(input),
                 name = $input.attr('name'),
                 value = storage.getItem(name);
@@ -72,6 +74,14 @@ function FilterStorage() {
          */
         populateFilters: function (selector) {
             return populateFilters(selector);
+        },
+
+        /**
+         * Returns the localStorageObject
+         * @returns {{setItem, getItem}}
+         */
+        getStorage: function () {
+            return getStorage();
         }
     };
 }
@@ -85,15 +95,16 @@ function HubTab() {
     var trendingRequest = false,            // To make sure that there are no parallel requests
         repoGroupSelector = '.content-batch',      // Batch of repositories
         filterSelector = '.repos-filter',   // Selector that matches every repo filter on page
-        mainContainer= '.main-content',     // Main container div
+        mainContainer = '.main-content',     // Main container div
         dateHead = '.date-head',            // Heading item for the batch of repositories
         dateAttribute = 'date',             // Date attribute on the date head of batch
-        token = 'be604a0cd14b81bf3523a1a420cbad0a4d3eccda',  // API token. Don't grin, it's a dummy one ¯\_(ツ)_/¯
+    // token = 'a1a420cbad0a4d3eccda',  // API token. Don't grin, it's a dummy one ¯\_(ツ)_/¯
         languageFilter = '#language',       // Filter for repositories language
         dateFilter = '#date-jump',            // Date jump filter i.e. weekly, monthly or yearly
+        tokenStorageKey = 'githunt_token',    // Storage key for the github token
         reposApiUrl = 'https://api.github.com/search/repositories'; // URL for the repos
 
-    var filterStorage = new FilterStorage();
+    var filterStorage = new HubStorage();
 
     /**
      * Generates the HTML for batch of repositories
@@ -173,8 +184,17 @@ function HubTab() {
             langCondition = 'language:' + language + ' ';
         }
 
+        // If user has set the github token in storage pass that
+        // alongside the request.
+        var token = $.trim(filterStorage.getStorage().getItem(tokenStorageKey)),
+            apiToken = '';
+
+        if (token) {
+            apiToken = '&access_token=' + token;
+        }
+
         return {
-            queryParams: '?sort=stars&order=desc&q=' + langCondition + 'created:"' + dateRange.lower + ' .. ' + dateRange.upper  + '"&access_token=' + token,
+            queryParams: '?sort=stars&order=desc&q=' + langCondition + 'created:"' + dateRange.lower + ' .. ' + dateRange.upper + '"' + apiToken,
             dateRange: dateRange
         };
     };
@@ -185,8 +205,9 @@ function HubTab() {
      */
     var fetchTrendingRepos = function () {
 
-        // If there is some request, already in progress
-        if (trendingRequest !== false) {
+        // If there is some request, already in progress or there was
+        // an error, do not allow further requests.
+        if ((trendingRequest !== false) || ($('.error-quote').length !== 0)) {
             return false;
         }
 
@@ -202,6 +223,21 @@ function HubTab() {
             success: function (data) {
                 var finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper);
                 $(mainContainer).append(finalHtml);
+            },
+            error: function(xhr, status, error) {
+                var error = JSON.parse(xhr.responseText),
+                    message = error.message || '';
+
+                if (message && message.toLowerCase() == 'bad credentials') {
+                    $('.main-content').replaceWith('<h3 class="quote-item error-quote">Oops! Seems to be a problem with your API token. Could you verify the token in `Githunt Options`.</h3>');
+
+                    // Reset the token
+                    filterStorage.getStorage().removeItem(tokenStorageKey);
+                } else if (message && (message.indexOf('rate limit') !== -1)) {
+                    $('.main-content').replaceWith('<h3 class="quote-item error-quote">Oops! Seems like you did not set the API token. Wait an hour for github to refresh your rate limit or better add a token in `Githunt Options` to hunt more.</h3>');
+                } else {
+                    $('.main-content').replaceWith('Oops! Could you please refresh the page.');
+                }
             },
             complete: function () {
                 trendingRequest = false;
@@ -252,3 +288,11 @@ function HubTab() {
         }
     };
 }
+
+$(function () {
+    var hubTab = new HubTab();
+    hubTab.init();
+
+    particlesJS.load('particles-js', 'js/particles.json', function () {
+    });
+});

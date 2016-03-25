@@ -44,6 +44,7 @@ a {
     margin: 0 5px;
     background: white;
     box-shadow: 2px 2px black;
+    outline: none;
 }
 
 .active {
@@ -222,4 +223,14 @@ div.footer span.footer-stat .fa {
     text-overflow: ellipsis !important;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.muted {
+    color: #BFB7B7;
+}
+
+.quote-item {
+    margin: 60px 0 20px;
+    padding: 20px 10px;
+    background: #ccc;
 }

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Githunt",
+  "short_name": "Githunt",
+  "description": "Find the awesome things being built with the technologies of your like",
+  "version": "1",
+  "permissions": [
+    "tabs",
+    "storage",
+    "webNavigation",
+    "*://*.github.com/*"
+  ],
+  "icons": {
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "githunt.html"
+  },
+  "homepage_url": "http://kamranahmed.info/",
+  "options_page": "options.html",
+  "browser_action": {
+    "default_title": "Githunt",
+    "default_icon": "img/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/jquery.js",
+      "js/main.js",
+      "js/particles.js",
+      "js/moment.min.js"
+    ],
+    "persistent": false
+  }
+}
