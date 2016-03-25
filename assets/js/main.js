@@ -355,6 +355,6 @@ $(function () {
     var hubTab = new HubTab();
     hubTab.init();
 
-    particlesJS.load('particles-js', 'js/particles.json', function () {
+    particlesJS.load('particles-js', 'assets/js/particles.json', function () {
     });
 });
