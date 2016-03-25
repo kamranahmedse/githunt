@@ -16,7 +16,10 @@
     font-weight: 600;
 }
 
-* {
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -69,7 +72,7 @@ a {
 }
 
 div.container {
-    width: 900px;
+    width: 950px;
     margin: auto;
 }
 
@@ -79,7 +82,13 @@ div.container {
 
 .brand h1 {
     font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.brand p {
     margin-bottom: 30px;
+    font-size: 17px;
+    font-family: montserrat-light;
 }
 
 .main-content:after {
@@ -92,12 +101,12 @@ div.container {
 
 .content-item {
     display: block;
-    width: 280px;
+    width: 295px;
     box-sizing: border-box;
     padding: 15px 10px;
     border: 2px solid;
     box-shadow: 2px 2px;
-    height: 160px;
+    height: 200px;
     background: white;
     float: left;
     position: relative;
@@ -150,4 +159,59 @@ div.footer span.footer-stat {
 
 .loading-more h3 {
     font-size: 20px;
+}
+
+.date-head {
+    text-align: left;
+    margin: -50px 20px 15px 0;
+    background: #E8E6E6;
+    border-left: 3px solid;
+    padding: 8px 0px 8px 10px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+h1.date-head:first-letter {
+    text-transform: capitalize;
+}
+
+.btn.btn-select {
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn-select select {
+    font-size: 16px;
+    line-height: 20px;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
+    display: inline-block;
+    width: 150px;
+    outline: none;
+    background: white;
+    padding: 0px 5px 0px 10px;
+    cursor: pointer;
+}
+
+.btn-select .fa {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+div.footer span.footer-stat .fa {
+    margin-right: 2px;
+}
+
+.hide {
+    display: none;
+}
+
+.content-batch {
+    margin-bottom: 80px;
 }
