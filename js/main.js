@@ -1,3 +1,10 @@
+/**
+ * Filter Storage to assist in storing the filter to localStorage
+ * and retrieving to populate back
+ *
+ * @returns {{persistFilters: persistFilters, populateFilters: populateFilters}}
+ * @constructor
+ */
 function FilterStorage() {
 
     /**
@@ -69,6 +76,10 @@ function FilterStorage() {
     }
 }
 
+/**
+ * @returns {{init: init, refresh: refresh}}
+ * @constructor
+ */
 function HubTab() {
 
     var trendingRequest = false,            // To make sure that there are no parallel requests
@@ -239,8 +250,3 @@ function HubTab() {
         }
     };
 }
-
-$(function () {
-    var hubTab = new HubTab();
-    hubTab.init();
-});

@@ -4,9 +4,18 @@
     <meta charset=UTF-8>
     <title>Githubber: Scorch</title>
     <link rel=stylesheet href=css/main.css>
+
+
     <script src="js/jquery.js"></script>
     <script src="js/moment.min.js"></script>
     <script src=js/main.js></script>
+    <script>
+        $(function () {
+            var hubTab = new HubTab();
+            hubTab.init();
+        });
+    </script>
+
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
 </head>
@@ -14,6 +23,7 @@
 <div class=main>
 
     <div id="particles-js"></div>
+
     <div class="container">
 
         <div class="top-header">
