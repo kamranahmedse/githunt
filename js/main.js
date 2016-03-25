@@ -1,3 +1,6 @@
+var GH_DATE_JUMP = 'date_jump',
+    GH_LANGUAGE = 'gh_language';
+
 function renderRepositories(repositories, lowerDate, upperDate) {
     var html = '';
 
@@ -28,14 +31,6 @@ function renderRepositories(repositories, lowerDate, upperDate) {
         formattedUpper = moment(upperDate).format('ll');
     var finalHtml = '<div class="content-batch"><h1 class="date-head" data-date="' + lowerDate + '">' + humanDate + ' - ' + formattedLower + ' &ndash; ' + formattedUpper + '</h1>' + html + '<div class="clearfix"></div></div></div>';
     return finalHtml;
-}
-
-function getNextDate(lastFetched) {
-    if (lastFetched) {
-        lowerDate = moment(lastFetched).subtract(1, 'day').format('YYYY-MM-DD');
-    } else {
-
-    }
 }
 
 var trendingRequest = false;
@@ -88,18 +83,43 @@ function fetchTrendingRepos() {
     });
 }
 
+function persistFilters() {
+
+    if (!localStorage) {
+        return false;
+    }
+
+    localStorage.setItem(GH_DATE_JUMP, $('#date-jump').val());
+    localStorage.setItem(GH_LANGUAGE, $('#language').val());
+}
+
+function applyFilters() {
+    var dateJump = localStorage.getItem(GH_DATE_JUMP),
+        language = localStorage.getItem(GH_LANGUAGE);
+
+    if (dateJump) {
+        $('#date-jump').val(dateJump);
+    }
+
+    if (language) {
+        $('#language').val(language);
+    }
+}
+
 $(function () {
 
-    $(window).on('scroll', function() {
-        if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
             fetchTrendingRepos();
         }
     });
 
     $(document).on('change', '.repos-filter', function () {
         $('.content-batch').remove();
+        persistFilters();
         fetchTrendingRepos();
     });
 
     fetchTrendingRepos();
+    applyFilters();
 });
