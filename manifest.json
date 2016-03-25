@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Githunt",
   "short_name": "Githunt",
-  "description": "Find the awesome things being built with the technologies of your like",
+  "description": "Replace the new tab with a list of trending repositories on github belonging to any technology that you chose.",
   "version": "1",
   "permissions": [
     "tabs",
