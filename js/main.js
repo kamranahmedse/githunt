@@ -150,7 +150,7 @@ function HubTab() {
             dateRange.lower = moment(lastFetched).subtract(1, dateJump).format('YYYY-MM-DD');
         } else {
             dateRange.upper = moment().format('YYYY-MM-DD');
-            dateRange.lower = moment().subtract(1, dateJump).format('YYYY-MM-DD');
+            dateRange.lower = moment().add(1, 'day').subtract(1, dateJump).format('YYYY-MM-DD');
         }
 
         return dateRange;
