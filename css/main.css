@@ -215,3 +215,11 @@ div.footer span.footer-stat .fa {
 .content-batch {
     margin-bottom: 80px;
 }
+
+.content-item .header a {
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+}

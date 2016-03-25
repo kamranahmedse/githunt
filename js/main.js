@@ -120,6 +120,6 @@ $(function () {
         fetchTrendingRepos();
     });
 
-    fetchTrendingRepos();
     applyFilters();
+    fetchTrendingRepos();
 });
