@@ -107,13 +107,13 @@ function HubTab() {
 
         // All the content from last hunt will be cached in localstorage for some time to avoid
         // requests on each tab change
-        lastHuntResult = 'last_hunt_result',
+        huntResultKey = 'last_hunt_result',
 
         // Minutes for which upon the first request, we won't refresh and just return the cached result
         refreshDuration = '45',
 
         // The time for last hunt
-        lastHuntTime = 'last_hunt_time';
+        huntTImeKey = 'last_hunt_time';
 
     var filterStorage = new HubStorage();
 
@@ -215,8 +215,8 @@ function HubTab() {
      */
     var saveHuntResult = function () {
         // Save the hunt results to storage.
-        filterStorage.getStorage().setItem(lastHuntResult, $('.main-content').html());
-        filterStorage.getStorage().setItem(lastHuntTime, moment().format('YYYY-MM-DD HH:mm:ss'));
+        filterStorage.getStorage().setItem(huntResultKey, $('.main-content').html());
+        filterStorage.getStorage().setItem(huntTImeKey, moment().format('YYYY-MM-DD HH:mm:ss'));
     };
 
 
@@ -232,22 +232,25 @@ function HubTab() {
         }
 
         // ..we do not have any hunt results
-        var lastHuntResult = filterStorage.getStorage().getItem(lastHuntResult),
-            lastHuntTime = filterStorage.getStorage().getItem(lastHuntTime);
+        var lastHuntResult = filterStorage.getStorage().getItem(huntResultKey),
+            lastHuntTime = filterStorage.getStorage().getItem(huntTImeKey);
         if (!lastHuntResult || !lastHuntTime) {
             return true;
         }
 
         // ..cache is stale
         var now = moment();
-        var then = moment('2016-03-25 19:10:41', 'YYYY-MM-DD HH:mm:ss');
+        var then = moment(lastHuntTime, 'YYYY-MM-DD HH:mm:ss');
         if (now.diff(then, 'minutes') >= refreshDuration) {
             return true;
         }
 
-        // Take the content from cache and put it in place
-        // Reset the requestCount
-        // .......
+        // Put the last hunt results in place
+        $(mainContainer).html(lastHuntResult);
+
+        // Reset the request count because for any additional requests,
+        // we do want to get the data from server.
+        requestCount++;
 
         return false;
     };
