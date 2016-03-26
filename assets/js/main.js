@@ -240,7 +240,7 @@ function HubTab() {
         // ..we do not have any hunt results
         var lastHuntResult = filterStorage.getStorage().getItem(huntResultKey),
             lastHuntTime = filterStorage.getStorage().getItem(huntTImeKey);
-        if (!lastHuntResult || !lastHuntTime) {
+        if (!lastHuntResult || !lastHuntTime || $.trim(lastHuntResult) === 'undefined') {
             return true;
         }
 
