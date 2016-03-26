@@ -328,6 +328,10 @@ function HubTab() {
 
         // On change of repository filters
         $(document).on('change', filterSelector, function () {
+
+            // Increase the request count so that refresh is enabled
+            requestCount++;
+
             // Remove the existing fetches repositories
             $(repoGroupSelector).remove();
             // Persist the filters
