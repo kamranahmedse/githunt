@@ -1,7 +1,6 @@
 <p align="center">
 <img width="600" src="http://i.imgur.com/KUEq97P.png" text-align="center">
 </p>
-# Githunt
 
 > Chrome extension - Replaces new tab with trending github repositories
 
@@ -30,7 +29,7 @@ Here is how you can do that
 - Voila! You are all set to go on a hunt.
 
 ## Contribution
-I'd love to hear what you have to say. Please open an issue for any feature requests or bugs or better create a pull request by improving it. Also you can contact me at kamranahmed.se@gmail.com or on twitter @kamranahmed_se
+I'd love to hear what you have to say. Reach me out at kamranahmed.se@gmail.com or on twitter @kamranahmed_se
 
 ## License
 MIT © [Kamran Ahmed](https://kamranahmed.info)
