@@ -214,8 +214,14 @@ function HubTab() {
      * Saves the hunt result in localstorage to avoid requests on each tab change
      */
     var saveHuntResult = function () {
+
+        var huntResults = $('.main-content').html();
+        if (!huntResults) {
+            return false;
+        }
+
         // Save the hunt results to storage.
-        filterStorage.getStorage().setItem(huntResultKey, $('.main-content').html());
+        filterStorage.getStorage().setItem(huntResultKey, huntResults);
         filterStorage.getStorage().setItem(huntTImeKey, moment().format('YYYY-MM-DD HH:mm:ss'));
     };
 
