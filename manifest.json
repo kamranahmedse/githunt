@@ -23,14 +23,5 @@
   "browser_action": {
     "default_title": "Githunt",
     "default_icon": "assets/img/icon128.png"
-  },
-  "background": {
-    "scripts": [
-      "assets/js/jquery.js",
-      "assets/js/main.js",
-      "assets/js/particles.js",
-      "assets/js/moment.min.js"
-    ],
-    "persistent": false
   }
 }

@@ -28,22 +28,24 @@ body {
     padding-top: 1px;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
+    background: #ECE1E1;
+    color: #333;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: #333;
 }
 
 .btn {
     font-size: 15px;
     font-weight: normal;
     padding: 8px 12px;
-    border: 2px solid black;
-    color: black;
+    border: 2px solid #333;
+    color: #333;
     margin: 0 5px;
     background: white;
-    box-shadow: 2px 2px black;
+    box-shadow: 2px 2px #333;
     outline: none;
 }
 
@@ -87,9 +89,14 @@ div.container {
     padding-top: 30px;
 }
 
+.brand {
+    float: left;
+    text-align: left;
+}
+
 .brand h1 {
-    font-size: 45px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 5px;
 }
 
 .brand p {
@@ -98,26 +105,34 @@ div.container {
     font-family: montserrat-light;
 }
 
-.main-content:after {
+.top-header:after {
     clear: both;
+    content: ' ';
+    display: block;
+}
+
+.top-nav {
+    float: right;
+    line-height: 80px;
 }
 
 .main-content {
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .content-item {
     display: block;
     width: 295px;
     box-sizing: border-box;
-    padding: 15px 10px;
-    border: 2px solid;
-    box-shadow: 2px 2px;
+    padding: 15px;
     height: 200px;
-    background: white;
+    background: #fefefe;
     float: left;
     position: relative;
-    margin: 0 20px 20px 0px
+    margin: 0 20px 20px 0px;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #333;
 }
 
 .content-item .header {
@@ -169,13 +184,11 @@ div.footer span.footer-stat {
 }
 
 .date-head {
-    text-align: left;
-    margin: -50px 20px 15px 0;
-    background: #E8E6E6;
-    border-left: 3px solid;
+    margin: -40px 20px 40px 0;
     padding: 8px 0px 8px 10px;
     font-weight: normal;
     font-size: 16px;
+    text-align: center;
 }
 
 h1.date-head:first-letter {
@@ -185,9 +198,9 @@ h1.date-head:first-letter {
 .btn.btn-select {
     padding-left: 0;
     padding-right: 0;
-    cursor: pointer;
     position: relative;
     cursor: pointer;
+    border-color: white;
 }
 
 .btn-select select {
