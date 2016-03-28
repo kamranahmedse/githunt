@@ -6,7 +6,7 @@
 
 Whenever you will open a new tab, you will be presented with a page similar to following
 
-![New Tab](http://i.imgur.com/hz3lzCV.png)
+![New Tab](http://i.imgur.com/TPinDHO.png)
 
 By default it is set to show the trending repositories from the current week plus the repositories belonging to every language is shown. However, once you will apply some filter, it will remember your configuration and the next time you will open the new tab, you will be presented with the last filter that you applied.
 
