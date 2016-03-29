@@ -11,9 +11,11 @@ Whenever you will open a new tab, you will be presented with a page similar to f
 By default it is set to show the trending repositories from the current week plus the repositories belonging to every language is shown. However, once you will apply some filter, it will remember your configuration and the next time you will open the new tab, you will be presented with the last filter that you applied.
 
 ## Installation
+
 Extension itself doesn't need any setup. All you have to do is
 
-- [Goto Chrome Webstore](https://chrome.google.com/webstore/detail/githunt/khpcnaokfebphakjgdgpinmglconplhp) and install the extension
+- Install it from [Chrome Webstore](https://chrome.google.com/webstore/detail/githunt/khpcnaokfebphakjgdgpinmglconplhp)  or [manually install it](http://superuser.com/a/247654/6877).
+
 
 Github API has rate limit applied in their API and although the extension implements the caching in order to make sure that the rate limit may not be crossed but however I would recommend you to set the API token in the extension in order to increase the quota. 
 
