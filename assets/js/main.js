@@ -40,10 +40,13 @@ function HubTab() {
         var html = '';
 
         $(repositories).each(function (index, repository) {
+            // Make the name and description XSS safe
+            var repFullName = $('<div>').text(repository.full_name).html();
+            var repFullDesc = $('<div>').text(repository.description).html();
 
             html += '<div class="content-item">' +
-                '<div class="header"><a href="' + repository.html_url + '">' + repository.full_name + '</a></div>' +
-                '<p class="tagline">' + repository.description + '</p>' +
+                '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
+                '<p class="tagline">' + repFullDesc + '</p>' +
                 '<div class="footer">' +
                 '<span class="footer-stat">' +
                 '<i class="fa fa-code-fork"></i>' +
