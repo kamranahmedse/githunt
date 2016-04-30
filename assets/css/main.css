@@ -133,12 +133,16 @@ div.container {
     border-radius: 4px;
     box-shadow: none;
     color: #333;
+    position: relative;
+    overflow: hidden;
 }
 
 .content-item .header {
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 10px;
+    height: 70%;
+    overflow: hidden;
 }
 
 .content-item p.tagline {
