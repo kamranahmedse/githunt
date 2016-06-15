@@ -37,7 +37,7 @@ a {
     color: #333;
 }
 
-.btn {
+.btn, .search {
     font-size: 15px;
     font-weight: normal;
     padding: 8px 12px;
@@ -47,6 +47,12 @@ a {
     background: white;
     box-shadow: 2px 2px #333;
     outline: none;
+}
+
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .quote-item a {
