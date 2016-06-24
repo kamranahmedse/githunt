@@ -31,19 +31,42 @@ function HubTab() {
         emojisUrl='https://api.github.com/emojis';
 
     var filterStorage = new HubStorage();
-    function getGitHubEmojis() {
+
+    /**
+     * Fetch Emojis from GitHub
+     * @param callback function
+     * @returns {callback}
+     */
+    function fetchGitHubEmojis(callback) {
          var emojis = $.ajax({
             url: emojisUrl,
             method: 'get',
-            async: false,
             success: function (data) {
-                return data;
+                return callback(null,data);
             },
             error: function(xhr, status, error) {
-                //Carry on and show regular data
+                return callback(JSON.parse(xhr.responseText));
             }
         });
-        return emojis;
+    }
+
+    /**
+     * Generates github styled emojified string for plain strings
+     * @param source Source string supplied
+     * @param emojis emoji JSON from GitHub
+     * @return {string} Returns the modified string
+     */
+    function generateEmojifiedHTML(source, emojis) {
+        var result = source.split(' ').map(function(item) {
+            if(item[0] === ':' && item.slice(-1) === ':') {
+                var str = item.slice(1,-1)
+                if(emojis[str] !== undefined) {
+                    return `<img src=${str}/>`;
+                }
+            }
+            return item;
+        });
+        return result.join(' ');
     }
     /**
      * Generates the HTML for batch of repositories
@@ -52,12 +75,19 @@ function HubTab() {
      * @param upperDate
      * @returns {string}
      */
-    function generateReposHtml(repositories, lowerDate, upperDate,emojis) {
+    function generateReposHtml(repositories, lowerDate, upperDate, emojis) {
         var html = '';
         $(repositories).each(function (index, repository) {
+            var repFullName, repFullDesc;
             // Make the name and description XSS safe
-            var repFullName = $('<div>').text(repository.full_name).html();
-            var repFullDesc = $('<div>').text(repository.description).html();
+            if(emojis === undefined) {
+                repFullName = $('<div>').text(repository.full_name).html();
+                repFullDesc = $('<div>').text(repository.description).html();
+            } else {
+                repFullName = $('<div>').text(generateEmojifiedHTML(repository.full_name,emojis)).html();
+                repFullDesc = $('<div>').text(generateEmojifiedHTML(repository.description,emojis)).html();
+            }
+           
 
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
@@ -218,9 +248,15 @@ function HubTab() {
             },
             success: function (data) {
                 //get Github Emojis
-                var emojis = getGitHubEmojis();
-                var finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper,emojis);
-                $(mainContainer).append(finalHtml);
+                fetchGitHubEmojis(function(err,result) {
+                    var finalHtml;
+                    if(err) {
+                        finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper);         
+                    } else {
+                        finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper,result);
+                    }
+                    $(mainContainer).append(finalHtml);
+                })
             },
             error: function(xhr, status, error) {
                 var error = JSON.parse(xhr.responseText),
