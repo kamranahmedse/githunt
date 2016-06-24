@@ -61,7 +61,7 @@ function HubTab() {
             if(item[0] === ':' && item.slice(-1) === ':') {
                 var str = item.slice(1,-1)
                 if(emojis[str] !== undefined) {
-                    return `<img src=${str}/>`;
+                    return `<img src=${emojis[str]}/>`;
                 }
             }
             return item;
@@ -79,13 +79,13 @@ function HubTab() {
         var html = '';
         $(repositories).each(function (index, repository) {
             var repFullName, repFullDesc;
-            // Make the name and description XSS safe
             if(emojis === undefined) {
+                // Make the name and description XSS safe
                 repFullName = $('<div>').text(repository.full_name).html();
                 repFullDesc = $('<div>').text(repository.description).html();
             } else {
-                repFullName = $('<div>').text(generateEmojifiedHTML(repository.full_name,emojis)).html();
-                repFullDesc = $('<div>').text(generateEmojifiedHTML(repository.description,emojis)).html();
+                repFullName = $('<div>').html(generateEmojifiedHTML(repository.full_name,emojis));
+                repFullDesc = $('<div>').html(generateEmojifiedHTML(repository.description,emojis));
             }
            
 
@@ -256,6 +256,9 @@ function HubTab() {
                         finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper,result);
                     }
                     $(mainContainer).append(finalHtml);
+                    trendingRequest = false;
+                    $('.loading-more').addClass('hide');
+                    saveHuntResult();
                 })
             },
             error: function(xhr, status, error) {
@@ -272,12 +275,6 @@ function HubTab() {
                 } else {
                     $('.main-content').replaceWith('Oops! Could you please refresh the page.');
                 }
-            },
-            complete: function () {
-                trendingRequest = false;
-                $('.loading-more').addClass('hide');
-
-                saveHuntResult();
             }
         });
     };
