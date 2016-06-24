@@ -25,10 +25,26 @@ function HubTab() {
         refreshDuration = '180',
 
         // The time for last hunt
-        huntTImeKey = 'last_hunt_time';
+        huntTImeKey = 'last_hunt_time',
+
+        //github emojis url
+        emojisUrl='https://api.github.com/emojis';
 
     var filterStorage = new HubStorage();
-
+    function getGitHubEmojis() {
+         var emojis = $.ajax({
+            url: emojisUrl,
+            method: 'get',
+            async: false,
+            success: function (data) {
+                return data;
+            },
+            error: function(xhr, status, error) {
+                //Carry on and show regular data
+            }
+        });
+        return emojis;
+    }
     /**
      * Generates the HTML for batch of repositories
      * @param repositories
@@ -36,9 +52,8 @@ function HubTab() {
      * @param upperDate
      * @returns {string}
      */
-    function generateReposHtml(repositories, lowerDate, upperDate) {
+    function generateReposHtml(repositories, lowerDate, upperDate,emojis) {
         var html = '';
-
         $(repositories).each(function (index, repository) {
             // Make the name and description XSS safe
             var repFullName = $('<div>').text(repository.full_name).html();
@@ -202,7 +217,9 @@ function HubTab() {
                 $('.loading-more').removeClass('hide');
             },
             success: function (data) {
-                var finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper);
+                //get Github Emojis
+                var emojis = getGitHubEmojis();
+                var finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper,emojis);
                 $(mainContainer).append(finalHtml);
             },
             error: function(xhr, status, error) {
