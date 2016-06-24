@@ -45,7 +45,7 @@ function HubTab() {
                 return callback(null,data);
             },
             error: function(xhr, status, error) {
-                return callback(JSON.parse(xhr.responseText));
+                return callback("Error");
             }
         });
     }
@@ -61,7 +61,7 @@ function HubTab() {
             if(item[0] === ':' && item.slice(-1) === ':') {
                 var str = item.slice(1,-1)
                 if(emojis[str] !== undefined) {
-                    return `<img src=${emojis[str]}/>`;
+                    return `<img src=${emojis[str]} alt=${item} class='git_emoji'/>`;
                 }
             }
             return item;
@@ -78,17 +78,8 @@ function HubTab() {
     function generateReposHtml(repositories, lowerDate, upperDate, emojis) {
         var html = '';
         $(repositories).each(function (index, repository) {
-            var repFullName, repFullDesc;
-            if(emojis === undefined) {
-                // Make the name and description XSS safe
-                repFullName = $('<div>').text(repository.full_name).html();
-                repFullDesc = $('<div>').text(repository.description).html();
-            } else {
-                repFullName = $('<div>').html(generateEmojifiedHTML(repository.full_name,emojis));
-                repFullDesc = $('<div>').html(generateEmojifiedHTML(repository.description,emojis));
-            }
-           
-
+            var repFullName = generateEmojifiedHTML(repository.full_name,emojis);
+            var repFullDesc = generateEmojifiedHTML(repository.description,emojis);
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
@@ -251,7 +242,8 @@ function HubTab() {
                 fetchGitHubEmojis(function(err,result) {
                     var finalHtml;
                     if(err) {
-                        finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper);         
+                         $('.main-content').replaceWith('Oops! Could you please refresh the page.');
+                         return ;         
                     } else {
                         finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper,result);
                     }
