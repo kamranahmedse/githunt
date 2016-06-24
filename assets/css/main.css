@@ -141,7 +141,6 @@ div.container {
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 10px;
-    height: 70%;
     overflow: hidden;
 }
 
@@ -256,4 +255,8 @@ div.footer span.footer-stat .fa {
     margin: 60px 0 20px;
     padding: 20px 10px;
     background: #ccc;
+}
+
+.git_emoji {
+    height: 20px;
 }
