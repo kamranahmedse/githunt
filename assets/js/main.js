@@ -44,6 +44,10 @@ function HubTab() {
             var repFullName = $('<div>').text(repository.full_name).html();
             var repFullDesc = $('<div>').text(repository.description).html();
 
+            if(repFullDesc === '') {
+                repFullDesc = '<i>No description or website provided</i>';
+            }
+            
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
