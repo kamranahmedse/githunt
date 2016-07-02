@@ -145,7 +145,10 @@ div.container {
 }
 
 .content-item p.tagline {
-    font-weight: normal;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
     font-size: 13px;
     line-height: 20px;
 }
