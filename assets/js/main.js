@@ -93,7 +93,9 @@ function HubTab() {
             var repFullDesc = repository.description;
             if(repFullDesc !== null) {
                 repFullDesc = generateEmojifiedHTML(repository.description,emojis);    
-            } else if(repFullDesc === '' || repFullDesc === null)
+            } else if(repFullDesc === '' || repFullDesc === null) {
+                repFullDesc = '<i>No description or website provided</i>';
+            }
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
