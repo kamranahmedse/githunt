@@ -11,7 +11,7 @@ function HubTab() {
         dateHead = '.date-head',              // Heading item for the batch of repositories
         dateAttribute = 'date',               // Date attribute on the date head of batch
         // token = 'a1a420cbad0a4d3eccda',    // API token. Don't grin, it's a dummy
-        languageFilter = '#language',         // Filter for repositories language
+        languagesFilter = '#languages',         // Filter for repositories languages
         dateFilter = '#date-jump',            // Date jump filter i.e. weekly, monthly or yearly
         tokenStorageKey = 'githunt_token',    // Storage key for the github token
         requestCount = 0,                     // Track the count of how many times the refresh was tried
@@ -47,7 +47,7 @@ function HubTab() {
             if(repFullDesc === '') {
                 repFullDesc = '<i>No description or website provided</i>';
             }
-            
+
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
@@ -105,13 +105,17 @@ function HubTab() {
      */
     var getApiFilters = function () {
         var dateRange = getNextDateRange(),
-            language = $(languageFilter).val(),
+            languages = $(languagesFilter).val(),
             langCondition = '';
 
-        // If language filter is applied, populate the language
+        // If languages filter is applied, populate the languages
         // chunk to put in URL
-        if (language) {
-            langCondition = 'language:' + language + ' ';
+        if (languages) {
+            langCondition = ""
+            for(var i=0; i<languages.length;++i) {
+              langCondition += i===0 ? "" : "+";
+              langCondition +=  'language:' + languages[i] + ' ';
+            }
         }
 
         // If user has set the github token in storage pass that
@@ -198,7 +202,7 @@ function HubTab() {
 
         var filters = getApiFilters(),
             url = reposApiUrl + filters.queryParams;
-
+        console.log(filters.queryParams);
         trendingRequest = $.ajax({
             url: url,
             method: 'get',
