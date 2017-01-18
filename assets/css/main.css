@@ -143,6 +143,7 @@ div.container {
 .content-item .footer {
     position: absolute;
     bottom: 12px;
+    width: 90%;
 }
 
 div.footer span.footer-stat {
@@ -216,4 +217,8 @@ div.footer span.footer-stat .fa {
     margin: 60px 0 20px;
     padding: 20px 10px;
     background: #ccc;
+}
+
+.right {
+    float: right;
 }

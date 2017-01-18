@@ -55,6 +55,9 @@ function HubTab() {
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
                 '<div class="footer">' +
+                '<span class="footer-stat right">' +
+                repository.language +
+                '</span>' +
                 '<span class="footer-stat">' +
                 '<i class="fa fa-code-fork"></i>' +
                 repository.forks_count +
