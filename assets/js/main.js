@@ -6,7 +6,8 @@ function HubTab() {
 
     var trendingRequest = false,              // To make sure that there are no parallel requests
         repoGroupSelector = '.content-batch', // Batch of repositories
-        filterSelector = '.repos-filter',     // Selector that matches every repo filter on page
+        dateJumpSelector = '#date-jump'
+        filterSelector = '.repos-filter',   // Selector that matches every repo filter on page
         mainContainer = '.main-content',      // Main container div
         dateHead = '.date-head',              // Heading item for the batch of repositories
         dateAttribute = 'date',               // Date attribute on the date head of batch
@@ -20,6 +21,8 @@ function HubTab() {
         // All the content from last hunt will be cached in localstorage for some time to avoid
         // requests on each tab change
         huntResultKey = 'last_hunt_result',
+        dateJumpKey = 'date-jump',
+        languagesKey = 'languages',
 
         // Minutes for which cache will be kept
         refreshDuration = '180',
@@ -201,8 +204,7 @@ function HubTab() {
         }
 
         var filters = getApiFilters(),
-            url = reposApiUrl + filters.queryParams;
-        console.log(filters.queryParams);
+        url = reposApiUrl + filters.queryParams;
         trendingRequest = $.ajax({
             url: url,
             method: 'get',
@@ -242,7 +244,9 @@ function HubTab() {
      */
     var bindUI = function () {
         $(".chosen-select").chosen();
+        $(".chosen-select").trigger("chosen:updated");
         $(".chosen-select-witdh-95").chosen({width: "95px;"});
+        $(".chosen-select-witdh-95").trigger("chosen:updated");
         // Bind the scroll to fetch repositories when bottom reached
         $(window).on('scroll', function () {
             if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
@@ -271,8 +275,8 @@ function HubTab() {
          * initialize the hub page
          */
         init: function () {
-            bindUI();
             this.refresh();
+            bindUI();
         },
 
         /**

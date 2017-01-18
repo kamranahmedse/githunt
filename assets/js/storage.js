@@ -33,7 +33,8 @@ function HubStorage() {
         $(selector).each(function(index, input){
             var $input = $(input),
                 name = $input.attr('name');
-
+            console.log($input.val());
+            console.log(name);
             storage.setItem(name, $input.val());
         });
     };
@@ -53,7 +54,10 @@ function HubStorage() {
                 value = storage.getItem(name);
 
             if (value) {
-                $input.val(value);
+                var splittedVal = value.split(',');
+                for(var i=0; i<splittedVal.length; ++i) {
+                  $input.val(splittedVal);
+                }
                 anyPopulated = true;
             }
         });
