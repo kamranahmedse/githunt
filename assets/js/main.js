@@ -47,7 +47,7 @@ function HubTab() {
             if(repFullDesc === '') {
                 repFullDesc = '<i>No description or website provided</i>';
             }
-            
+
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
@@ -75,6 +75,17 @@ function HubTab() {
         var finalHtml = '<div class="content-batch"><h1 class="date-head" data-date="' + lowerDate + '">' + humanDate + ' - ' + formattedLower + ' &ndash; ' + formattedUpper + '</h1>' + html + '<div class="clearfix"></div></div></div>';
 
         return finalHtml;
+    }
+
+    /**
+     * Set background-color
+     * @returns void
+     */
+    function setBgColor() {
+        var bgColor = filterStorage.getStorage().getItem('background-color');
+        if(bgColor !== "") {
+          $('body').css('background-color', bgColor);
+        }
     }
 
     /**
@@ -266,6 +277,7 @@ function HubTab() {
          * initialize the hub page
          */
         init: function () {
+            setBgColor();
             bindUI();
             this.refresh();
         },
