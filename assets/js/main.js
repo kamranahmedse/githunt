@@ -84,6 +84,17 @@ function HubTab() {
     }
 
     /**
+     * Set background-color
+     * @returns void
+     */
+    function setBgColor() {
+        var bgColor = filterStorage.getStorage().getItem('background-color');
+        if(bgColor !== "") {
+          $('body').css('background-color', bgColor);
+        }
+    }
+
+    /**
      * Gets the next date range for which repositories need to be fetched
      * @returns {{}}
      */
@@ -276,6 +287,7 @@ function HubTab() {
          * initialize the hub page
          */
         init: function () {
+            setBgColor();
             this.refresh();
             bindUI();
         },
