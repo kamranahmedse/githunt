@@ -241,7 +241,8 @@ function HubTab() {
      * Perform all the UI bindings
      */
     var bindUI = function () {
-
+        $(".chosen-select").chosen();
+        $(".chosen-select-witdh-95").chosen({width: "95px;"});
         // Bind the scroll to fetch repositories when bottom reached
         $(window).on('scroll', function () {
             if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
