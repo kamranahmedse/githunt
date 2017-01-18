@@ -37,6 +37,18 @@ a {
     color: #333;
 }
 
+.btn {
+    font-size: 15px;
+    font-weight: normal;
+    padding: 8px 12px;
+    border: 2px solid #333;
+    color: #333;
+    margin: 0 5px;
+    background: white;
+    box-shadow: 2px 2px #333;
+    outline: none;
+}
+
 .quote-item a {
     border-bottom: 1px solid #0B0BBD;
     padding-bottom: 6px;
