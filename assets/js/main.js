@@ -244,9 +244,7 @@ function HubTab() {
      */
     var bindUI = function () {
         $(".chosen-select").chosen();
-        $(".chosen-select").trigger("chosen:updated");
         $(".chosen-select-witdh-95").chosen({width: "95px;"});
-        $(".chosen-select-witdh-95").trigger("chosen:updated");
         // Bind the scroll to fetch repositories when bottom reached
         $(window).on('scroll', function () {
             if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
