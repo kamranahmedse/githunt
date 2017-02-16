@@ -31,7 +31,7 @@ Here is how you can do that
 - Voila! You are all set to go on a hunt.
 
 ## Contribution
-I'd love to hear what you have to say. Reach me out at kamranahmed.se@gmail.com or on twitter @kamranahmed_se
+I'd love to hear what you have to say. Reach me out at kamranahmed.se@gmail.com or on twitter [@kamranahmedse](http://twitter.com/kamranahmedse)
 
 ## License
 MIT © [Kamran Ahmed](https://kamranahmed.info)
