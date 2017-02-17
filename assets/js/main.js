@@ -6,12 +6,13 @@ function HubTab() {
 
     var trendingRequest = false,              // To make sure that there are no parallel requests
         repoGroupSelector = '.content-batch', // Batch of repositories
-        filterSelector = '.repos-filter',     // Selector that matches every repo filter on page
+        dateJumpSelector = '#date-jump'
+        filterSelector = '.repos-filter',   // Selector that matches every repo filter on page
         mainContainer = '.main-content',      // Main container div
         dateHead = '.date-head',              // Heading item for the batch of repositories
         dateAttribute = 'date',               // Date attribute on the date head of batch
         // token = 'a1a420cbad0a4d3eccda',    // API token. Don't grin, it's a dummy
-        languageFilter = '#language',         // Filter for repositories language
+        languagesFilter = '#languages',         // Filter for repositories languages
         dateFilter = '#date-jump',            // Date jump filter i.e. weekly, monthly or yearly
         tokenStorageKey = 'githunt_token',    // Storage key for the github token
         requestCount = 0,                     // Track the count of how many times the refresh was tried
@@ -20,6 +21,8 @@ function HubTab() {
         // All the content from last hunt will be cached in localstorage for some time to avoid
         // requests on each tab change
         huntResultKey = 'last_hunt_result',
+        dateJumpKey = 'date-jump',
+        languagesKey = 'languages',
 
         // Minutes for which cache will be kept
         refreshDuration = '180',
@@ -47,11 +50,14 @@ function HubTab() {
             if(repFullDesc === '') {
                 repFullDesc = '<i>No description or website provided</i>';
             }
-            
+
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
                 '<div class="footer">' +
+                '<span class="footer-stat right">' +
+                repository.language +
+                '</span>' +
                 '<span class="footer-stat">' +
                 '<i class="fa fa-code-fork"></i>' +
                 repository.forks_count +
@@ -75,6 +81,17 @@ function HubTab() {
         var finalHtml = '<div class="content-batch"><h1 class="date-head" data-date="' + lowerDate + '">' + humanDate + ' - ' + formattedLower + ' &ndash; ' + formattedUpper + '</h1>' + html + '<div class="clearfix"></div></div></div>';
 
         return finalHtml;
+    }
+
+    /**
+     * Set background-color
+     * @returns void
+     */
+    function setBgColor() {
+        var bgColor = filterStorage.getStorage().getItem('background-color');
+        if(bgColor !== "") {
+          $('body').css('background-color', bgColor);
+        }
     }
 
     /**
@@ -105,13 +122,17 @@ function HubTab() {
      */
     var getApiFilters = function () {
         var dateRange = getNextDateRange(),
-            language = $(languageFilter).val(),
+            languages = $(languagesFilter).val(),
             langCondition = '';
 
-        // If language filter is applied, populate the language
+        // If languages filter is applied, populate the languages
         // chunk to put in URL
-        if (language) {
-            langCondition = 'language:' + language + ' ';
+        if (languages) {
+            langCondition = ""
+            for(var i=0; i<languages.length;++i) {
+              langCondition += i===0 ? "" : "+";
+              langCondition +=  'language:' + languages[i] + ' ';
+            }
         }
 
         // If user has set the github token in storage pass that
@@ -197,8 +218,7 @@ function HubTab() {
         }
 
         var filters = getApiFilters(),
-            url = reposApiUrl + filters.queryParams;
-
+        url = reposApiUrl + filters.queryParams;
         trendingRequest = $.ajax({
             url: url,
             method: 'get',
@@ -237,7 +257,8 @@ function HubTab() {
      * Perform all the UI bindings
      */
     var bindUI = function () {
-
+        $(".chosen-select").chosen();
+        $(".chosen-select-witdh-95").chosen({width: "95px;"});
         // Bind the scroll to fetch repositories when bottom reached
         $(window).on('scroll', function () {
             if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
@@ -266,8 +287,9 @@ function HubTab() {
          * initialize the hub page
          */
         init: function () {
-            bindUI();
+            setBgColor();
             this.refresh();
+            bindUI();
         },
 
         /**

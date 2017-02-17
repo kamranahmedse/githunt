@@ -113,7 +113,6 @@ div.container {
 
 .top-nav {
     float: right;
-    line-height: 80px;
 }
 
 .main-content {
@@ -156,6 +155,7 @@ div.container {
 .content-item .footer {
     position: absolute;
     bottom: 12px;
+    width: 90%;
 }
 
 div.footer span.footer-stat {
@@ -201,35 +201,6 @@ h1.date-head:first-letter {
     text-transform: capitalize;
 }
 
-.btn.btn-select {
-    padding-left: 0;
-    padding-right: 0;
-    position: relative;
-    cursor: pointer;
-    border-color: white;
-}
-
-.btn-select select {
-    font-size: 16px;
-    line-height: 20px;
-    border: 0;
-    border-radius: 0;
-    height: 34px;
-    -webkit-appearance: none;
-    display: inline-block;
-    width: 150px;
-    outline: none;
-    background: white;
-    padding: 0px 5px 0px 10px;
-    cursor: pointer;
-}
-
-.btn-select .fa {
-    position: absolute;
-    right: 5px;
-    top: 10px;
-}
-
 div.footer span.footer-stat .fa {
     margin-right: 2px;
 }
@@ -258,4 +229,8 @@ div.footer span.footer-stat .fa {
     margin: 60px 0 20px;
     padding: 20px 10px;
     background: #ccc;
+}
+
+.right {
+    float: right;
 }
