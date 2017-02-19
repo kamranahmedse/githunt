@@ -137,6 +137,11 @@ div.container {
     overflow: hidden;
 }
 
+.main-content.list .content-item {
+    width: 100%;
+    height: 130px;
+}
+
 .content-item .header {
     font-weight: bold;
     font-size: 17px;
@@ -258,4 +263,9 @@ div.footer span.footer-stat .fa {
     margin: 60px 0 20px;
     padding: 20px 10px;
     background: #ccc;
+}
+
+.view-type {
+    cursor: pointer;
+    border: 0;
 }
