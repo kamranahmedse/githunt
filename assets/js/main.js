@@ -7,6 +7,9 @@ function HubTab() {
     var trendingRequest = false,              // To make sure that there are no parallel requests
         repoGroupSelector = '.content-batch', // Batch of repositories
         filterSelector = '.repos-filter',     // Selector that matches every repo filter on page
+        viewSelector = '.view-type'           // Selector to change view type (grid/list)
+        VIEW_TYPE = 'grid'                    // Default view type
+        viewTypeKey = 'view_type'             // Selected view type
         mainContainer = '.main-content',      // Main container div
         dateHead = '.date-head',              // Heading item for the batch of repositories
         dateAttribute = 'date',               // Date attribute on the date head of batch
@@ -234,6 +237,38 @@ function HubTab() {
     };
 
     /**
+     * Changes view type. Grid/List view, persists the selection
+     * @param {string} view
+     * @return void
+     */
+    var changeView = function(view) {
+        var savedView = filterStorage.getStorage().getItem(viewTypeKey);
+
+        if (!savedView) {
+            return _changeView(VIEW_TYPE);
+        }
+
+        if (view && savedView !== view) {
+            return _changeView(view);
+        }
+
+        return _changeView(savedView);
+
+        function _changeView(_view) {
+            var viewType = $(viewSelector + '[data-view="' + _view + '"]');
+            $(viewSelector).removeClass('active');
+
+            (_view === 'list')
+                ? $(mainContainer).addClass('list')
+                : $(mainContainer).removeClass('list');
+
+            viewType.addClass('active');
+
+            filterStorage.getStorage().setItem(viewTypeKey, _view);
+        }
+    };
+
+    /**
      * Perform all the UI bindings
      */
     var bindUI = function () {
@@ -258,6 +293,13 @@ function HubTab() {
             // Refresh the repositories
             fetchTrendingRepos();
         });
+
+        $(document).on('click', viewSelector, function() {
+            var view = $(this).data('view');
+            changeView(view);
+        });
+
+        changeView();
     };
 
     return {
