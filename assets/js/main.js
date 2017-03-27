@@ -25,10 +25,42 @@ function HubTab() {
         refreshDuration = '180',
 
         // The time for last hunt
-        huntTImeKey = 'last_hunt_time';
+        huntTImeKey = 'last_hunt_time',
+
+        //github emojis url
+        emojisUrl = 'https://api.github.com/emojis',
+        cacheName = 'gitHunt-emoji';
 
     var filterStorage = new HubStorage();
 
+    /**
+     * Fetch Emojis from GitHub
+     * @param callback function
+     * @returns {callback}
+     */
+    function fetchGitHubEmojis(url) {
+        return caches.open(cacheName)
+            .then(cache => {
+                //check if exist in cache
+                return cache.match(url)
+                    .then(response => {
+                        if(response) {
+                            //response found in cache
+                            return response;
+                        } else {
+                            return fetch(url,{mode:'cors'}).then(function(response){
+                                    //Check if we received a valid response
+                                    if(!response || response.status !== 200) {
+                                        return response;
+                                    }
+                                    var responseToCache = response.clone();
+                                    cache.put(url, responseToCache);
+                                    return response;
+                                });
+                        }
+                    })
+            });
+    }
     /**
      * Generates the HTML for batch of repositories
      * @param repositories
@@ -36,18 +68,34 @@ function HubTab() {
      * @param upperDate
      * @returns {string}
      */
-    function generateReposHtml(repositories, lowerDate, upperDate) {
+    function generateReposHtml(repositories, lowerDate, upperDate, emojis) {
         var html = '';
-
+        /**
+         * Generates github styled emojified string for plain strings
+         * @param source Source string supplied
+         * @param emojis emoji JSON from GitHub
+         * @return {string} Returns the modified string
+         */
+        function generateEmojifiedHTML(source, emojis) {
+            var result = source.split(' ').map(function(item) {
+                if(item[0] === ':' && item.slice(-1) === ':') {
+                    var str = item.slice(1,-1)
+                    if(emojis[str] !== undefined) {
+                        return `<img src=${emojis[str]} alt=${item} class='git_emoji'/>`;
+                    }
+                }
+                return item;
+            });
+            return result.join(' ');
+        }
         $(repositories).each(function (index, repository) {
-            // Make the name and description XSS safe
-            var repFullName = $('<div>').text(repository.full_name).html();
-            var repFullDesc = $('<div>').text(repository.description).html();
-
-            if(repFullDesc === '') {
+            var repFullName = generateEmojifiedHTML(repository.full_name,emojis);
+            var repFullDesc = repository.description;
+            if(repFullDesc !== null) {
+                repFullDesc = generateEmojifiedHTML(repository.description,emojis);    
+            } else if(repFullDesc === '' || repFullDesc === null) {
                 repFullDesc = '<i>No description or website provided</i>';
             }
-            
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
@@ -206,8 +254,25 @@ function HubTab() {
                 $('.loading-more').removeClass('hide');
             },
             success: function (data) {
-                var finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper);
-                $(mainContainer).append(finalHtml);
+                //get Github Emojis
+                fetchGitHubEmojis(emojisUrl)
+                .then(result => {
+                    return result.json();
+                })
+                .then(result => {
+                    finalHtml = generateReposHtml(data.items, filters.dateRange.lower, filters.dateRange.upper,result);
+                    return finalHtml;
+                })
+                .then(finalHtml => {
+                   $(mainContainer).append(finalHtml);
+                    trendingRequest = false;
+                    $('.loading-more').addClass('hide');
+                    saveHuntResult();
+                })
+                .catch(err => {
+                    console.error(err);
+                    $('.main-content').replaceWith('Oops! Could you please refresh the page.');
+                });
             },
             error: function(xhr, status, error) {
                 var error = JSON.parse(xhr.responseText),
@@ -223,12 +288,6 @@ function HubTab() {
                 } else {
                     $('.main-content').replaceWith('Oops! Could you please refresh the page.');
                 }
-            },
-            complete: function () {
-                trendingRequest = false;
-                $('.loading-more').addClass('hide');
-
-                saveHuntResult();
             }
         });
     };
