@@ -14,8 +14,14 @@ function HubOptions() {
         $(document).on('click', '.save-token', function (e) {
             e.preventDefault();
 
-            hubStorage.persistFilters('.githunt_token');
-            $('.quote-item').html('Woohoo! Token saved, happy hunting.');
+            var resultMessage = 'Woohoo! Token saved, happy hunting.';
+            if ($('.githunt_token').val()) {
+                hubStorage.persistFilters('.githunt_token');
+            }
+            else {
+               resultMessage = 'Add API Token below.';
+            }
+             $('.quote-item').html(resultMessage);
         });
     }
 
