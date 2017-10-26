@@ -19,7 +19,9 @@
     "newtab": "githunt.html"
   },
   "homepage_url": "http://kamranahmed.info/",
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html"
+  },
   "browser_action": {
     "default_title": "Githunt",
     "default_icon": "assets/img/icon128.png"
