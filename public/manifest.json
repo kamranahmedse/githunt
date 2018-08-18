@@ -11,19 +11,16 @@
     "*://*.github.com/*"
   ],
   "icons": {
-    "16": "assets/img/icon16.png",
-    "48": "assets/img/icon48.png",
-    "128": "assets/img/icon128.png"
+    "16": "/img/icon16.png",
+    "48": "/img/icon48.png",
+    "128": "/img/icon128.png"
   },
   "chrome_url_overrides": {
-    "newtab": "githunt.html"
+    "newtab": "index.html"
   },
   "homepage_url": "http://kamranahmed.info/",
-  "options_ui": {
-    "page": "options.html"
-  },
   "browser_action": {
     "default_title": "Githunt",
-    "default_icon": "assets/img/icon128.png"
+    "default_icon": "/img/icon128.png"
   }
 }
