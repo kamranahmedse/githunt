@@ -1,0 +1,35 @@
+.top-nav {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 15px 0;
+  position: relative;
+}
+
+.logo img {
+  height: 75px;
+  float: left;
+}
+
+.logo-text {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.logo-text h4 {
+  margin: 3px 0 0;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+
+.logo-text p {
+  margin-bottom: 0;
+}
+
+.duration-btns a.btn {
+  margin-left: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 24px;
+}
+

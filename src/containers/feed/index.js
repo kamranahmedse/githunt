@@ -1,9 +1,16 @@
 import React from 'react';
 
+import './styles.css';
+import TopNav from '../../components/top-nav';
+
 class FeedContainer extends React.Component {
   render() {
     return (
-      <h1>Hello from the feed</h1>
+      <div className="page-wrap">
+        <TopNav/>
+        <div className="container">
+        </div>
+      </div>
     );
   }
 }
