@@ -1,8 +1,9 @@
-import { FETCH_TRENDING_FAILED, FETCH_TRENDING_SUCCESS, PROCESS_FETCH_TRENDING } from './types';
+import { FETCH_TRENDING_FAILED, FETCH_TRENDING_SUCCESS, PROCESS_FETCH_TRENDING, UPDATE_FILTERS } from './types';
 
 export const initialState = {
   processing: false,
   error: null,
+  filters: {},
   data: [],
 };
 
@@ -24,8 +25,13 @@ export default function reducer(state = initialState, action) {
     case FETCH_TRENDING_FAILED:
       return {
         ...state,
-        process: false,
+        processing: false,
         error: action.payload
+      };
+    case UPDATE_FILTERS:
+      return {
+        ...state,
+        filters: action.payload
       };
     default:
       return state;
