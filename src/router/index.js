@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import FeedContainer from '../containers/FeedContainer';
-import OptionsContainer from '../containers/OptionsContainer';
+import FeedContainer from '../containers/feed';
+import OptionsContainer from '../containers/options';
 
 const AppRoutes = () => {
   return (
