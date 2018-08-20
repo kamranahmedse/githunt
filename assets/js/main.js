@@ -47,7 +47,7 @@ function HubTab() {
             if(repFullDesc === '') {
                 repFullDesc = '<i>No description or website provided</i>';
             }
-            
+
             html += '<div class="content-item">' +
                 '<div class="header"><a href="' + repository.html_url + '">' + repFullName + '</a></div>' +
                 '<p class="tagline">' + repFullDesc + '</p>' +
@@ -234,6 +234,16 @@ function HubTab() {
     };
 
     /**
+     * Sets background color based on selection
+     * @returns {boolean}
+     */
+    var setBackgroundColor = function() {
+      document.body.style.backgroundColor = $("#color").val();
+
+      return true;
+    }
+
+    /**
      * Perform all the UI bindings
      */
     var bindUI = function () {
@@ -253,8 +263,13 @@ function HubTab() {
 
             // Remove the existing fetches repositories
             $(repoGroupSelector).remove();
+
             // Persist the filters
             filterStorage.persistFilters(filterSelector);
+
+            // Set background color on selection
+            setBackgroundColor();
+
             // Refresh the repositories
             fetchTrendingRepos();
         });
@@ -275,6 +290,9 @@ function HubTab() {
          */
         refresh: function () {
             filterStorage.populateFilters(filterSelector);
+
+            setBackgroundColor();
+
             fetchTrendingRepos();
         }
     };
