@@ -1,4 +1,15 @@
 body {
-  background-color: #f9f9f9;
+  /*background-color: #f9f9f9;*/
+  background: #f4f4f4;
   min-height: 100vh;
+}
+
+.btn {
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background: #1157ed;
+  border-color: #1157ed;
 }
