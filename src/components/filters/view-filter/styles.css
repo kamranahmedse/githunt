@@ -1,0 +1,20 @@
+.view-type {
+  border-radius: 8px;
+  padding: 10px 20px;
+  background: white;
+  cursor: default;
+}
+
+.view-type a {
+  color: #ccc;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.view-type a.active, .view-type a:hover {
+  color: #343a40;
+}
+
+.view-type a:first-child {
+  margin-left: 0;
+}

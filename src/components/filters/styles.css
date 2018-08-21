@@ -1,32 +1,7 @@
-.btn.view-type, .btn.language-filter {
-  display: inline;
-  box-shadow: 0 9px 62px -13px rgba(0, 0, 0, 0.20);
+.filters-wrap .filter-item {
+  float: left;
 }
 
-.filters-wrap .view-type.btn {
-  border-radius: 8px;
-  padding: 10px 20px;
-  background: white;
-  margin-left: 10px;
-  cursor: default;
-}
-
-.language-filter {
-  border-radius: 8px;
-  padding: 10px 20px;
-  background-color: white;
-}
-
-.view-type a {
-  color: #ccc;
-  margin-left: 20px;
-  text-decoration: none;
-}
-
-.view-type a.active, .view-type a:hover {
-  color: #343a40;
-}
-
-.view-type a:first-child {
-  margin-left: 0;
+.filters-wrap .filter-item:last-child {
+  margin-left: 15px;
 }
