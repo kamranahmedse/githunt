@@ -78,18 +78,19 @@
   border-bottom: 1px solid #e8e8e8;
 }
 
-.select-menu-item:hover .select-menu-item-text {
-  color: white;
-}
-
 .select-menu-list .select-menu-item:last-child {
   border-bottom: none;
 }
 
-.select-menu-item:hover {
+.select-menu-item:hover, .select-menu-item.active-item {
   color: #fff;
   background-color: #1157ed;
   text-decoration: none;
+}
+
+.select-menu-item:hover .select-menu-item-text,
+.select-menu-item.active-item .select-menu-item-text {
+  color: white;
 }
 
 .select-menu-item-text {
