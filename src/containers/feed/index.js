@@ -3,6 +3,7 @@ import React from 'react';
 import './styles.css';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
+import Repository from '../../components/repository';
 
 class FeedContainer extends React.Component {
   render() {
@@ -17,6 +18,16 @@ class FeedContainer extends React.Component {
             </div>
             <div className="group-filters">
               <Filters/>
+            </div>
+          </div>
+          <div className="body-row">
+            <div className="row repositories-list">
+              <Repository/>
+              <Repository/>
+              <Repository/>
+              <Repository/>
+              <Repository/>
+              <Repository/>
             </div>
           </div>
         </div>

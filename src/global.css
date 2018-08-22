@@ -4,6 +4,10 @@ body {
   min-height: 100vh;
 }
 
+a {
+  color: #1157ed;
+}
+
 .btn {
   font-size: 14px;
   border-radius: 8px;

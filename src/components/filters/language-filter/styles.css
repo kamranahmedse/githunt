@@ -1,5 +1,6 @@
 .language-filter-wrap {
   position: relative;
+  z-index: 1;
 }
 
 .language-filter {

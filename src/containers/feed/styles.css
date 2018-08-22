@@ -4,6 +4,11 @@
   float: left;
 }
 
+.group-heading h4 {
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
 .group-heading .small {
   font-size: 14px;
   font-weight: 400;
@@ -12,4 +17,17 @@
 
 .group-filters {
   float: right;
+}
+
+.repositories-list {
+  margin-top: 20px;
+}
+
+.repositories-list:hover .repository-container {
+  opacity: 0.5;
+}
+
+.repositories-list .repository-container:hover {
+  opacity: 1;
+  z-index: 2;
 }
