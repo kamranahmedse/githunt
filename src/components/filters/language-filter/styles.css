@@ -5,9 +5,10 @@
 .language-filter {
   border-radius: 8px;
   padding: 10px 20px;
-  background: white;
   cursor: default;
   display: block;
+  background: white !important;
+  border-color: white !important;
 }
 
 .language-select {

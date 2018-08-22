@@ -52,7 +52,7 @@ class LanguageFilter extends React.Component {
 
     if (this.state.filterText) {
       availableLanguages = availableLanguages.filter(language => {
-        const languageText = language.value.toLowerCase();
+        const languageText = language.title.toLowerCase();
         const selectedText = this.state.filterText.toLowerCase();
 
         return languageText.indexOf(selectedText) >= 0;
@@ -74,6 +74,7 @@ class LanguageFilter extends React.Component {
       return (
         <a className={ classNames('select-menu-item', { 'active-item': isSelectedIndex }) }
            { ...refProp }
+           onMouseDown={ () => this.selectLanguage(counter) }
            key={ counter }>
           <span className="select-menu-item-text">{ language.title }</span>
         </a>
@@ -81,16 +82,18 @@ class LanguageFilter extends React.Component {
     });
   }
 
-  controlKeys = e => {
+  onKeyDown = e => {
     const { selectedIndex } = this.state;
 
+    const isEnterKey = e.keyCode === 13;
     const isUpKey = e.keyCode === 38;
     const isDownKey = e.keyCode === 40;
 
-    if (!isUpKey && !isDownKey) {
+    if (!isUpKey && !isDownKey && !isEnterKey) {
       return;
     }
 
+    const filteredLanguages = this.getFilteredLanguages();
     e.preventDefault();
 
     // arrow up/down button should select next/previous list element
@@ -98,11 +101,27 @@ class LanguageFilter extends React.Component {
       this.setState(prevState => ({
         selectedIndex: prevState.selectedIndex - 1
       }));
-    } else if (isDownKey && selectedIndex < (this.getFilteredLanguages().length - 1)) {
+    } else if (isDownKey && selectedIndex < (filteredLanguages.length - 1)) {
       this.setState(prevState => ({
         selectedIndex: prevState.selectedIndex + 1
       }));
+    } else if (isEnterKey && filteredLanguages[selectedIndex]) {
+      this.selectLanguage(selectedIndex);
     }
+  };
+
+  selectLanguage = (selectedIndex) => {
+    const filteredLanguages = this.getFilteredLanguages();
+    const selectedLanguage = filteredLanguages[selectedIndex];
+    if (!selectedLanguage) {
+      return;
+    }
+
+    this.setState({
+      selected: selectedLanguage.title,
+      filterText: '',
+      showDropdown: false
+    });
   };
 
   hideDropdown = () => {
@@ -133,7 +152,7 @@ class LanguageFilter extends React.Component {
                    ref={ this.filterInputRef }
                    onBlur={ this.hideDropdown }
                    onChange={ this.filterLanguages }
-                   onKeyDown={ this.controlKeys }
+                   onKeyDown={ this.onKeyDown }
             />
           </div>
         </div>
