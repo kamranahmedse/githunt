@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.css';
 
-class Repository extends React.Component {
+class GridItem extends React.Component {
   render() {
     return (
       <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 repository-container">
@@ -60,4 +60,4 @@ class Repository extends React.Component {
   }
 }
 
-export default Repository;
+export default GridItem;

@@ -3,7 +3,8 @@ import React from 'react';
 import './styles.css';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
-import Repository from '../../components/repository';
+import GridItem from '../../components/repository-grid/grid-item';
+import RepositoryGrid from '../../components/repository-grid';
 
 class FeedContainer extends React.Component {
   render() {
@@ -21,32 +22,7 @@ class FeedContainer extends React.Component {
             </div>
           </div>
           <div className="body-row">
-            <div className="row repositories-list">
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-            </div>
-            <div className="row row-group">
-              <div className="group-heading">
-                <div className="col">
-                  <h4>Yesterday <span className="small text-muted">July 11, 2019</span></h4>
-                </div>
-              </div>
-            </div>
-            <div className="row repositories-list">
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-              <Repository/>
-            </div>
+            <RepositoryGrid/>
           </div>
         </div>
       </div>
