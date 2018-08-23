@@ -1,7 +1,7 @@
 import React from 'react';
 import GridItem from './grid-item';
 
-class RepositoryGrid extends React.Component {
+class RepositoryList extends React.Component {
   render() {
     return (
       <div className="repositories-grid">
@@ -36,4 +36,4 @@ class RepositoryGrid extends React.Component {
   }
 }
 
-export default RepositoryGrid;
+export default RepositoryList;

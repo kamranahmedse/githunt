@@ -19,15 +19,15 @@
   float: right;
 }
 
-.repositories-list {
+.grid-container {
   margin-top: 20px;
 }
 
-.repositories-list:hover .repository-container {
+.grid-container:hover .repository-container {
   opacity: 0.5;
 }
 
-.repositories-list .repository-container:hover {
+.grid-container .repository-container:hover {
   opacity: 1;
   z-index: 2;
 }
