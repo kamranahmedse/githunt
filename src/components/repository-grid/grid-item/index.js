@@ -5,8 +5,8 @@ import './styles.css';
 class GridItem extends React.Component {
   render() {
     return (
-      <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 repository-container">
-        <div className="repository-body">
+      <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 grid-item-container">
+        <div className="grid-item-body">
           <div className="author-header clearfix">
             <a href="#">
               <div className="author-img">

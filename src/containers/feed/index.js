@@ -5,6 +5,7 @@ import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
 import GridItem from '../../components/repository-grid/grid-item';
 import RepositoryGrid from '../../components/repository-grid';
+import RepositoryList from '../../components/repository-list';
 
 class FeedContainer extends React.Component {
   render() {
@@ -22,7 +23,7 @@ class FeedContainer extends React.Component {
             </div>
           </div>
           <div className="body-row">
-            <RepositoryGrid/>
+            <RepositoryList/>
           </div>
         </div>
       </div>

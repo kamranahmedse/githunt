@@ -1,20 +1,20 @@
 import React from 'react';
-import GridItem from './grid-item';
+import ListItem from './list-item';
 
 class RepositoryList extends React.Component {
   render() {
     return (
       <div className="repositories-grid">
         <div className="row grid-container">
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
         </div>
         <div className="row row-group">
           <div className="group-heading">
@@ -24,12 +24,12 @@ class RepositoryList extends React.Component {
           </div>
         </div>
         <div className="row grid-container">
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
+          <ListItem/>
         </div>
       </div>
     );

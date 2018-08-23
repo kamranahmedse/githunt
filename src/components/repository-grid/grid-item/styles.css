@@ -1,9 +1,9 @@
-.repository-container {
+.grid-item-container {
   padding: 10px;
   transition: all 0.3s ease;
 }
 
-.repository-body {
+.grid-item-body {
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -11,11 +11,11 @@
   height: 270px;
 }
 
-.author-details {
+.grid-item-container .author-details {
   margin-bottom: 20px;
 }
 
-.author-img img {
+.grid-item-container .author-img img {
   width: 35px;
   height: 35px;
   object-fit: cover;
@@ -24,59 +24,59 @@
   margin-right: 15px;
 }
 
-.author-details h5 {
+.grid-item-container .author-details h5 {
   margin-bottom: 2px;
   font-weight: 600;
   color: #6c7583;
   font-size: 14px;
 }
 
-.author-details a {
+.grid-item-container .author-details a {
   color: #6c7583;
 }
 
-.author-details p {
+.grid-item-container .author-details p {
   margin-bottom: 0;
   font-size: 12px;
 }
 
-.author-header, .repo-header, .repo-body {
+.grid-item-container .author-header, .repo-header, .repo-body {
   margin-bottom: 15px;
 }
 
-.author-header a {
+.grid-item-container .author-header a {
   text-decoration: none;
 }
 
-.repo-header h5 {
+.grid-item-container .repo-header h5 {
   font-size: 19px;
   margin-bottom: 5px;
 }
 
-.repo-header p {
+.grid-item-container .repo-header p {
   margin-bottom: 0;
 }
 
-.repo-header a {
+.grid-item-container .repo-header a {
   color: black;
   text-decoration: none;
 }
 
-.author-name {
+.grid-item-container .author-name {
   font-weight: 400;
 }
 
-.repo-name {
+.grid-item-container .repo-name {
   font-weight: 700;
 }
 
-.repo-body p {
+.grid-item-container .repo-body p {
   font-size: 14px;
   margin-bottom: 0;
   color: #6e7583;
 }
 
-.repo-footer {
+.grid-item-container .repo-footer {
   font-size: 12px;
   position: absolute;
   bottom: 15px;
@@ -86,13 +86,13 @@
   padding: 10px;
 }
 
-.repo-footer a {
+.grid-item-container .repo-footer a {
   text-decoration: none;
   color: #000000;
   font-weight: 500;
 }
 
-.repo-footer a svg {
+.grid-item-container .repo-footer a svg {
   position: relative;
   top: -2px;
   margin-right: 5px;

@@ -23,11 +23,11 @@
   margin-top: 20px;
 }
 
-.grid-container:hover .repository-container {
+.grid-container:hover .grid-item-container {
   opacity: 0.5;
 }
 
-.grid-container .repository-container:hover {
+.grid-container .grid-item-container:hover {
   opacity: 1;
   z-index: 2;
 }
