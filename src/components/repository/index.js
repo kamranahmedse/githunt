@@ -5,7 +5,7 @@ import './styles.css';
 class Repository extends React.Component {
   render() {
     return (
-      <div className="col-4 repository-container">
+      <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 repository-container">
         <div className="repository-body">
           <div className="author-header clearfix">
             <a href="#">
