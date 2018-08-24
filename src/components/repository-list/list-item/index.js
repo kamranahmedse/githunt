@@ -43,7 +43,7 @@ class ListItem extends React.Component {
           </div>
         </div>
 
-        <a href="#" className="author-link">
+        <a href="#" className="author-link d-none d-lg-block d-xl-block d-md-block">
           <img className='author-img' src="https://avatars0.githubusercontent.com/u/4921183?s=460&v=4"/>
         </a>
       </div>
