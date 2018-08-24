@@ -13,7 +13,7 @@ class FeedContainer extends React.Component {
       <div className="page-wrap">
         <TopNav/>
 
-        <div className="container mt-4">
+        <div className="container mt-4 mb-5 pb-4">
           <div className="header-row clearfix">
             <div className="group-heading">
               <h4>Today <span className="small text-muted">July 12, 2019</span></h4>

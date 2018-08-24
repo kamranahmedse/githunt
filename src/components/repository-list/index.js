@@ -1,11 +1,13 @@
 import React from 'react';
 import ListItem from './list-item';
 
+import './styles.css';
+
 class RepositoryList extends React.Component {
   render() {
     return (
-      <div className="repositories-grid">
-        <div className="row grid-container">
+      <div className="repositories-list">
+        <div className="row list-container">
           <ListItem/>
           <ListItem/>
           <ListItem/>
@@ -23,7 +25,7 @@ class RepositoryList extends React.Component {
             </div>
           </div>
         </div>
-        <div className="row grid-container">
+        <div className="row list-container">
           <ListItem/>
           <ListItem/>
           <ListItem/>
