@@ -58,8 +58,12 @@
 }
 
 .grid-item-container .repo-header a {
-  color: black;
   text-decoration: none;
+}
+
+.grid-item-container .repo-header .repo-meta a {
+  color: currentColor;
+  font-weight: 500;
 }
 
 .grid-item-container .author-name {
