@@ -16,41 +16,41 @@ const TopNav = (props) => (
       </a>
       <div className="float-right duration-btns">
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('year') }
+           onClick={ () => props.updateDateJump('year') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'year',
-               'btn-light': props.selectedDateType !== 'year',
+               'btn-primary': props.selectedDateJump === 'year',
+               'btn-light': props.selectedDateJump !== 'year',
              })
            }>
           Yearly
         </a>
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('month') }
+           onClick={ () => props.updateDateJump('month') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'month',
-               'btn-light': props.selectedDateType !== 'month',
+               'btn-primary': props.selectedDateJump === 'month',
+               'btn-light': props.selectedDateJump !== 'month',
              })
            }>
           Monthly
         </a>
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('week') }
+           onClick={ () => props.updateDateJump('week') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'week',
-               'btn-light': props.selectedDateType !== 'week',
+               'btn-primary': props.selectedDateJump === 'week',
+               'btn-light': props.selectedDateJump !== 'week',
              })
            }>
           Weekly
         </a>
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('day') }
+           onClick={ () => props.updateDateJump('day') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'day',
-               'btn-light': props.selectedDateType !== 'day',
+               'btn-primary': props.selectedDateJump === 'day',
+               'btn-light': props.selectedDateJump !== 'day',
              })
            }>
           Daily
@@ -61,8 +61,8 @@ const TopNav = (props) => (
 );
 
 TopNav.propTypes = {
-  updateDateType: PropTypes.func.isRequired,
-  selectedDateType: PropTypes.string
+  updateDateJump: PropTypes.func.isRequired,
+  selectedDateJump: PropTypes.string
 };
 
 export default TopNav;

@@ -2,9 +2,14 @@ import { FETCH_TRENDING_FAILED, FETCH_TRENDING_SUCCESS, PROCESS_FETCH_TRENDING, 
 
 export const initialState = {
   processing: false,
-  error: null,
+  // Array of objects with the below format
+  // [
+  //    { start: '', end: '', data: [] },
+  //    { start: '', end: '', data: [] }
+  // ]
+  repositories: [],
   filters: {},
-  data: [],
+  error: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,7 +23,7 @@ export default function reducer(state = initialState, action) {
     case FETCH_TRENDING_SUCCESS:
       return {
         ...state,
-        data: action.payload,
+        repositories: action.payload,
         processing: false,
         error: null
       };

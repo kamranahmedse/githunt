@@ -1,20 +1,69 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import './styles.css';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
 import RepositoryGrid from '../../components/repository-grid';
 import RepositoryList from '../../components/repository-list';
-import { updateDateType, updateLanguage, updateViewType } from '../../redux/preference/actions';
+import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
 
 class FeedContainer extends React.Component {
+  componentDidMount() {
+    const existingRepositories = this.props.github.repositories || [];
+    // If there are no loaded repositories before, fetch them
+    if (existingRepositories.length === 0) {
+      this.fetchNextRepositories();
+    }
+  }
+
+  fetchNextRepositories() {
+    console.log(this.getFilters());
+  }
+
+  getFilters() {
+    const filters = {};
+
+    filters.daterange = this.getNextDateRange();
+    filters.sort = 'stars';
+    filters.order = 'desc';
+
+    if (this.props.preference.language) {
+      filters.language = this.props.preference.language;
+    }
+
+    if (this.props.preference.options.token) {
+      filters.token = this.props.preference.options.token;
+    }
+
+    return filters;
+  }
+
+  getNextDateRange() {
+    const repositories = this.props.github.repositories || [];
+    const dateJump = this.props.preference.dateJump;
+
+    const dateRange = {};
+    const lastRecords = repositories[repositories.length - 1];
+
+    if (lastRecords) {
+      dateRange.start = moment(lastRecords.start).subtract(1, dateJump).format('YYYY-MM-DD');
+      dateRange.end = lastRecords.start;
+    } else {
+      dateRange.start = moment().add(1, 'day').subtract(1, dateJump).format('YYYY-MM-DD');
+      dateRange.end = moment().format('YYYY-MM-DD');
+    }
+
+    return dateRange;
+  }
+
   render() {
     return (
       <div className="page-wrap">
         <TopNav
-          updateDateType={ this.props.updateDateType }
-          selectedDateType={ this.props.preference.dateType }
+          updateDateJump={ this.props.updateDateJump }
+          selectedDateJump={ this.props.preference.dateJump }
         />
 
         <div className="container mt-4 mb-5 pb-4">
@@ -43,13 +92,14 @@ class FeedContainer extends React.Component {
 const mapStateToProps = store => {
   return {
     preference: store.preference,
+    github: store.github
   };
 };
 
 const mapDispatchToProps = {
   updateLanguage,
   updateViewType,
-  updateDateType
+  updateDateJump
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedContainer);

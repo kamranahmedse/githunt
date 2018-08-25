@@ -27,11 +27,11 @@ export const updateLanguage = function (language) {
   };
 };
 
-export const updateDateType = function (dateType) {
+export const updateDateJump = function (dateJump) {
   return dispatch => {
     dispatch({
       type: UPDATE_DATE_TYPE,
-      payload: dateType
+      payload: dateJump
     });
   };
 };

@@ -2,7 +2,7 @@ import { RESET_OPTIONS, UPDATE_DATE_TYPE, UPDATE_LANGUAGE, UPDATE_OPTIONS, UPDAT
 
 const initialState = {
   viewType: 'grid',
-  dateType: 'weekly',
+  dateJump: 'week',
   language: '',
   options: {
     token: '',
@@ -24,7 +24,7 @@ export default function reducer(state = initialState, action) {
     case UPDATE_DATE_TYPE:
       return {
         ...state,
-        dateType: action.payload
+        dateJump: action.payload
       };
     case UPDATE_VIEW_TYPE:
       return {
