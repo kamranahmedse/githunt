@@ -5,14 +5,17 @@ import './styles.css';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
 import RepositoryGrid from '../../components/repository-grid';
-import { updateLanguage, updateViewType } from '../../redux/preference/actions';
 import RepositoryList from '../../components/repository-list';
+import { updateDateType, updateLanguage, updateViewType } from '../../redux/preference/actions';
 
 class FeedContainer extends React.Component {
   render() {
     return (
       <div className="page-wrap">
-        <TopNav/>
+        <TopNav
+          updateDateType={ this.props.updateDateType }
+          selectedDateType={ this.props.preference.dateType }
+        />
 
         <div className="container mt-4 mb-5 pb-4">
           <div className="header-row clearfix">
@@ -45,7 +48,8 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = {
   updateLanguage,
-  updateViewType
+  updateViewType,
+  updateDateType
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedContainer);

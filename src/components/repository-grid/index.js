@@ -1,5 +1,7 @@
 import React from 'react';
+
 import GridItem from './grid-item';
+import './styles.css';
 
 class RepositoryGrid extends React.Component {
   render() {

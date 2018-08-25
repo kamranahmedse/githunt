@@ -34,5 +34,6 @@
 .duration-btns a.btn {
   margin-left: 10px;
   margin-top: 24px;
+  box-shadow: none;
 }
 
