@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './styles.css';
 import languages from './languages';
 
 class LanguageFilter extends React.Component {
-
   filterInputRef = React.createRef();
 
   state = {
-    selected: '',
     filterText: '',
     selectedIndex: 0,
     showDropdown: false
@@ -118,10 +116,11 @@ class LanguageFilter extends React.Component {
     }
 
     this.setState({
-      selected: selectedLanguage.title,
       filterText: '',
       showDropdown: false
     });
+
+    this.props.updateLanguage(selectedLanguage.value);
   };
 
   hideDropdown = () => {
@@ -174,12 +173,17 @@ class LanguageFilter extends React.Component {
       <div className='language-filter-wrap'>
         <a href="javascript:void(0)" onClick={ this.toggleDropdown } className="btn btn-light language-filter shadowed">
           <i className="fa fa-filter mr-2"></i>
-          { this.state.selected || 'All Languages' }
+          { this.props.selectedLanguage || 'All Languages' }
         </a>
         { this.state.showDropdown && this.getLanguageDropdown() }
       </div>
     );
   }
 }
+
+LanguageFilter.propTypes = {
+  updateLanguage: PropTypes.func.isRequired,
+  selectedLanguage: PropTypes.string
+};
 
 export default LanguageFilter;

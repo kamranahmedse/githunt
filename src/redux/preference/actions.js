@@ -1,4 +1,4 @@
-import { UPDATE_OPTIONS, UPDATE_VIEW_TYPE } from './types';
+import { UPDATE_LANGUAGE, UPDATE_OPTIONS, UPDATE_VIEW_TYPE } from './types';
 
 export const updateOptions = function (setting) {
   return dispatch => {
@@ -14,6 +14,15 @@ export const updateViewType = function (viewType = 'grid') {
     dispatch({
       type: UPDATE_VIEW_TYPE,
       payload: viewType
+    });
+  };
+};
+
+export const updateLanguage = function (language) {
+  return dispatch => {
+    dispatch({
+      type: UPDATE_LANGUAGE,
+      payload: language
     });
   };
 };

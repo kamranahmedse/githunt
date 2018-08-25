@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './styles.css';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
-import GridItem from '../../components/repository-grid/grid-item';
 import RepositoryGrid from '../../components/repository-grid';
+import { updateLanguage, updateViewType } from '../../redux/preference/actions';
 import RepositoryList from '../../components/repository-list';
 
 class FeedContainer extends React.Component {
@@ -19,11 +20,16 @@ class FeedContainer extends React.Component {
               <h4>Today <span className="small text-muted">July 12, 2019</span></h4>
             </div>
             <div className="group-filters">
-              <Filters/>
+              <Filters
+                selectedLanguage={ this.props.preference.language }
+                selectedViewType={ this.props.preference.viewType }
+                updateLanguage={ this.props.updateLanguage }
+                updateViewType={ this.props.updateViewType }
+              />
             </div>
           </div>
           <div className="body-row">
-            <RepositoryList/>
+            { this.props.preference.viewType === 'grid' ? <RepositoryGrid/> : <RepositoryList/> }
           </div>
         </div>
       </div>
@@ -31,4 +37,15 @@ class FeedContainer extends React.Component {
   }
 }
 
-export default FeedContainer;
+const mapStateToProps = store => {
+  return {
+    preference: store.preference,
+  };
+};
+
+const mapDispatchToProps = {
+  updateLanguage,
+  updateViewType
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FeedContainer);

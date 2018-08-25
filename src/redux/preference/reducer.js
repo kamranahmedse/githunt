@@ -1,7 +1,8 @@
-import { RESET_OPTIONS, UPDATE_OPTIONS, UPDATE_VIEW_TYPE } from './types';
+import { RESET_OPTIONS, UPDATE_LANGUAGE, UPDATE_OPTIONS, UPDATE_VIEW_TYPE } from './types';
 
 const initialState = {
-  view: 'grid',
+  viewType: 'grid',
+  language: '',
   options: {
     token: '',
   },
@@ -22,7 +23,12 @@ export default function reducer(state = initialState, action) {
     case UPDATE_VIEW_TYPE:
       return {
         ...state,
-        view: action.payload
+        viewType: action.payload
+      };
+    case UPDATE_LANGUAGE:
+      return {
+        ...state,
+        language: action.payload
       };
     default:
       return state;
