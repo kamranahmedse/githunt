@@ -16,41 +16,41 @@ const TopNav = (props) => (
       </a>
       <div className="float-right duration-btns">
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('yearly') }
+           onClick={ () => props.updateDateType('year') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'yearly',
-               'btn-light': props.selectedDateType !== 'yearly',
+               'btn-primary': props.selectedDateType === 'year',
+               'btn-light': props.selectedDateType !== 'year',
              })
            }>
           Yearly
         </a>
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('monthly') }
+           onClick={ () => props.updateDateType('month') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'monthly',
-               'btn-light': props.selectedDateType !== 'monthly',
+               'btn-primary': props.selectedDateType === 'month',
+               'btn-light': props.selectedDateType !== 'month',
              })
            }>
           Monthly
         </a>
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('weekly') }
+           onClick={ () => props.updateDateType('week') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'weekly',
-               'btn-light': props.selectedDateType !== 'weekly',
+               'btn-primary': props.selectedDateType === 'week',
+               'btn-light': props.selectedDateType !== 'week',
              })
            }>
           Weekly
         </a>
         <a href="javascript:void(0)"
-           onClick={ () => props.updateDateType('daily') }
+           onClick={ () => props.updateDateType('day') }
            className={
              classNames('btn', {
-               'btn-primary': props.selectedDateType === 'daily',
-               'btn-light': props.selectedDateType !== 'daily',
+               'btn-primary': props.selectedDateType === 'day',
+               'btn-light': props.selectedDateType !== 'day',
              })
            }>
           Daily
