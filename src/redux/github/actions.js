@@ -9,6 +9,23 @@ import {
 
 const API_URL = 'https://api.github.com/search/repositories';
 
+const transformFilters = (filters) => {
+  const transformedFilters = {};
+
+  const reposDate = `created:${filters.dateRange.start}..${filters.dateRange.end}`;
+  const reposLanguage = filters.language ? `language:${filters.language} ` : '';
+
+  if (filters.token) {
+    transformedFilters.access_token = filters.token;
+  }
+
+  transformedFilters.q = reposLanguage + reposDate;
+  transformedFilters.sort = 'stars';
+  transformedFilters.order = 'desc';
+
+  return transformedFilters;
+};
+
 /**
  * @param {object} filters
  * @returns {Function}
@@ -18,7 +35,7 @@ export const fetchTrending = function (filters) {
     dispatch({ type: PROCESS_FETCH_TRENDING });
 
     axios.get(API_URL, {
-      params: filters
+      params: transformFilters(filters)
     }).then(response => {
       dispatch({
         type: FETCH_TRENDING_SUCCESS,

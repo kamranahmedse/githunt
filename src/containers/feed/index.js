@@ -5,6 +5,7 @@ import moment from 'moment';
 import './styles.css';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
+import { fetchTrending } from '../../redux/github/actions';
 import RepositoryGrid from '../../components/repository-grid';
 import RepositoryList from '../../components/repository-list';
 import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
@@ -19,15 +20,14 @@ class FeedContainer extends React.Component {
   }
 
   fetchNextRepositories() {
-    console.log(this.getFilters());
+    const filters = this.getFilters();
+    this.props.fetchTrending(filters);
   }
 
   getFilters() {
     const filters = {};
 
-    filters.daterange = this.getNextDateRange();
-    filters.sort = 'stars';
-    filters.order = 'desc';
+    filters.dateRange = this.getNextDateRange();
 
     if (this.props.preference.language) {
       filters.language = this.props.preference.language;
@@ -99,7 +99,8 @@ const mapStateToProps = store => {
 const mapDispatchToProps = {
   updateLanguage,
   updateViewType,
-  updateDateJump
+  updateDateJump,
+  fetchTrending
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedContainer);
