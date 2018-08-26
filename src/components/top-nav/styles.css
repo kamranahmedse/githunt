@@ -6,32 +6,32 @@
   position: relative;
 }
 
-.logo {
+.top-nav .logo {
   margin-left: -10px;
 }
 
-.logo img {
+.top-nav .logo img {
   height: 75px;
   float: left;
 }
 
-.logo-text {
+.top-nav .logo-text {
   float: left;
   margin-left: 10px;
   margin-top: 10px;
 }
 
-.logo-text h4 {
+.top-nav .logo-text h4 {
   margin: 3px 0 0;
   font-weight: 700;
   color: #2d2d2d;
 }
 
-.logo-text p {
+.top-nav .logo-text p {
   margin-bottom: 0;
 }
 
-.duration-btns a.btn {
+.top-nav .duration-btns a.btn {
   margin-left: 10px;
   margin-top: 24px;
   box-shadow: none;

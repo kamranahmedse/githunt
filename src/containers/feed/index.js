@@ -82,6 +82,8 @@ class FeedContainer extends React.Component {
           </div>
           <div className="body-row">
             { this.props.preference.viewType === 'grid' ? <RepositoryGrid/> : <RepositoryList/> }
+
+            {/* @todo show loading */}
           </div>
         </div>
       </div>
