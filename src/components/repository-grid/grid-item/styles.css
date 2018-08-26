@@ -83,8 +83,8 @@
 .grid-item-container .repo-footer {
   font-size: 12px;
   position: absolute;
-  bottom: 15px;
-  left: 25px;
+  bottom: 20px;
+  left: 20px;
   right: 25px;
   background: white;
   padding: 10px;
@@ -92,12 +92,13 @@
 
 .grid-item-container .repo-footer a {
   text-decoration: none;
-  color: #000000;
+  color: #6c757d;
   font-weight: 500;
 }
 
 .grid-item-container .repo-footer a svg {
   position: relative;
   top: -2px;
+  fill: #6c757d;
   margin-right: 5px;
 }
