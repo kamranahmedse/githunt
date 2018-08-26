@@ -1,15 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import moment from 'moment';
+import { connect } from 'react-redux';
 
 import './styles.css';
+import Loader from '../../components/loader';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
 import { fetchTrending } from '../../redux/github/actions';
 import RepositoryGrid from '../../components/repository-grid';
 import RepositoryList from '../../components/repository-list';
 import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
-import Loader from '../../components/loader';
 
 class FeedContainer extends React.Component {
   componentDidMount() {

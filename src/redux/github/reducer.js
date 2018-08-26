@@ -1,4 +1,5 @@
 import { FETCH_TRENDING_FAILED, FETCH_TRENDING_SUCCESS, PROCESS_FETCH_TRENDING, UPDATE_FILTERS } from './types';
+import { UPDATE_DATE_TYPE } from '../preference/types';
 
 export const initialState = {
   processing: false,
@@ -20,10 +21,19 @@ export default function reducer(state = initialState, action) {
         processing: true,
         error: null
       };
+    case UPDATE_DATE_TYPE:
+      return {
+        ...state,
+        ...initialState
+      };
     case FETCH_TRENDING_SUCCESS:
       return {
         ...state,
-        repositories: action.payload,
+        // Append the fetched repositories to existing list
+        repositories: [
+          ...state.repositories,
+          action.payload
+        ],
         processing: false,
         error: null
       };

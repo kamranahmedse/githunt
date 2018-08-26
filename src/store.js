@@ -1,16 +1,21 @@
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-import { persistReducer, persistStore } from 'redux-persist';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistReducer, persistStore } from 'redux-persist';
 import { applyMiddleware, createStore } from 'redux';
 import storage from 'redux-persist/lib/storage';
-import rootReducer from './redux/reducers';
 import thunk from 'redux-thunk';
+
+import GithubTransform from './redux/github/transform';
+import rootReducer from './redux/reducers';
 
 const persistedReducers = persistReducer(
   {
     key: 'githunt:root',
     storage: storage,
     stateReconciler: autoMergeLevel2,
+    transforms: [
+      GithubTransform
+    ]
   },
   rootReducer,
 );

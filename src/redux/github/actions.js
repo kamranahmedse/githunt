@@ -39,7 +39,11 @@ export const fetchTrending = function (filters) {
     }).then(response => {
       dispatch({
         type: FETCH_TRENDING_SUCCESS,
-        payload: response.data
+        payload: {
+          start: filters.dateRange.start,
+          end: filters.dateRange.end,
+          data: response.data
+        }
       });
     }).catch(error => {
       dispatch({
