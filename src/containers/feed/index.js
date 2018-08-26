@@ -9,6 +9,7 @@ import { fetchTrending } from '../../redux/github/actions';
 import RepositoryGrid from '../../components/repository-grid';
 import RepositoryList from '../../components/repository-list';
 import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
+import Loader from '../../components/loader';
 
 class FeedContainer extends React.Component {
   componentDidMount() {
@@ -83,7 +84,7 @@ class FeedContainer extends React.Component {
           <div className="body-row">
             { this.props.preference.viewType === 'grid' ? <RepositoryGrid/> : <RepositoryList/> }
 
-            {/* @todo show loading */}
+            { this.props.github.processing && <Loader/> }
           </div>
         </div>
       </div>
