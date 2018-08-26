@@ -25,7 +25,7 @@ class RepositoryGrid extends React.Component {
       <div key={ groupKey } data-group-key={ groupKey }>
         { groupHeading }
         <div className="row grid-container">
-          { repositories.map(repository => <GridItem key={ repository.id }/>) }
+          { repositories.map(repository => <GridItem repository={ repository } key={ repository.id }/>) }
         </div>
       </div>
     );
