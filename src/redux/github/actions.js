@@ -12,7 +12,7 @@ const API_URL = 'https://api.github.com/search/repositories';
 const transformFilters = (filters) => {
   const transformedFilters = {};
 
-  const reposDate = `created:${filters.dateRange.start}..${filters.dateRange.end}`;
+  const reposDate = `created:${filters.dateRange.start.format('YYYY-MM-DD')}..${filters.dateRange.end.format('YYYY-MM-DD')}`;
   const reposLanguage = filters.language ? `language:${filters.language} ` : '';
 
   if (filters.token) {

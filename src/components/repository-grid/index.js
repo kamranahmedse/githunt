@@ -1,41 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import GridItem from './grid-item';
 import './styles.css';
+import GroupHeading from '../group-heading';
 
 class RepositoryGrid extends React.Component {
-  render() {
-    return (
-      <div className="repositories-grid">
-        <div className="row grid-container">
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-        </div>
+  renderGroup(repositoryGroup, counter) {
+    let groupHeading = '';
+    // for the first repository group, we have the
+    // heading among the filters out of the grid
+    if (counter !== 0) {
+      groupHeading = (
         <div className="row row-group">
-          <div className="group-heading">
-            <div className="col">
-              <h4>Yesterday <span className="small text-muted">July 11, 2019</span></h4>
-            </div>
-          </div>
+          <GroupHeading/>
         </div>
+      );
+    }
+
+    const groupKey = `${repositoryGroup.start}_${repositoryGroup.end}_${counter}`;
+    const repositories = repositoryGroup.data.items;
+
+    return (
+      <div key={ groupKey } data-group-key={ groupKey }>
+        { groupHeading }
         <div className="row grid-container">
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
-          <GridItem/>
+          { repositories.map(repository => <GridItem key={ repository.id }/>) }
         </div>
       </div>
     );
   }
+
+  render() {
+    console.log(this.props.repositories);
+    return (
+      <div className="repositories-grid">
+        {
+          this.props.repositories.map((repositoryGroup, counter) => {
+            return this.renderGroup(repositoryGroup, counter);
+          })
+        }
+      </div>
+    );
+  }
 }
+
+RepositoryGrid.propTypes = {
+  repositories: PropTypes.array.isRequired
+};
 
 export default RepositoryGrid;

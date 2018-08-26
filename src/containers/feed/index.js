@@ -10,6 +10,7 @@ import { fetchTrending } from '../../redux/github/actions';
 import RepositoryGrid from '../../components/repository-grid';
 import RepositoryList from '../../components/repository-list';
 import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
+import GroupHeading from '../../components/group-heading';
 
 class FeedContainer extends React.Component {
   componentDidMount() {
@@ -49,11 +50,11 @@ class FeedContainer extends React.Component {
     const lastRecords = repositories[repositories.length - 1];
 
     if (lastRecords) {
-      dateRange.start = moment(lastRecords.start).subtract(1, dateJump).format('YYYY-MM-DD');
+      dateRange.start = moment(lastRecords.start).subtract(1, dateJump);
       dateRange.end = lastRecords.start;
     } else {
-      dateRange.start = moment().add(1, 'day').subtract(1, dateJump).format('YYYY-MM-DD');
-      dateRange.end = moment().format('YYYY-MM-DD');
+      dateRange.start = moment().add(1, 'day').subtract(1, dateJump);
+      dateRange.end = moment();
     }
 
     return dateRange;
@@ -69,9 +70,7 @@ class FeedContainer extends React.Component {
 
         <div className="container mt-4 mb-5 pb-4">
           <div className="header-row clearfix">
-            <div className="group-heading">
-              <h4>Today <span className="small text-muted">July 12, 2019</span></h4>
-            </div>
+            <GroupHeading />
             <div className="group-filters">
               <Filters
                 selectedLanguage={ this.props.preference.language }
@@ -82,7 +81,11 @@ class FeedContainer extends React.Component {
             </div>
           </div>
           <div className="body-row">
-            { this.props.preference.viewType === 'grid' ? <RepositoryGrid/> : <RepositoryList/> }
+            {
+              this.props.preference.viewType === 'grid'
+                ? <RepositoryGrid repositories={ this.props.github.repositories || [] }/>
+                : <RepositoryList repositories={ this.props.github.repositories || [] }/>
+            }
 
             { this.props.github.processing && <Loader/> }
           </div>
