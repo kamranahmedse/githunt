@@ -82,14 +82,22 @@ class FeedContainer extends React.Component {
 
         <div className="container mt-4 mb-5 pb-4">
           <div className="header-row clearfix">
-            <GroupHeading/>
+            {
+              this.props.github.repositories &&
+              this.props.github.repositories[0] &&
+              <GroupHeading/>
+            }
             <div className="group-filters">
-              <Filters
-                selectedLanguage={ this.props.preference.language }
-                selectedViewType={ this.props.preference.viewType }
-                updateLanguage={ this.props.updateLanguage }
-                updateViewType={ this.props.updateViewType }
-              />
+              {
+                this.props.github.repositories &&
+                this.props.github.repositories[0] &&
+                <Filters
+                  selectedLanguage={ this.props.preference.language }
+                  selectedViewType={ this.props.preference.viewType }
+                  updateLanguage={ this.props.updateLanguage }
+                  updateViewType={ this.props.updateViewType }
+                />
+              }
             </div>
           </div>
           <div className="body-row">

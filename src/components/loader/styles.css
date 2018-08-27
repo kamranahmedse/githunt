@@ -2,3 +2,7 @@
   margin: 50px 0 0;
   text-align: center;
 }
+
+.loading-indicator img {
+  height: 85px;
+}

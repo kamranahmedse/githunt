@@ -4,7 +4,7 @@ import './styles.css';
 
 const Loader = () => (
   <div className="loading-indicator">
-    <img src="/img/galaxy.svg" className='fa-spin' alt=".."/>
+    <img src="/img/solar.svg" className='fa-spin' alt=".."/>
   </div>
 );
 
