@@ -13,7 +13,11 @@ class RepositoryGrid extends React.Component {
     if (counter !== 0) {
       groupHeading = (
         <div className="row row-group">
-          <GroupHeading/>
+          <GroupHeading
+            start={ repositoryGroup.start }
+            end={ repositoryGroup.end }
+            dateJump={ this.props.dateJump }
+          />
         </div>
       );
     }
@@ -45,7 +49,8 @@ class RepositoryGrid extends React.Component {
 }
 
 RepositoryGrid.propTypes = {
-  repositories: PropTypes.array.isRequired
+  repositories: PropTypes.array.isRequired,
+  dateJump: PropTypes.string.isRequired
 };
 
 export default RepositoryGrid;

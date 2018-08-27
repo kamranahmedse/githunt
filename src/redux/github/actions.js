@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 
 import {
   FETCH_TRENDING_FAILED,
@@ -12,7 +13,9 @@ const API_URL = 'https://api.github.com/search/repositories';
 const transformFilters = (filters) => {
   const transformedFilters = {};
 
-  const reposDate = `created:${filters.dateRange.start.format('YYYY-MM-DD')}..${filters.dateRange.end.format('YYYY-MM-DD')}`;
+  const startMoment = moment(filters.dateRange.start);
+  const endMoment = moment(filters.dateRange.end);
+  const reposDate = `created:${startMoment.format('YYYY-MM-DD')}..${endMoment.format('YYYY-MM-DD')}`;
   const reposLanguage = filters.language ? `language:${filters.language} ` : '';
 
   if (filters.token) {
@@ -40,8 +43,8 @@ export const fetchTrending = function (filters) {
       dispatch({
         type: FETCH_TRENDING_SUCCESS,
         payload: {
-          start: filters.dateRange.start.format(),
-          end: filters.dateRange.end.format(),
+          start: moment(filters.dateRange.start).format(),
+          end: moment(filters.dateRange.end).format(),
           data: response.data
         }
       });

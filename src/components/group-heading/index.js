@@ -10,7 +10,7 @@ class GroupHeading extends React.Component {
     const currentMoment = moment();
     const yesterdayMoment = moment().subtract(1, 'day');
 
-    // For "day" jumps show the day name
+    // For "day" jumps return the day name
     if (this.props.dateJump === 'day') {
       if (startMoment.isSame(currentMoment, 'day')) {
         return 'Today';
@@ -21,14 +21,20 @@ class GroupHeading extends React.Component {
       return startMoment.format('dddd');
     }
 
-    return startMoment.fromNow();
+    // Return the relative date
+    const formattedDate = startMoment.fromNow();
+    if (formattedDate === 'a year ago') {
+      return 'Last Year';
+    }
+
+    return formattedDate;
   }
 
   getSubtitle() {
     const startMoment = moment(this.props.start);
     const endMoment = moment(this.props.end);
 
-    if (startMoment.isSame(endMoment, 'day')) {
+    if (startMoment.isSame(endMoment, 'day') || this.props.dateJump === 'day') {
       return startMoment.format('MMMM D, YYYY');
     }
 

@@ -29,3 +29,9 @@
 .row-group .group-heading {
   margin: auto;
 }
+
+.load-next-date {
+  padding: 10px 20px;
+  display: block;
+  margin: 25px auto auto;
+}

@@ -107,11 +107,21 @@ class FeedContainer extends React.Component {
           <div className="body-row">
             {
               this.props.preference.viewType === 'grid'
-                ? <RepositoryGrid repositories={ this.props.github.repositories || [] }/>
-                : <RepositoryList repositories={ this.props.github.repositories || [] }/>
+                ? <RepositoryGrid repositories={ this.props.github.repositories || [] } dateJump={ this.props.preference.dateJump }/>
+                : <RepositoryList repositories={ this.props.github.repositories || [] } dateJump={ this.props.preference.dateJump }/>
             }
 
             { this.props.github.processing && <Loader/> }
+
+            {
+              !this.props.github.processing && (
+                <button className="btn btn-primary shadow load-next-date"
+                        onClick={ () => this.fetchNextRepositories() }>
+                  <i className="fa fa-refresh mr-2"></i>
+                  Load next { this.props.preference.dateJump }
+                </button>
+              )
+            }
           </div>
         </div>
       </div>
