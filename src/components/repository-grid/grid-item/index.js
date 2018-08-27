@@ -34,7 +34,7 @@ class GridItem extends React.Component {
             </p>
           </div>
           <div className="repo-body">
-            <p>{ this.props.repository.description || 'No description given.' }</p>
+            <p>{ (this.props.repository.description && this.props.repository.description.slice(0, 140)) || 'No description given.' }</p>
           </div>
           <div className="repo-footer">
             {
