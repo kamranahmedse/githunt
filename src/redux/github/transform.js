@@ -15,6 +15,16 @@ const GithubTransform = createTransform(
       };
     }
 
+    // Keep the first group only to avoid overflowing the storage
+    if (inboundState.repositories && inboundState.repositories.length > 1) {
+      inboundState = {
+        ...inboundState,
+        repositories: [
+          inboundState.repositories[0]
+        ]
+      };
+    }
+
     return inboundState;
   },
   // transform state being rehydrated
