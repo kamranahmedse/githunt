@@ -10,7 +10,7 @@
   margin-left: -10px;
 }
 
-.top-nav .logo img {
+.top-nav .logo svg {
   height: 75px;
   float: left;
 }
@@ -31,7 +31,7 @@
   margin-bottom: 0;
 }
 
-.top-nav .duration-btns a.btn {
+.top-nav .duration-btns .btn {
   margin-left: 10px;
   margin-top: 24px;
   box-shadow: none;

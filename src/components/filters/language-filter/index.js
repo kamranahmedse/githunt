@@ -171,10 +171,10 @@ class LanguageFilter extends React.Component {
   render() {
     return (
       <div className='language-filter-wrap'>
-        <a href="javascript:void(0)" onClick={ this.toggleDropdown } className="btn btn-light language-filter shadowed">
+        <button onClick={ this.toggleDropdown } className="btn btn-light language-filter shadowed">
           <i className="fa fa-filter mr-2"></i>
           { this.props.selectedLanguage || 'All Languages' }
-        </a>
+        </button>
         { this.state.showDropdown && this.getLanguageDropdown() }
       </div>
     );

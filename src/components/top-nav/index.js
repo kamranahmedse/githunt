@@ -3,58 +3,55 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './styles.css';
+import Logo from '../icons/logo';
 
 const TopNav = (props) => (
   <div className='top-nav'>
     <div className="container clearfix">
       <a href='/' className="logo clearfix float-left">
-        <img src='/img/logo.svg'/>
+        <Logo/>
         <div className="logo-text">
           <h4>GitHunt</h4>
           <p className="text-muted">Most starred projects on GitHub</p>
         </div>
       </a>
       <div className="float-right duration-btns">
-        <a href="javascript:void(0)"
-           onClick={ () => props.updateDateJump('year') }
-           className={
-             classNames('btn', {
-               'btn-primary': props.selectedDateJump === 'year',
-               'btn-light': props.selectedDateJump !== 'year',
-             })
-           }>
+        <button onClick={ () => props.updateDateJump('year') }
+                className={
+                  classNames('btn', {
+                    'btn-primary': props.selectedDateJump === 'year',
+                    'btn-light': props.selectedDateJump !== 'year',
+                  })
+                }>
           Yearly
-        </a>
-        <a href="javascript:void(0)"
-           onClick={ () => props.updateDateJump('month') }
-           className={
-             classNames('btn', {
-               'btn-primary': props.selectedDateJump === 'month',
-               'btn-light': props.selectedDateJump !== 'month',
-             })
-           }>
+        </button>
+        <button onClick={ () => props.updateDateJump('month') }
+                className={
+                  classNames('btn', {
+                    'btn-primary': props.selectedDateJump === 'month',
+                    'btn-light': props.selectedDateJump !== 'month',
+                  })
+                }>
           Monthly
-        </a>
-        <a href="javascript:void(0)"
-           onClick={ () => props.updateDateJump('week') }
-           className={
-             classNames('btn', {
-               'btn-primary': props.selectedDateJump === 'week',
-               'btn-light': props.selectedDateJump !== 'week',
-             })
-           }>
+        </button>
+        <button onClick={ () => props.updateDateJump('week') }
+                className={
+                  classNames('btn', {
+                    'btn-primary': props.selectedDateJump === 'week',
+                    'btn-light': props.selectedDateJump !== 'week',
+                  })
+                }>
           Weekly
-        </a>
-        <a href="javascript:void(0)"
-           onClick={ () => props.updateDateJump('day') }
-           className={
-             classNames('btn', {
-               'btn-primary': props.selectedDateJump === 'day',
-               'btn-light': props.selectedDateJump !== 'day',
-             })
-           }>
+        </button>
+        <button onClick={ () => props.updateDateJump('day') }
+                className={
+                  classNames('btn', {
+                    'btn-primary': props.selectedDateJump === 'day',
+                    'btn-light': props.selectedDateJump !== 'day',
+                  })
+                }>
           Daily
-        </a>
+        </button>
       </div>
     </div>
   </div>
