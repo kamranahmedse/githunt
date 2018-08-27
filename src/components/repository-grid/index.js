@@ -32,7 +32,6 @@ class RepositoryGrid extends React.Component {
   }
 
   render() {
-    console.log(this.props.repositories);
     return (
       <div className="repositories-grid">
         {

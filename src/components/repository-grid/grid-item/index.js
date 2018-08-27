@@ -34,12 +34,16 @@ class GridItem extends React.Component {
             <p>{ this.props.repository.description || 'No description given.' }</p>
           </div>
           <div className="repo-footer">
-            <span className="d-inline-block mr-3">
-              <span className="repo-language-color ml-0"></span>
-              <span itemProp="programmingLanguage">
-                { this.props.repository.language }
-              </span>
-            </span>
+            {
+              this.props.repository.language && (
+                <span className="d-inline-block mr-3">
+                  <span className="repo-language-color ml-0"></span>
+                  <span itemProp="programmingLanguage">
+                    { this.props.repository.language }
+                  </span>
+                </span>
+              )
+            }
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/stargazers` }
                target="_blank">

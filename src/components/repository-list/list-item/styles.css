@@ -29,13 +29,15 @@
 
 .list-item-container .repo-body p {
   margin-bottom: 0;
+  display: block;
+  max-width: 80%;
 }
 
 .list-item-container .repo-footer svg {
   position: relative;
   top: -1px;
   margin-right: 6px;
-  fill: black;
+  fill: #6c757d;
 }
 
 .list-item-container .repo-meta a {
@@ -51,7 +53,7 @@
 }
 
 .list-item-container .repo-footer a {
-  color: black;
+  color: #6c757d;
   text-decoration: none;
 }
 
