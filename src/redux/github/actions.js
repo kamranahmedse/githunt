@@ -40,8 +40,8 @@ export const fetchTrending = function (filters) {
       dispatch({
         type: FETCH_TRENDING_SUCCESS,
         payload: {
-          start: filters.dateRange.start,
-          end: filters.dateRange.end,
+          start: filters.dateRange.start.format(),
+          end: filters.dateRange.end.format(),
           data: response.data
         }
       });

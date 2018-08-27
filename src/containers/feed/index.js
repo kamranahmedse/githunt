@@ -85,7 +85,11 @@ class FeedContainer extends React.Component {
             {
               this.props.github.repositories &&
               this.props.github.repositories[0] &&
-              <GroupHeading/>
+              <GroupHeading
+                start={ this.props.github.repositories[0].start }
+                end={ this.props.github.repositories[0].end }
+                dateJump={ this.props.preference.dateJump }
+              />
             }
             <div className="group-filters">
               {
