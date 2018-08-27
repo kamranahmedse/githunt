@@ -26,6 +26,18 @@ class FeedContainer extends React.Component {
     this.props.fetchTrending(filters);
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const currPreferences = this.props.preference;
+    const prevPreferences = prevProps.preference;
+
+    // If language or dateJump has been updated, reload
+    // the repositories
+    if (currPreferences.language !== prevPreferences.language ||
+      currPreferences.dateJump !== prevPreferences.dateJump) {
+      this.fetchNextRepositories();
+    }
+  }
+
   getFilters() {
     const filters = {};
 
@@ -70,7 +82,7 @@ class FeedContainer extends React.Component {
 
         <div className="container mt-4 mb-5 pb-4">
           <div className="header-row clearfix">
-            <GroupHeading />
+            <GroupHeading/>
             <div className="group-filters">
               <Filters
                 selectedLanguage={ this.props.preference.language }
