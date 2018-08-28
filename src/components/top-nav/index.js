@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 import Logo from '../icons/logo';
@@ -8,13 +9,13 @@ import Logo from '../icons/logo';
 const TopNav = (props) => (
   <div className='top-nav'>
     <div className="container clearfix">
-      <a href='/' className="logo clearfix float-left">
+      <Link to="/" className="logo clearfix float-left">
         <Logo/>
         <div className="logo-text">
           <h4>GitHunt</h4>
           <p className="text-muted">Most starred projects on GitHub</p>
         </div>
-      </a>
+      </Link>
       <div className="float-right duration-btns">
         <button onClick={ () => props.updateDateJump('year') }
                 className={

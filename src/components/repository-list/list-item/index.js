@@ -59,7 +59,7 @@ class ListItem extends React.Component {
         <a href={ this.props.repository.owner.html_url }
            target="_blank"
            className="author-link d-none d-lg-block d-xl-block d-md-block">
-          <img className='author-img' src={ this.props.repository.owner.avatar_url }/>
+          <img className='author-img' src={ this.props.repository.owner.avatar_url } alt={ this.props.repository.owner.login }/>
         </a>
       </div>
     );

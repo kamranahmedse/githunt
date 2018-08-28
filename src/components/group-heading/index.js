@@ -24,11 +24,11 @@ class GroupHeading extends React.Component {
     // Return the relative date
     const formattedDate = startMoment.fromNow();
     if (formattedDate === 'a year ago') {
-      return 'Last Year';
-    } else if (formattedDate === 'a month ago') {
-      return 'This Month';
+      return 'Last year';
     } else if (formattedDate === '6 days ago') {
-      return 'This Week';
+      return 'This week';
+    } else if (formattedDate === '13 days ago') {
+      return 'Last week';
     }
 
     return formattedDate;

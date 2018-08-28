@@ -15,7 +15,7 @@ class GridItem extends React.Component {
           <div className="author-header clearfix">
             <a href={ this.props.repository.owner.html_url } target="_blank">
               <div className="author-img">
-                <img src={ this.props.repository.owner.avatar_url }/>
+                <img src={ this.props.repository.owner.avatar_url } alt={ this.props.repository.owner.login }/>
               </div>
               <div className="author-details">
                 <h5>{ this.props.repository.owner.login }</h5>
