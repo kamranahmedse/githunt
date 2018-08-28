@@ -35,3 +35,11 @@
   display: block;
   margin: 25px auto auto;
 }
+
+.alert-warning {
+  margin-top: -35px;
+  background: #ffa;
+  border-top: none;
+  margin-bottom: 25px;
+  text-align: center;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 import Loader from '../../components/loader';
@@ -80,7 +81,19 @@ class FeedContainer extends React.Component {
           selectedDateJump={ this.props.preference.dateJump }
         />
 
-        <div className="container mt-4 mb-5 pb-4">
+        {
+          !this.props.preference.options.token && (
+            <p className="alert alert-warning">
+              Although not required but make sure to
+              <strong className='ml-1 mr-1'>
+                <Link to='/options'>add a token</Link>
+              </strong>
+              to avoid hitting the rate limit
+            </p>
+          )
+        }
+
+        <div className="container mb-5 pb-4">
           <div className="header-row clearfix">
             {
               this.props.github.repositories &&
