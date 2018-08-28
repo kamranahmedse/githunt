@@ -25,6 +25,10 @@ class GroupHeading extends React.Component {
     const formattedDate = startMoment.fromNow();
     if (formattedDate === 'a year ago') {
       return 'Last Year';
+    } else if (formattedDate === 'a month ago') {
+      return 'This Month';
+    } else if (formattedDate === '6 days ago') {
+      return 'This Week';
     }
 
     return formattedDate;
