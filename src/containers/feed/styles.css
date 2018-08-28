@@ -36,10 +36,21 @@
   margin: 25px auto auto;
 }
 
-.alert-warning {
+.alert-group {
   margin-top: -35px;
-  background: #ffa;
-  border-top: none;
   margin-bottom: 25px;
   text-align: center;
+}
+
+.alert-group .alert:not(:last-child) {
+  border-bottom: none;
+}
+
+.alert-group .alert {
+  border-top: none;
+  margin-bottom: 0;
+}
+
+.alert-warning {
+  background: #ffa;
 }

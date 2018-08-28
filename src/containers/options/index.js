@@ -1,9 +1,12 @@
 import React from 'react';
+import Logo from '../../components/icons/logo';
 
 class OptionsContainer extends React.Component {
   render() {
     return (
-      <h1>Hello from the options</h1>
+      <div className="container">
+        <Logo/>
+      </div>
     );
   }
 }

@@ -12,10 +12,12 @@ import RepositoryGrid from '../../components/repository-grid';
 import RepositoryList from '../../components/repository-list';
 import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
 import GroupHeading from '../../components/group-heading';
+import Alert from '../../components/alert';
 
 class FeedContainer extends React.Component {
   componentDidMount() {
     const existingRepositories = this.props.github.repositories || [];
+
     // If there are no loaded repositories before, fetch them
     if (existingRepositories.length === 0) {
       this.fetchNextRepositories();
@@ -27,7 +29,7 @@ class FeedContainer extends React.Component {
     this.props.fetchTrending(filters);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     const currPreferences = this.props.preference;
     const prevPreferences = prevProps.preference;
 
@@ -43,7 +45,6 @@ class FeedContainer extends React.Component {
     const filters = {};
 
     filters.dateRange = this.getNextDateRange();
-
     if (this.props.preference.language) {
       filters.language = this.props.preference.language;
     }
@@ -73,6 +74,60 @@ class FeedContainer extends React.Component {
     return dateRange;
   }
 
+  renderTokenWarning() {
+    return !this.props.preference.options.token && (
+      <Alert type='warning'>
+        Although not required but make sure to
+        <strong className='ml-1 mr-1'>
+          <Link to='/options'>add a token</Link>
+        </strong>
+        to avoid hitting the rate limit
+      </Alert>
+    );
+  }
+
+  renderErrors() {
+    return this.props.github.error && (
+      <Alert type='danger'>
+        { this.props.github.error }
+      </Alert>
+    );
+  }
+
+  renderAlerts() {
+    const tokenWarning = this.renderTokenWarning();
+    const error = this.renderErrors();
+
+    if (tokenWarning || error) {
+      return (
+        <div className="alert-group">
+          { tokenWarning }
+          { error }
+        </div>
+      );
+    }
+
+    return null;
+  }
+
+  renderRepositoriesList() {
+    if (this.props.preference.viewType === 'grid') {
+      return <RepositoryGrid
+        repositories={ this.props.github.repositories || [] }
+        dateJump={ this.props.preference.dateJump }
+      />;
+    }
+
+    return <RepositoryList
+      repositories={ this.props.github.repositories || [] }
+      dateJump={ this.props.preference.dateJump }
+    />;
+  }
+
+  hasRepositories() {
+    return this.props.github.repositories && this.props.github.repositories.length !== 0;
+  }
+
   render() {
     return (
       <div className="page-wrap">
@@ -81,24 +136,12 @@ class FeedContainer extends React.Component {
           selectedDateJump={ this.props.preference.dateJump }
         />
 
-        {
-          !this.props.preference.options.token && (
-            <p className="alert alert-warning">
-              Although not required but make sure to
-              <strong className='ml-1 mr-1'>
-                <Link to='/options'>add a token</Link>
-              </strong>
-              to avoid hitting the rate limit
-            </p>
-          )
-        }
+        { this.renderAlerts() }
 
         <div className="container mb-5 pb-4">
           <div className="header-row clearfix">
             {
-              this.props.github.repositories &&
-              this.props.github.repositories[0] &&
-              <GroupHeading
+              this.hasRepositories() && <GroupHeading
                 start={ this.props.github.repositories[0].start }
                 end={ this.props.github.repositories[0].end }
                 dateJump={ this.props.preference.dateJump }
@@ -106,9 +149,7 @@ class FeedContainer extends React.Component {
             }
             <div className="group-filters">
               {
-                this.props.github.repositories &&
-                this.props.github.repositories[0] &&
-                <Filters
+                this.hasRepositories() && <Filters
                   selectedLanguage={ this.props.preference.language }
                   selectedViewType={ this.props.preference.viewType }
                   updateLanguage={ this.props.updateLanguage }
@@ -118,16 +159,14 @@ class FeedContainer extends React.Component {
             </div>
           </div>
           <div className="body-row">
-            {
-              this.props.preference.viewType === 'grid'
-                ? <RepositoryGrid repositories={ this.props.github.repositories || [] } dateJump={ this.props.preference.dateJump }/>
-                : <RepositoryList repositories={ this.props.github.repositories || [] } dateJump={ this.props.preference.dateJump }/>
-            }
+            { this.renderRepositoriesList() }
 
             { this.props.github.processing && <Loader/> }
 
             {
-              !this.props.github.processing && (
+              !this.props.github.processing &&
+              this.hasRepositories() &&
+              (
                 <button className="btn btn-primary shadow load-next-date"
                         onClick={ () => this.fetchNextRepositories() }>
                   <i className="fa fa-refresh mr-2"></i>

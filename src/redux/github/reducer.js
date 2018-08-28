@@ -1,4 +1,4 @@
-import { FETCH_TRENDING_FAILED, FETCH_TRENDING_SUCCESS, PROCESS_FETCH_TRENDING, UPDATE_FILTERS } from './types';
+import { FETCH_TRENDING_FAILED, FETCH_TRENDING_SUCCESS, PROCESS_FETCH_TRENDING } from './types';
 import { UPDATE_DATE_TYPE, UPDATE_LANGUAGE } from '../preference/types';
 
 export const initialState = {
@@ -9,7 +9,6 @@ export const initialState = {
   //    { start: '', end: '', data: [] }
   // ]
   repositories: [],
-  filters: {},
   error: null,
 };
 
@@ -43,11 +42,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         processing: false,
         error: action.payload
-      };
-    case UPDATE_FILTERS:
-      return {
-        ...state,
-        filters: action.payload
       };
     default:
       return state;

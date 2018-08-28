@@ -5,7 +5,6 @@ import {
   FETCH_TRENDING_FAILED,
   FETCH_TRENDING_SUCCESS,
   PROCESS_FETCH_TRENDING,
-  UPDATE_FILTERS
 } from './types';
 
 const API_URL = 'https://api.github.com/search/repositories';
@@ -49,24 +48,18 @@ export const fetchTrending = function (filters) {
         }
       });
     }).catch(error => {
+      let message = error.response &&
+        error.response.data &&
+        error.response.data.message;
+
+      if (!message) {
+        message = error.message;
+      }
+
       dispatch({
         type: FETCH_TRENDING_FAILED,
-        payload: error
+        payload: message
       });
-    });
-  };
-};
-
-/**
- * Updates the filters used in queries
- * @param filters
- * @return {Function}
- */
-export const updateFilters = function (filters) {
-  return dispatch => {
-    dispatch({
-      type: UPDATE_FILTERS,
-      payload: filters
     });
   };
 };
