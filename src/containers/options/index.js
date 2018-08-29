@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import './styles.css';
-import Logo from '../../components/icons/logo';
 import OptionsForm from '../../components/options-form';
 import { updateOptions } from '../../redux/preference/actions';
 
