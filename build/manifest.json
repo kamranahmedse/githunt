@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Githunt",
+  "short_name": "Githunt",
+  "description": "Replace the new tab with a list of trending repositories on github belonging to any technology that you chose.",
+  "version": "2.1",
+  "permissions": [
+    "tabs",
+    "storage",
+    "webNavigation",
+    "*://*.github.com/*"
+  ],
+  "icons": {
+    "16": "/img/icon16.png",
+    "48": "/img/icon48.png",
+    "128": "/img/icon128.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "homepage_url": "http://kamranahmed.info/",
+  "browser_action": {
+    "default_title": "Githunt",
+    "default_icon": "/img/icon128.png"
+  }
+}
