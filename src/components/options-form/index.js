@@ -3,12 +3,22 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './styles.css';
+import Alert from '../alert';
 
 class OptionsForm extends React.Component {
 
   state = {
-    token: this.props.options.token
+    token: this.props.options.token,
+    success: false,
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.options.token !== prevProps.options.token) {
+      this.setState({
+        success: true
+      });
+    }
+  }
 
   saveOptions = () => {
     this.props.updateOptions({
@@ -18,8 +28,15 @@ class OptionsForm extends React.Component {
 
   onChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      success: false
     });
+  };
+
+  onKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      this.saveOptions();
+    }
   };
 
   render() {
@@ -39,6 +56,7 @@ class OptionsForm extends React.Component {
           <input type="text"
                  name='token'
                  onChange={ this.onChange }
+                 onKeyDown={ this.onKeyDown }
                  className="form-control"
                  value={ this.state.token }/>
         </div>
@@ -47,6 +65,14 @@ class OptionsForm extends React.Component {
           Save Token
         </button>
         <Link className='btn btn-primary shadow btn-block btn-lg' to='/'><i className="fa fa-arrow-left"></i> Go Home</Link>
+
+        {
+          this.state.success && (
+            <div className="mt-4">
+              <Alert type='warning'>Successfully updated</Alert>
+            </div>
+          )
+        }
       </div>
     );
   }

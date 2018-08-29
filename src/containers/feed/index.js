@@ -87,9 +87,27 @@ class FeedContainer extends React.Component {
   }
 
   renderErrors() {
-    return this.props.github.error && (
+    if (!this.props.github.error) {
+      return null;
+    }
+
+    let message = '';
+    switch (this.props.github.error.toLowerCase()) {
+      case 'bad credentials':
+        message = (
+          <span>
+            Token is invalid, try <Link to='/options'>updating the token</Link> on the options page
+          </span>
+        );
+        break;
+      default:
+        message = this.props.github.error;
+        break;
+    }
+
+    return (
       <Alert type='danger'>
-        { this.props.github.error }
+        { message }
       </Alert>
     );
   }
