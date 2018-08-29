@@ -1,4 +1,4 @@
-import { RESET_OPTIONS, UPDATE_DATE_TYPE, UPDATE_LANGUAGE, UPDATE_OPTIONS, UPDATE_VIEW_TYPE } from './types';
+import { UPDATE_DATE_TYPE, UPDATE_LANGUAGE, UPDATE_OPTIONS, UPDATE_VIEW_TYPE } from './types';
 
 const initialState = {
   viewType: 'grid',
@@ -15,11 +15,6 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         options: action.payload
-      };
-    case RESET_OPTIONS:
-      return {
-        ...state,
-        options: initialState.options
       };
     case UPDATE_DATE_TYPE:
       return {
