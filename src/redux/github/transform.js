@@ -25,6 +25,14 @@ const GithubTransform = createTransform(
       };
     }
 
+    // Do not persist `processing` flag or `error` information,
+    // as we want to start fresh on reload in such cases
+    inboundState = {
+      ...inboundState,
+      processing: false,
+      error: null
+    };
+
     return inboundState;
   },
   // transform state being rehydrated
