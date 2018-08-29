@@ -77,7 +77,7 @@ class FeedContainer extends React.Component {
   renderTokenWarning() {
     return !this.props.preference.options.token && (
       <Alert type='warning'>
-        Although not required but make sure to
+        Make sure to
         <strong className='ml-1 mr-1'>
           <Link to='/options'>add a token</Link>
         </strong>
