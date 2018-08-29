@@ -3,6 +3,7 @@
   text-align: center;
 }
 
-.loading-indicator img {
+.loading-indicator svg {
   height: 85px;
+  width: 85px;
 }

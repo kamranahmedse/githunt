@@ -1,10 +1,11 @@
 import React from 'react';
 
 import './styles.css';
+import Solar from '../icons/solar';
 
 const Loader = () => (
   <div className="loading-indicator">
-    <img src="/img/solar.svg" className='fa-spin' alt=".."/>
+    <Solar className='fa-spin'/>
   </div>
 );
 
