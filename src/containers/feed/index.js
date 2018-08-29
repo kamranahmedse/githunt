@@ -100,6 +100,9 @@ class FeedContainer extends React.Component {
           </span>
         );
         break;
+      case 'network error':
+        message = 'Error trying to connect to GitHub servers';
+        break;
       default:
         message = this.props.github.error;
         break;
