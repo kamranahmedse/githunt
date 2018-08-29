@@ -1,0 +1,82 @@
+.options-container {
+  margin: 100px auto;
+  max-width: 700px;
+}
+
+.options-container .container {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 20px;
+}
+
+.options-container .header svg {
+  margin-right: 15px;
+  float: left;
+  height: 85px;
+  width: 85px;
+}
+
+.options-container .header {
+  margin-bottom: 10px;
+}
+
+.options-container .header h3 {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.options-container .header .logo {
+  display: block;
+  margin: 0 auto 25px;
+  width: 440px;
+}
+
+.options-container ul {
+  padding: 0;
+  margin: 15px 0;
+}
+
+.options-container ul li {
+  line-height: 25px;
+  padding: 10px;
+  list-style: none;
+  background: #f7f3f3;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+
+.options-container ul li span,
+.options-container ul li a {
+  font-weight: 500;
+  color: #1157ed;
+}
+
+.options-container .header .logo {
+  color: #2d2d2d;
+}
+
+.options-container .header .logo-text {
+  margin-top: 11px;
+  float: left;
+}
+
+.options-container .form-field p {
+  margin-bottom: 15px;
+}
+
+.options-container .form-field input[type="text"] {
+  display: block;
+  box-shadow: none;
+  height: 60px;
+  -webkit-box-shadow: none;
+  border: 2px solid #ececec;
+  margin-bottom: 15px;
+}
+
+.options-container .btn-save {
+  font-size: 15px;
+  padding: 15px 25px;
+  height: 60px;
+  display: block;
+  width: 100%;
+}
