@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
+import Alert from '../../components/alert';
 import Loader from '../../components/loader';
 import TopNav from '../../components/top-nav';
 import Filters from '../../components/filters';
-import { fetchTrending } from '../../redux/github/actions';
-import RepositoryGrid from '../../components/repository-grid';
-import RepositoryList from '../../components/repository-list';
-import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
 import GroupHeading from '../../components/group-heading';
-import Alert from '../../components/alert';
+import { fetchTrending } from '../../redux/github/actions';
+import RepositoryList from '../../components/repository-list';
+import RepositoryGrid from '../../components/repository-grid';
+import { updateDateJump, updateLanguage, updateViewType } from '../../redux/preference/actions';
 
 class FeedContainer extends React.Component {
   componentDidMount() {
