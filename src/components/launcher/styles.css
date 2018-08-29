@@ -11,8 +11,9 @@
   background: white;
 }
 
-.launcher-body .logo-container img {
+.launcher-body .logo-container svg {
   height: 150px;
+  width: 150px;
 }
 
 .launcher-body .logo-container .logo-text h4 {
