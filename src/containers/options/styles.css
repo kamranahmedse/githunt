@@ -16,6 +16,15 @@
   width: 85px;
 }
 
+.options-container .header .logo {
+  color: #2d2d2d;
+}
+
+.options-container .header .logo-text {
+  margin-top: 11px;
+  float: left;
+}
+
 .options-container .header {
   margin-bottom: 10px;
 }
@@ -28,62 +37,4 @@
 .options-container .header .logo {
   display: block;
   margin-bottom: 10px;
-}
-
-.options-container ul {
-  padding: 0;
-  margin: 15px 0 15px 25px;
-}
-
-.options-container ul li {
-  line-height: 30px;
-}
-
-.options-container ul li span,
-.options-container ul li a {
-  background: #ffa;
-  padding: 5px 7px;
-  color: #343a40;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.options-container ul li a {
-  color: blue;
-  text-decoration: underline;
-}
-
-.options-container .header .logo {
-  color: #2d2d2d;
-}
-
-.options-container .header .logo-text {
-  margin-top: 11px;
-  float: left;
-}
-
-.options-container .form-field p {
-  margin-bottom: 15px;
-}
-
-.options-container .form-field input[type="text"] {
-  display: block;
-  box-shadow: none;
-  height: 60px;
-  -webkit-box-shadow: none;
-  border: 2px solid #ececec;
-  margin-bottom: 15px;
-}
-
-.options-container .btn-save {
-  margin-bottom: 10px;
-}
-
-.options-container .btn {
-  font-size: 15px;
-  padding: 15px 25px;
-  height: 60px;
-  display: block;
-  width: 100%;
 }
