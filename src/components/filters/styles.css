@@ -2,6 +2,6 @@
   float: left;
 }
 
-.filters-wrap .filter-item:last-child {
+.filters-wrap .filter-item:not(:first-child) {
   margin-left: 15px;
 }
