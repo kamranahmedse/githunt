@@ -4,6 +4,8 @@ import './styles.css';
 import Logo from '../icons/logo';
 
 class TopNav extends React.Component {
+  tweet = 'GitHunt – Most starred projects on Github by @kamranahmedse https://github.com/kamranahmedse/githunt';
+
   render() {
     return (
       <div className='top-nav'>
@@ -27,6 +29,10 @@ class TopNav extends React.Component {
                target='_blank'
                rel="noopener noreferrer"
                className="btn btn-danger"><i className="fa fa-chrome mr-1"></i> Use Extension</a>
+            <a href={ `https://twitter.com/intent/tweet?text=${this.tweet}` }
+               target='_blank'
+               rel="noopener noreferrer"
+               className="btn btn-primary btn-tweet"><i className="fa fa-twitter mr-1"></i> Tweet</a>
           </div>
         </div>
       </div>
