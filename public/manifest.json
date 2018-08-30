@@ -3,7 +3,7 @@
   "name": "Githunt",
   "short_name": "Githunt",
   "description": "Replace the new tab with a list of trending repositories on github belonging to any technology that you chose.",
-  "version": "2.1",
+  "version": "3",
   "permissions": [
     "tabs",
     "storage",
@@ -18,7 +18,7 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "homepage_url": "http://kamranahmed.info/",
+  "homepage_url": "http://kamranahmed.info/githunt",
   "browser_action": {
     "default_title": "Githunt",
     "default_icon": "/img/icon128.png"
