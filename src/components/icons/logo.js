@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Logo = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <svg id='githunt-logo' xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
     <defs>
-      <style>{ '.cls-1{ fill:#1d1d1b; }.cls-2{ fill:#e7413e; }.cls-3{ fill:#e6e4da; }.cls-4{ fill:#cbe7f5; }.cls-5{ fill:#1f4863; }' }</style>
+      <style>{ '#githunt-logo .cls-1{ fill:#1d1d1b; }#githunt-logo .cls-2{ fill:#e7413e; }#githunt-logo .cls-3{ fill:#e6e4da; }#githunt-logo .cls-4{ fill:#cbe7f5; }#githunt-logo .cls-5{ fill:#1f4863; }' }</style>
     </defs>
     <title>astronaut-helmet</title>
     <g id="astronaut-helmet">

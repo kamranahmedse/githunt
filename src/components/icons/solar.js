@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Solar = (props) => (
-  <svg { ...props } xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <svg id='solar-loader' { ...props } xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
     <defs>
-      <style>{ '.cls-1{ fill:#1d1d1b; }.cls-2{ fill:#85bfe9; }.cls-3{ fill:#e6e4da; }.cls-4{ fill:#ddc07c; }.cls-5{ fill:#cbe7f5; }.cls-6{ fill:#fab900; }' }</style>
+      <style>{ '#solar-loader .cls-1{ fill:#1d1d1b; }#solar-loader .cls-2{ fill:#85bfe9; }#solar-loader .cls-3{ fill:#e6e4da; }#solar-loader .cls-4{ fill:#ddc07c; }#solar-loader .cls-5{ fill:#cbe7f5; }#solar-loader .cls-6{ fill:#fab900; }' }</style>
     </defs>
     <title>solar-system</title>
     <g id="solar-system">
