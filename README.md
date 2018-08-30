@@ -9,9 +9,8 @@
   <a href="https://chrome.google.com/webstore/detail/githunt/khpcnaokfebphakjgdgpinmglconplhp">
     <img src="https://img.shields.io/chrome-web-store/v/khpcnaokfebphakjgdgpinmglconplhp.svg" alt="version" />
   </a>
-  
-  <a href="https://twitter.com/kamranahmedse">
-    <img src="https://img.shields.io/twitter/follow/@kamranahmedse.svg" alt="downloads" />
+  <a href="https://github.com/kamranahmedse/githunt/blob/master/license.md">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="license-mit" />
   </a>
 </p>
 
