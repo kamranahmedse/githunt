@@ -14,12 +14,19 @@
   </a>
 </p>
 
+<br />
+
 <p align="center">
   <b>Hunt the most starred projects on GitHub</b></br>
   <sub>✨ React app and Chrome Extension to go through the top projects ✨<sub> 
 </p>
 
-<br />
+<p align="center">
+  <br><b>GitHunt</b> is a react application and<br>and chrome extension that let's you explore
+  <br>the most starred projects on GitHub<br><a href="https://kamranahmed.info/githunt">Use Online</a> • <a href="https://bit.ly/githunt-chrome">Install Extension</a>
+  <br><br><img alt="githunt" src="https://i.imgur.com/IytguGv.png">
+</p>
+
 
 * **Web application**: React application which you can use as a [Web Application](http://kamranahmed.info/githunt)
 * **Extension**: [chrome extension](https://chrome.google.com/webstore/detail/githunt/khpcnaokfebphakjgdgpinmglconplhp) to replace your new tab with the trending repositories
@@ -27,8 +34,6 @@
 * **Languages**: filter the repositories by language of your choice
 * **Views**: use the grid or listing, whatever you like
 * **Remembers**: it remembers the options you select and will present
-
-![](https://i.imgur.com/IytguGv.png)
 
 ## Installation
 
