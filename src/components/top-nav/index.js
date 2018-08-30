@@ -38,6 +38,14 @@ class TopNav extends React.Component {
                    className="btn btn-danger"><i className="fa fa-chrome mr-1"></i> Use Extension</a>
               )
             }
+            {
+              isRunningExtension && (
+                <a href='https://twitter.com/kamranahmedse'
+                   target='_blank'
+                   rel="noopener noreferrer"
+                   className="btn btn-danger"><i className="fa fa-comment mr-1"></i> Give Feedback</a>
+              )
+            }
             <a href={ `https://twitter.com/intent/tweet?text=${this.tweet}` }
                target='_blank'
                rel="noopener noreferrer"

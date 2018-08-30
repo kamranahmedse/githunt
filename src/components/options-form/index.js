@@ -64,7 +64,9 @@ class OptionsForm extends React.Component {
           <i className="fa fa-cog mr-2"></i>
           Save Token
         </button>
-        <Link className='btn btn-primary shadow btn-block btn-lg' to='/'><i className="fa fa-arrow-left"></i> Go Home</Link>
+        <Link className='btn btn-primary shadow btn-block btn-lg' to='/'>
+          <i className="fa fa-arrow-left mr-2"></i> Go Home
+        </Link>
 
         {
           this.state.success && (
