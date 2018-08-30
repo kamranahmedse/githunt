@@ -1,8 +1,28 @@
 <p align="center">
-<img width="600" src="http://i.imgur.com/KUEq97P.png" text-align="center">
+  	<img height="100" src="https://raw.github.com/kamranahmedse/githunt/master/public/img/logo.svg?sanitize=true" alt="Githunt" />
 </p>
 
-> Chrome extension - Replaces new tab with trending github repositories
+<h1 align="center">GitHunt</h1>
+
+<p align="center">
+  <a href="https://github.com/kamranahmedse/githunt">
+    <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="contributions" />
+  </a>
+  <a href="https://chrome.google.com/webstore/detail/githunt/khpcnaokfebphakjgdgpinmglconplhp">
+    <img src="https://img.shields.io/chrome-web-store/v/khpcnaokfebphakjgdgpinmglconplhp.svg" alt="version" />
+  </a>
+  
+  <a href="https://twitter.com/kamranahmedse">
+    <img src="https://img.shields.io/twitter/follow/@kamranahmedse.svg" alt="downloads" />
+  </a>
+</p>
+
+<p align="center">
+  <b>Hunt the most starred projects on GitHub</b></br>
+  <sub>✨ React app and Chrome Extension to go through the top projects ✨<sub> 
+</p>
+
+<br />
 
 Whenever you will open a new tab, you will be presented with a page similar to following
 
