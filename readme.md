@@ -26,13 +26,6 @@
 </p>
 
 
-* **Web application**: React application which you can use as a [Web Application](http://kamranahmed.info/githunt)
-* **Extension**: [chrome extension](https://chrome.google.com/webstore/detail/githunt/khpcnaokfebphakjgdgpinmglconplhp) to replace your new tab with the trending repositories
-* **Dates**: view the trending list on any day, month, week or year in past
-* **Languages**: filter the repositories by language of your choice
-* **Views**: use the grid or listing, whatever you like
-* **Remembers**: it remembers the options you select and will present
-
 ## Installation
 
 * Use Online – http://kamranahmed.info/githunt
