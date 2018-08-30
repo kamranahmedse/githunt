@@ -152,10 +152,7 @@ class FeedContainer extends React.Component {
   render() {
     return (
       <div className="page-wrap">
-        <TopNav
-          updateDateJump={ this.props.updateDateJump }
-          selectedDateJump={ this.props.preference.dateJump }
-        />
+        <TopNav/>
 
         { this.renderAlerts() }
 
@@ -175,6 +172,8 @@ class FeedContainer extends React.Component {
                   selectedViewType={ this.props.preference.viewType }
                   updateLanguage={ this.props.updateLanguage }
                   updateViewType={ this.props.updateViewType }
+                  updateDateJump={ this.props.updateDateJump }
+                  selectedDateJump={ this.props.preference.dateJump }
                 />
               }
             </div>
