@@ -23,7 +23,7 @@ class TopNav extends React.Component {
                target='_blank'
                rel="noopener noreferrer"
                className="btn btn-dark"><i className="fa fa-github mr-1"></i> View Source</a>
-            <a href='http://github.com/kamranahmedse/githunt'
+            <a href='https://goo.gl/e7YP1h'
                target='_blank'
                rel="noopener noreferrer"
                className="btn btn-danger"><i className="fa fa-chrome mr-1"></i> Use Extension</a>
