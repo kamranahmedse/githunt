@@ -7,7 +7,6 @@
   "permissions": [
     "tabs",
     "storage",
-    "webNavigation",
     "*://*.github.com/*"
   ],
   "icons": {
