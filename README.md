@@ -1,8 +1,6 @@
-<p align="center">
-  	<img height="100" src="https://raw.github.com/kamranahmedse/githunt/master/public/img/logo.svg?sanitize=true" alt="Githunt" />
-</p>
-
-<h1 align="center">GitHunt</h1>
+<h1 align="center">
+  	<img height="100" src="https://raw.github.com/kamranahmedse/githunt/master/public/img/logo.svg?sanitize=true" alt="Githunt" /> <br> GitHunt
+</h1>
 
 <p align="center">
   <a href="https://github.com/kamranahmedse/githunt">
