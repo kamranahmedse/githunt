@@ -14,8 +14,6 @@
   </a>
 </p>
 
-<br />
-
 <p align="center">
   <b>Hunt the most starred projects on GitHub</b></br>
   <sub>✨ React app and Chrome Extension to go through the top projects ✨<sub> 
