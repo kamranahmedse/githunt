@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <br><b>GitHunt</b> is a react application and<br>and chrome extension that let's you explore
+  <br><b>GitHunt</b> is a react application and<br>a chrome extension that let's you explore
   <br>the most starred projects on GitHub<br><a href="https://kamranahmed.info/githunt">Use Online</a> • <a href="https://bit.ly/githunt-chrome">Install Extension</a>
   <br><br><img alt="githunt" src="./.github/list.png"><br>
   Weekly Trending Projects – List View<br>
@@ -44,6 +44,12 @@
 
 * Use Online – http://kamranahmed.info/githunt
 * Chrome Extension – http://bit.ly/githunt-chrome
+
+## Contributions
+
+* Spread the word
+* Open pull requests
+* Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/kamranahmedse.svg?style=social&label=Follow%20%40kamranahmedse)](https://twitter.com/kamranahmedse)
 
 ## License
 MIT © [Kamran Ahmed](https://kamranahmed.info)
