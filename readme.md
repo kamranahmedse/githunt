@@ -34,7 +34,7 @@
 </p>
 
 <p align="center">
-  <img alt="githunt" src="./.github/filter.png"><br>
+  <img alt="githunt" src="./.github/lang.png"><br>
   Filter by Language<br>
   <sub>💥 Will remember your selection of language 💥</sub>
 </p>
