@@ -23,12 +23,14 @@
   <br><b>GitHunt</b> is a react application and<br>and chrome extension that let's you explore
   <br>the most starred projects on GitHub<br><a href="https://kamranahmed.info/githunt">Use Online</a> • <a href="https://bit.ly/githunt-chrome">Install Extension</a>
   <br><br><img alt="githunt" src="./.github/list.png"><br>
-  <sub>💥 Weekly Trending Projects – List View 💥</sub>
+  Weekly Trending Projects – List View<br>
+  <sub>💥 Keep Scrolling to load past weeks 💥</sub>
 </p>
 
 <p align="center">
   <img alt="githunt" src="./.github/grid.png"><br>
-  <sub>💥 Weekly Trending Projects – Grid View 💥</sub>
+  Weekly Trending Projects – Grid View<br>
+  <sub>💥 Change the view options from the filters list 💥</sub>
 </p>
 
 
