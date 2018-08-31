@@ -33,6 +33,12 @@
   <sub>💥 Change the view options from the filters list 💥</sub>
 </p>
 
+<p align="center">
+  <img alt="githunt" src="./.github/filter.png"><br>
+  Filter by Language<br>
+  <sub>💥 Will remember your selection of language 💥</sub>
+</p>
+
 
 ## Installation
 
