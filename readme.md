@@ -16,7 +16,7 @@
 
 <p align="center">
   <b>Hunt the most starred projects on GitHub</b></br>
-  <sub>✨ React app and Chrome Extension to go through the top projects ✨<sub> 
+  <sub>✨ React app and Chrome Extension to go through the top projects ✨<sub>
 </p>
 
 <p align="center">
@@ -39,17 +39,17 @@
   <sub>💥 Will remember your selection of language 💥</sub>
 </p>
 
-
 ## Installation
 
-* Use Online – http://kamranahmed.info/githunt
-* Chrome Extension – http://bit.ly/githunt-chrome
+- Use Online – https://kamranahmed.info/githunt
+- Chrome Extension – https://bit.ly/githunt-chrome
 
 ## Contributions
 
-* Spread the word
-* Open pull requests
-* Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/kamranahmedse.svg?style=social&label=Follow%20%40kamranahmedse)](https://twitter.com/kamranahmedse)
+- Spread the word
+- Open pull requests
+- Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/kamranahmedse.svg?style=social&label=Follow%20%40kamranahmedse)](https://twitter.com/kamranahmedse)
 
 ## License
+
 MIT © [Kamran Ahmed](https://kamranahmed.info)
