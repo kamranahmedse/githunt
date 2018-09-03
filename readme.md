@@ -42,8 +42,8 @@
 
 ## Installation
 
-* Use Online – http://kamranahmed.info/githunt
-* Chrome Extension – http://bit.ly/githunt-chrome
+* Use Online – https://kamranahmed.info/githunt
+* Chrome Extension – https://bit.ly/githunt-chrome
 
 ## Contributions
 
