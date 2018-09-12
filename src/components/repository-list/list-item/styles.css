@@ -68,3 +68,33 @@
   width: 92px;
   border-radius: 92px;
 }
+
+
+/** night shift style  **/
+.night .list-item-body  {
+  background-color: #21303e !important;
+}
+
+.night .list-item-body  h3 a {
+  color:#ccc;
+}
+
+.night .list-item-body  .repo-footer {
+  background-color: transparent !important;
+}
+
+.night .list-item-body .repo-footer a {
+  color: #6c757d !important;
+}
+
+.night .list-item-container .repo-footer a svg {
+  fill: #ccc;
+}
+
+.night .list-item-body .repo-body p {
+  color: #b6b6b6;
+}
+
+.night .list-container {
+  background-color: #21303e !important;
+}

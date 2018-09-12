@@ -28,3 +28,22 @@
   box-shadow: none;
   outline: none;
 }
+
+
+.night .dropdown-menu {
+  background-color: #212121 !important;
+}
+
+.night .dropdown-menu button {
+  color: #ccc;
+}
+
+.night .dropdown-menu button:hover {
+  color: #fff;
+  background-color: #334556;
+}
+
+.night .dropdown-menu button.active {
+  color: #fff;
+  background-color: #334556;
+}

@@ -26,7 +26,7 @@
 }
 
 .view-type button.active, .view-type button:hover {
-  color: #343a40;
+  color: #fff;
 }
 
 .view-type button:first-child {
