@@ -150,9 +150,8 @@ class FeedContainer extends React.Component {
   }
 
   render() {
-    const className = `page-wrap${this.props.nightShift ? ' night': ''}`
     return (
-      <div className={className}>
+      <div className="page-wrap">
         <TopNav/>
 
         { this.renderAlerts() }
@@ -206,7 +205,6 @@ const mapStateToProps = store => {
   return {
     preference: store.preference,
     github: store.github,
-    nightShift: store.nightShift,
   };
 };
 

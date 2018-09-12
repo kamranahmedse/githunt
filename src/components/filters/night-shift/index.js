@@ -10,6 +10,20 @@ class NightShift extends React.Component {
     super();
     this.toggleNightShift = this.toggleNightShift.bind(this);
   }
+  componentDidMount() {
+    if (!this.props.nightShift) {
+      document.body.classList.add('night');
+    } else {
+      document.body.classList.remove('night');
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.nightShift) {
+      document.body.classList.add('night');
+    } else {
+      document.body.classList.remove('night');
+    }
+  }
   toggleNightShift() {
     if (!this.props.nightShift) {
       return this.props.on();
