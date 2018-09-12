@@ -1,0 +1,13 @@
+.night__shift__box {
+  position: relative;
+  top: -0.3rem;
+  margin-top: 5px;
+  padding: 0.46rem;
+  overflow: hidden;
+  cursor: pointer;
+  color: #586069;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(27, 31, 35, 0.1);
+}
