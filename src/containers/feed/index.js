@@ -204,7 +204,7 @@ class FeedContainer extends React.Component {
 const mapStateToProps = store => {
   return {
     preference: store.preference,
-    github: store.github
+    github: store.github,
   };
 };
 

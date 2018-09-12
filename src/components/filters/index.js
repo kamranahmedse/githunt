@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 
 import LanguageFilter from './language-filter';
 import ViewFilter from './view-filter';
+import NightShift from "./night-shift";
 import './styles.css';
 import DateJumpFilter from './date-jump-filter';
 
 const Filters = (props) => (
   <div className="filters-wrap mt-3 mt-sm-3 mt-md-0 mt-xl-0 mt-lg-0">
+    <div className="filter-item">
+      <NightShift />
+    </div>
     <div className="filter-item">
       <LanguageFilter
         selectedLanguage={ props.selectedLanguage }

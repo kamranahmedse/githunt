@@ -12,6 +12,12 @@
   border-color: white !important;
 }
 
+.night .language-filter {
+  background: transparent !important;
+  border-color: #516b83 !important;
+  color: #ccc;
+}
+
 .language-select {
   position: absolute;
   top: 100%;
@@ -98,4 +104,40 @@
 .select-menu-item-text {
   display: block;
   text-align: left;
+}
+
+.night .language-select {
+  background-color: #212121 !important;
+  border: 1px solid #ccc;
+}
+
+.night .select-menu-header span {
+  color: #ccc;
+}
+
+.night .language-select .select-menu-header {
+  background-color: #212121 !important;
+  border-color: #212121;
+}
+
+.night .select-menu-item {
+  background-color: #212121 !important;
+  color: #ccc !important;
+}
+
+.night .select-menu-item.active-item {
+  background-color: #334556 !important;
+}
+
+.night .select-menu-filters  {
+  background-color: #212121;
+}
+
+.night .select-menu-text-filter input {
+  background-color: #334556 !important;
+  color: #ccc !important;
+}
+
+.night .select-menu-text-filter input::placeholder {
+  color: #ccc !important;
 }
