@@ -26,7 +26,7 @@
 }
 
 .view-type button.active, .view-type button:hover {
-  color: #fff;
+  color: #000;
 }
 
 .view-type button:first-child {
@@ -40,4 +40,8 @@
 .night .view-type button.active {
   color: #ccc;
   opacity: 1;
+}
+
+.night .view-type button.active, .night .view-type button:hover {
+  color: #fff;
 }

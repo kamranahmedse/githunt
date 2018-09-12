@@ -12,11 +12,19 @@
   box-shadow: 0 3px 12px rgba(27, 31, 35, 0.1);
 }
 
+.night .night__shift__box svg {
+  fill: orange;
+}
+
+.night__shift__box svg:hover {
+  fill: orange;
+}
+
 .night .night__shift__box {
   background: transparent !important;
   border: 1px solid #516b83;
 }
 
-.night .night__shift__box svg {
-  fill: yellow;
+.night .night__shift__box svg:hover {
+  fill: #ccc;
 }
