@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { on, off }from './actions';
 import BlubIcon from '../../icons/blub';
@@ -23,6 +24,12 @@ class NightShift extends React.Component {
     )
   }
 }
+
+NightShift.propTypes = {
+  on: PropTypes.func,
+  off: PropTypes.func,
+  nightShift: PropTypes.bool,
+};
 
 function mapStateToProps(state) {
   return {
