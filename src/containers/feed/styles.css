@@ -56,5 +56,11 @@
 }
 
 .night {
-  background-color: #333;
+  background-color: #212121;
+}
+
+.night .alert-warning {
+  background-color: #334556;
+  border-color: #334556;
+  color: #ccc;
 }

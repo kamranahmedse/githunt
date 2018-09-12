@@ -12,6 +12,12 @@
   border-color: white !important;
 }
 
+.night .language-filter {
+  background: transparent !important;
+  border-color: #516b83 !important;
+  color: #ccc;
+}
+
 .language-select {
   position: absolute;
   top: 100%;

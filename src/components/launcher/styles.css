@@ -30,3 +30,7 @@
 .launcher-body .logo-container .logo-text {
   margin-top: 10px;
 }
+
+.night .logo-text h4 {
+  color: #ccc !important;
+}

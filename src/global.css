@@ -25,3 +25,13 @@ a {
   background: #1157ed;
   border-color: #1157ed;
 }
+
+.night .btn-danger {
+  background-color: #811e27 !important;
+  border-color: #811e27 !important;
+}
+
+.night .btn-primary {
+  background-color: #06488f;
+  border-color: #06488f;
+}

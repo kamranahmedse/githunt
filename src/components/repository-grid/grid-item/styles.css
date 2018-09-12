@@ -102,3 +102,28 @@
   fill: #6c757d;
   margin-right: 5px;
 }
+
+/** night shift style **/
+.night .grid-item-body {
+  background-color: #21303e !important;
+}
+
+.night .grid-item-body h5 a {
+  color:#ccc;
+}
+
+.night .repo-footer {
+  background-color: transparent !important;
+}
+
+.night .repo-footer span {
+  color: #6c757d;
+}
+
+.night .grid-item-container .repo-footer a svg {
+  fill: #ccc;
+}
+
+.night .repo-body p {
+  color: #b6b6b6;
+}
