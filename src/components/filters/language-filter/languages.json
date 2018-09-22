@@ -148,8 +148,8 @@
     "value": "CSharp"
   },
   {
-    "title": "C",
-    "value": "C"
+    "title": "C++",
+    "value": "C++"
   },
   {
     "title": "Cap",
@@ -328,8 +328,8 @@
     "value": "Erlang"
   },
   {
-    "title": "F",
-    "value": "F"
+    "title": "F#",
+    "value": "F#"
   },
   {
     "title": "Factor",
