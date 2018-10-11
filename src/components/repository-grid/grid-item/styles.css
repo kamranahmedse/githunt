@@ -72,6 +72,7 @@
 
 .grid-item-container .repo-name {
   font-weight: 700;
+  word-wrap: break-all;
 }
 
 .grid-item-container .repo-body p {
