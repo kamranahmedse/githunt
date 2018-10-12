@@ -64,11 +64,11 @@ class FeedContainer extends React.Component {
     const lastRecords = repositories[repositories.length - 1];
 
     if (lastRecords) {
-      dateRange.start = moment(lastRecords.start).subtract(1, dateJump);
+      dateRange.start = moment(lastRecords.start).subtract(1, dateJump).startOf('day');
       dateRange.end = lastRecords.start;
     } else {
-      dateRange.start = moment().subtract(1, dateJump);
-      dateRange.end = moment();
+      dateRange.start = moment().subtract(1, dateJump).startOf('day');
+      dateRange.end = moment().startOf('day');
     }
 
     return dateRange;

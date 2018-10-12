@@ -14,7 +14,7 @@ const transformFilters = (filters) => {
 
   const startMoment = moment(filters.dateRange.start);
   const endMoment = moment(filters.dateRange.end);
-  const reposDate = `created:${startMoment.format('YYYY-MM-DD')}..${endMoment.format('YYYY-MM-DD')}`;
+  const reposDate = `created:${startMoment.format()}..${endMoment.format()}`;
   const reposLanguage = filters.language ? `language:${filters.language} ` : '';
 
   if (filters.token) {
