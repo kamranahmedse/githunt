@@ -14,12 +14,12 @@ class ListItem extends React.Component {
         <div className="list-item-body">
           <div className="repo-header">
             <h3>
-              <a href={ this.props.repository.html_url } target="_blank">
+              <a href={ this.props.repository.html_url } rel="noopener noreferrer" target="_blank">
                 <span className="text-normal">{ this.props.repository.owner.login } / </span>
                 { this.props.repository.name }
               </a>
             </h3>
-            <p className="repo-meta text-muted small">Built by &middot; <a href={ this.props.repository.owner.html_url } target="_blank">{ this.props.repository.owner.login }</a> &middot; { moment(this.props.repository.created_at).format('MMMM D YYYY') }</p>
+            <p className="repo-meta text-muted small">Built by &middot; <a href={ this.props.repository.owner.html_url } rel="noopener noreferrer" target="_blank">{ this.props.repository.owner.login }</a> &middot; { moment(this.props.repository.created_at).format('MMMM D YYYY') }</p>
           </div>
           <div className="repo-body">
             <p>{ this.props.repository.description || 'No description given.' }</p>
@@ -37,18 +37,21 @@ class ListItem extends React.Component {
             }
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/stargazers` }
+               rel="noopener noreferrer"
                target="_blank">
               <Star/>
               { this.props.repository.stargazers_count.toLocaleString() }
             </a>
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/network/members` }
+               rel="noopener noreferrer"
                target="_blank">
               <Fork/>
               { this.props.repository.forks.toLocaleString() }
             </a>
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/watchers` }
+               rel="noopener noreferrer"
                target="_blank">
               <Watcher/>
               { this.props.repository.watchers.toLocaleString() }
@@ -58,6 +61,7 @@ class ListItem extends React.Component {
 
         <a href={ this.props.repository.owner.html_url }
            target="_blank"
+           rel="noopener noreferrer"
            className="author-link d-none d-lg-block d-xl-block d-md-block">
           <img className='author-img'
                src={ this.props.repository.owner.avatar_url }

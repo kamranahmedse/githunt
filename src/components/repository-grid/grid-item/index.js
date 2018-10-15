@@ -13,7 +13,7 @@ class GridItem extends React.Component {
       <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 grid-item-container">
         <div className="grid-item-body">
           <div className="author-header clearfix">
-            <a href={ this.props.repository.owner.html_url } target="_blank">
+            <a href={ this.props.repository.owner.html_url } rel="noopener noreferrer" target="_blank">
               <div className="author-img">
                 <img src={ this.props.repository.owner.avatar_url }
                      onError={ (e) => {
@@ -29,12 +29,12 @@ class GridItem extends React.Component {
           </div>
           <div className="repo-header">
             <h5>
-              <a href={ this.props.repository.html_url } target="_blank">
+              <a href={ this.props.repository.html_url } rel="noopener noreferrer" target="_blank">
                 <span className="repo-name">{ this.props.repository.name }</span>
               </a>
             </h5>
             <p className="repo-meta text-muted small">
-              Built by &middot; <a target="_blank" href={ this.props.repository.owner.html_url }>{ this.props.repository.owner.login }</a> &middot; { moment(this.props.repository.created_at).format('MMMM D, YYYY') }
+              Built by &middot; <a target="_blank" rel="noopener noreferrer" href={ this.props.repository.owner.html_url }>{ this.props.repository.owner.login }</a> &middot; { moment(this.props.repository.created_at).format('MMMM D, YYYY') }
             </p>
           </div>
           <div className="repo-body">
@@ -53,18 +53,21 @@ class GridItem extends React.Component {
             }
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/stargazers` }
+               rel="noopener noreferrer"
                target="_blank">
               <Star/>
               { this.props.repository.stargazers_count.toLocaleString() }
             </a>
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/network/members` }
+               rel="noopener noreferrer"
                target="_blank">
               <Fork/>
               { this.props.repository.forks.toLocaleString() }
             </a>
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/watchers` }
+               rel="noopener noreferrer"
                target="_blank">
               <Watcher/>
               { this.props.repository.watchers.toLocaleString() }

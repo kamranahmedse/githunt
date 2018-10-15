@@ -8225,6 +8225,15 @@ redux-devtools-extension@^2.13.5:
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.5.tgz#3ff34f7227acfeef3964194f5f7fc2765e5c5a39"
   integrity sha512-QQ9BRy77oURHMdGys9rfQcCQDzXZ1T4oW+eUyE5Cg7DNVau69HJzc4YNDMOmpi0Dzpi1zOQgQ2rUpgJta4Lfqg==
 
+redux-persist-expire@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/redux-persist-expire/-/redux-persist-expire-1.0.1.tgz#3c5cacbf6d735ab60ac6de5ae47017d0bf4cad05"
+  integrity sha512-V8ra+OeHGKEBK78wo2vCcyEoTs0gWobzpXSVsO38szi3KjsxKxLJT4MC684RQ9hxFwtwvMzctw6zF2/F3luSow==
+  dependencies:
+    moment "^2.22.2"
+    redux "^4.0.0"
+    redux-persist "^5.10.0"
+
 redux-persist@^5.10.0:
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-5.10.0.tgz#5d8d802c5571e55924efc1c3a9b23575283be62b"

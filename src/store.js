@@ -4,8 +4,10 @@ import { persistReducer, persistStore } from 'redux-persist';
 import { applyMiddleware, createStore } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
+import expireReducer from 'redux-persist-expire';
 
 import GithubTransform from './redux/github/transform';
+import githubState from './redux/github/reducer';
 import rootReducer from './redux/reducers';
 
 const persistedReducers = persistReducer(
@@ -14,7 +16,12 @@ const persistedReducers = persistReducer(
     storage: storage,
     stateReconciler: autoMergeLevel2,
     transforms: [
-      GithubTransform
+      GithubTransform,
+      expireReducer('github', {
+        expireSeconds: 3600,
+        expiredState: { ...githubState },
+        autoExpire: true
+      })
     ]
   },
   rootReducer,
