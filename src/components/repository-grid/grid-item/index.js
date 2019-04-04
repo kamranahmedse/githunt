@@ -70,7 +70,7 @@ class GridItem extends React.Component {
                rel="noopener noreferrer"
                target="_blank">
               <Watcher/>
-              { this.props.repository.watchers.toLocaleString() }
+              { this.props.repository.subscribers_count.toLocaleString() }
             </a>
           </div>
         </div>
