@@ -1,16 +1,18 @@
 {
-  "main.css": "/githunt/static/css/main.3b403f0a.chunk.css",
-  "main.js": "/githunt/static/js/main.e9f90760.chunk.js",
-  "main.js.map": "/githunt/static/js/main.e9f90760.chunk.js.map",
-  "static/css/1.432765f2.chunk.css": "/githunt/static/css/1.432765f2.chunk.css",
-  "static/js/1.9ab22722.chunk.js": "/githunt/static/js/1.9ab22722.chunk.js",
-  "static/js/1.9ab22722.chunk.js.map": "/githunt/static/js/1.9ab22722.chunk.js.map",
-  "runtime~main.js": "/githunt/static/js/runtime~main.bb786a35.js",
-  "runtime~main.js.map": "/githunt/static/js/runtime~main.bb786a35.js.map",
-  "static/media/font-awesome.css": "/githunt/static/media/fontawesome-webfont.fee66e71.woff",
-  "static/css/main.3b403f0a.chunk.css.map": "/githunt/static/css/main.3b403f0a.chunk.css.map",
-  "static/css/1.432765f2.chunk.css.map": "/githunt/static/css/1.432765f2.chunk.css.map",
-  "index.html": "/githunt/index.html",
-  "precache-manifest.30d6777e5f256779ac90a2441095850e.js": "/githunt/precache-manifest.30d6777e5f256779ac90a2441095850e.js",
-  "service-worker.js": "/githunt/service-worker.js"
+  "files": {
+    "main.css": "/githunt/static/css/main.74b19a4b.chunk.css",
+    "main.js": "/githunt/static/js/main.b7d243a0.chunk.js",
+    "main.js.map": "/githunt/static/js/main.b7d243a0.chunk.js.map",
+    "runtime~main.js": "/githunt/static/js/runtime~main.09c9985d.js",
+    "runtime~main.js.map": "/githunt/static/js/runtime~main.09c9985d.js.map",
+    "static/css/2.c66f9ff3.chunk.css": "/githunt/static/css/2.c66f9ff3.chunk.css",
+    "static/js/2.aeb34f43.chunk.js": "/githunt/static/js/2.aeb34f43.chunk.js",
+    "static/js/2.aeb34f43.chunk.js.map": "/githunt/static/js/2.aeb34f43.chunk.js.map",
+    "index.html": "/githunt/index.html",
+    "precache-manifest.8b9d86cf34e6e5026a63ac009e9ba3c9.js": "/githunt/precache-manifest.8b9d86cf34e6e5026a63ac009e9ba3c9.js",
+    "service-worker.js": "/githunt/service-worker.js",
+    "static/css/2.c66f9ff3.chunk.css.map": "/githunt/static/css/2.c66f9ff3.chunk.css.map",
+    "static/css/main.74b19a4b.chunk.css.map": "/githunt/static/css/main.74b19a4b.chunk.css.map",
+    "static/media/font-awesome.css": "/githunt/static/media/fontawesome-webfont.fee66e71.woff"
+  }
 }
