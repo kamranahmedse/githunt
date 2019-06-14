@@ -5,7 +5,7 @@ import './styles.css';
 import moment from 'moment';
 import Star from '../../icons/star';
 import Fork from '../../icons/fork';
-import Watcher from '../../icons/watcher';
+import Issue from "../../icons/issue";
 
 class ListItem extends React.Component {
   render() {
@@ -39,22 +39,22 @@ class ListItem extends React.Component {
                href={ `${this.props.repository.html_url}/stargazers` }
                rel="noopener noreferrer"
                target="_blank">
-              <Star/>
+              <Star />
               { this.props.repository.stargazers_count.toLocaleString() }
             </a>
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/network/members` }
                rel="noopener noreferrer"
                target="_blank">
-              <Fork/>
+              <Fork />
               { this.props.repository.forks.toLocaleString() }
             </a>
             <a className="muted-link d-inline-block mr-3"
-               href={ `${this.props.repository.html_url}/watchers` }
+               href={ `${this.props.repository.html_url}/issues` }
                rel="noopener noreferrer"
                target="_blank">
-              <Watcher/>
-              { this.props.repository.subscribers_count.toLocaleString() }
+              <Issue />
+              { this.props.repository.open_issues.toLocaleString() }
             </a>
           </div>
         </div>
@@ -68,7 +68,7 @@ class ListItem extends React.Component {
                onError={ (e) => {
                  e.target.src = '/img/logo.svg';
                } }
-               alt={ this.props.repository.owner.login }/>
+               alt={ this.props.repository.owner.login } />
         </a>
       </div>
     );
