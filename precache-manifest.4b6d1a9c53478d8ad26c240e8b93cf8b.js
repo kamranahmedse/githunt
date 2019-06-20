@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c2b7fecb74d1314af2fc677c5be642b6",
+    "revision": "af7bf7af9f2290d3a9b0ebef2f7b7720",
     "url": "/githunt/index.html"
   },
   {
