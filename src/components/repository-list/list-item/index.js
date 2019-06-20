@@ -47,14 +47,14 @@ class ListItem extends React.Component {
                rel="noopener noreferrer"
                target="_blank">
               <Fork />
-              { this.props.repository.forks.toLocaleString() }
+              { this.props.repository.forks ? this.props.repository.forks.toLocaleString() : 0 }
             </a>
             <a className="muted-link d-inline-block mr-3"
                href={ `${this.props.repository.html_url}/issues` }
                rel="noopener noreferrer"
                target="_blank">
               <Issue />
-              { this.props.repository.open_issues.toLocaleString() }
+              { this.props.repository.open_issues ? this.props.repository.open_issues.toLocaleString() : 0 }
             </a>
           </div>
         </div>
