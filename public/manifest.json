@@ -3,7 +3,7 @@
   "name": "Githunt",
   "short_name": "Githunt",
   "description": "Replace the new tab with a list of trending repositories on github belonging to any technology that you chose.",
-  "version": "3.6",
+  "version": "3.7",
   "permissions": [
     "tabs",
     "storage",
