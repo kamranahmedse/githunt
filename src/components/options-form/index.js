@@ -48,9 +48,10 @@ class OptionsForm extends React.Component {
           <hr/>
           <ul>
             <li>
-              Go to the <a href="https://github.com/settings/tokens" target="_blank" rel="noopener noreferrer"><i className="fa fa-external-link mr-1"></i> Settings <i className="fa fa-angle-right"></i> Personal Access Tokens</a> of your github profile
+              Go to the
+              <a href="https://github.com/settings/tokens/new?description=GitHunt&scopes=public_repo" target="_blank" rel="noopener noreferrer"><i className="fa fa-external-link mr-1"></i>Settings <i className="fa fa-angle-right"></i> Personal Access Tokens <i className="fa fa-angle-right"></i> New personal access token</a> of your github profile
             </li>
-            <li>Click <span>Generate New Token</span>. Enter the description and select the <span>scope</span> called <span>public_repo</span> under repo and click <span>Generate Token</span>.</li>
+            <li>Click <span>Generate Token</span>.</li>
             <li>You will be presented with the generated token. Copy the token and add it below</li>
           </ul>
           <input type="text"
