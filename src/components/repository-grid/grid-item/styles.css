@@ -97,6 +97,13 @@
   font-weight: 500;
 }
 
+.grid-item-container .repo-footer .repo-language-color {
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  border-radius: 50%;
+}
+
 .grid-item-container .repo-footer a svg {
   position: relative;
   top: -2px;

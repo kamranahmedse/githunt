@@ -57,6 +57,13 @@
   text-decoration: none;
 }
 
+.list-item-container .repo-footer .repo-language-color {
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  border-radius: 50%;
+}
+
 .list-item-container .author-link {
   position: absolute;
   top: 15px;

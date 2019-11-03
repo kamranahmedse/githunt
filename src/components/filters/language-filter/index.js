@@ -74,7 +74,7 @@ class LanguageFilter extends React.Component {
            { ...refProp }
            onMouseDown={ () => this.selectLanguage(counter) }
            key={ counter }>
-          <span className="select-menu-item-text">{ language.title }</span>
+          <span className="select-menu-item-text">{ language.title } jjj</span>
         </a>
       );
     });
