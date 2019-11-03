@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import GithubColors  from 'github-colors'
+import GithubColors  from 'github-colors';
 
 import './styles.css';
 import Star from '../../icons/star';
@@ -10,6 +10,8 @@ import Issue from "../../icons/issue";
 
 class GridItem extends React.Component {
   render() {
+    const languageColor = GithubColors.get(this.props.repository.language);
+
     return (
       <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 grid-item-container">
         <div className="grid-item-body">
@@ -46,7 +48,7 @@ class GridItem extends React.Component {
               this.props.repository.language && (
                 <span className="d-inline-flex align-items-center mr-3">
                   <span className="repo-language-color" style={{
-                    backgroundColor: GithubColors.get(this.props.repository.language).color
+                    backgroundColor: languageColor ? languageColor.color : '#e8e8e8'
                   }}></span>
                   <span itemProp="programmingLanguage">
                     { this.props.repository.language }

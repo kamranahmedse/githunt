@@ -72,7 +72,8 @@
   border-top: 0;
   border-right: 0;
   border-left: 0;
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 10px 8px 10px 16px;
   overflow: hidden;
   color: inherit;
@@ -93,6 +94,13 @@
 .select-menu-item:hover .select-menu-item-text,
 .select-menu-item.active-item .select-menu-item-text {
   color: white;
+}
+
+.select-menu-item .repo-language-color {
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 50%;
 }
 
 .select-menu-item-text {
