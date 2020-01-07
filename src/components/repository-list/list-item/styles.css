@@ -9,6 +9,16 @@
   margin-bottom: 4px;
   font-size: 20px;
   font-weight: 700;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  .list-item-container .repo-header h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%;
+  }
 }
 
 .list-item-container .repo-header h3 .text-normal {
@@ -31,6 +41,7 @@
   margin-bottom: 0;
   display: block;
   max-width: 80%;
+  word-break: break-all;
 }
 
 .list-item-container .repo-footer svg {
