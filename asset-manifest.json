@@ -1,18 +1,26 @@
 {
   "files": {
-    "main.css": "/githunt/static/css/main.a6cd534a.chunk.css",
-    "main.js": "/githunt/static/js/main.a90a4e80.chunk.js",
-    "main.js.map": "/githunt/static/js/main.a90a4e80.chunk.js.map",
-    "runtime~main.js": "/githunt/static/js/runtime~main.09c9985d.js",
-    "runtime~main.js.map": "/githunt/static/js/runtime~main.09c9985d.js.map",
-    "static/css/2.ceba0115.chunk.css": "/githunt/static/css/2.ceba0115.chunk.css",
-    "static/js/2.79e53961.chunk.js": "/githunt/static/js/2.79e53961.chunk.js",
-    "static/js/2.79e53961.chunk.js.map": "/githunt/static/js/2.79e53961.chunk.js.map",
+    "main.css": "/githunt/static/css/main.5b277643.chunk.css",
+    "main.js": "/githunt/static/js/main.daa12810.chunk.js",
+    "main.js.map": "/githunt/static/js/main.daa12810.chunk.js.map",
+    "runtime-main.js": "/githunt/static/js/runtime-main.fe817508.js",
+    "runtime-main.js.map": "/githunt/static/js/runtime-main.fe817508.js.map",
+    "static/css/2.d1a9897d.chunk.css": "/githunt/static/css/2.d1a9897d.chunk.css",
+    "static/js/2.423d9689.chunk.js": "/githunt/static/js/2.423d9689.chunk.js",
+    "static/js/2.423d9689.chunk.js.map": "/githunt/static/js/2.423d9689.chunk.js.map",
     "index.html": "/githunt/index.html",
-    "precache-manifest.4b6d1a9c53478d8ad26c240e8b93cf8b.js": "/githunt/precache-manifest.4b6d1a9c53478d8ad26c240e8b93cf8b.js",
+    "precache-manifest.676793a7d793b23325bd4d1deeb54fcd.js": "/githunt/precache-manifest.676793a7d793b23325bd4d1deeb54fcd.js",
     "service-worker.js": "/githunt/service-worker.js",
-    "static/css/2.ceba0115.chunk.css.map": "/githunt/static/css/2.ceba0115.chunk.css.map",
-    "static/css/main.a6cd534a.chunk.css.map": "/githunt/static/css/main.a6cd534a.chunk.css.map",
+    "static/css/2.d1a9897d.chunk.css.map": "/githunt/static/css/2.d1a9897d.chunk.css.map",
+    "static/css/main.5b277643.chunk.css.map": "/githunt/static/css/main.5b277643.chunk.css.map",
+    "static/js/2.423d9689.chunk.js.LICENSE": "/githunt/static/js/2.423d9689.chunk.js.LICENSE",
     "static/media/font-awesome.css": "/githunt/static/media/fontawesome-webfont.fee66e71.woff"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fe817508.js",
+    "static/css/2.d1a9897d.chunk.css",
+    "static/js/2.423d9689.chunk.js",
+    "static/css/main.5b277643.chunk.css",
+    "static/js/main.daa12810.chunk.js"
+  ]
 }
