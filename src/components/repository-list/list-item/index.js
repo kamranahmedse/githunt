@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import GithubColors  from 'github-colors';
 
 import './styles.css';
 import moment from 'moment';
@@ -9,6 +10,8 @@ import Issue from "../../icons/issue";
 
 class ListItem extends React.Component {
   render() {
+    const languageColor = GithubColors.get(this.props.repository.language);
+
     return (
       <div className="col-12 list-item-container">
         <div className="list-item-body">
@@ -27,8 +30,10 @@ class ListItem extends React.Component {
           <div className="repo-footer">
             {
               this.props.repository.language && (
-                <span className="d-inline-block mr-3">
-                  <span className="repo-language-color ml-0"></span>
+                <span className="d-inline-flex align-items-center mr-3">
+                  <span className="repo-language-color" style={{
+                    backgroundColor: languageColor ? languageColor.color : '#e8e8e8'
+                  }}></span>
                   <span itemProp="programmingLanguage">
                     { this.props.repository.language }
                   </span>

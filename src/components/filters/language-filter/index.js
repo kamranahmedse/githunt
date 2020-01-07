@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import GithubColors  from 'github-colors';
 
 import './styles.css';
 import languages from './languages';
@@ -68,12 +69,18 @@ class LanguageFilter extends React.Component {
 
       // This will be used in making sure of the element visibility
       const refProp = isSelectedIndex ? { ref: 'activeItem' } : {};
+      const languageColor = GithubColors.get(language.title) || {
+        color: language.title === 'All Languages' ? 'transparent' : '#e8e8e8'
+      };
 
       return (
         <a className={ classNames('select-menu-item', { 'active-item': isSelectedIndex }) }
            { ...refProp }
            onMouseDown={ () => this.selectLanguage(counter) }
            key={ counter }>
+          <span className='repo-language-color' style={{
+            backgroundColor: languageColor.color
+          }}></span>
           <span className="select-menu-item-text">{ language.title }</span>
         </a>
       );
