@@ -17,10 +17,6 @@ const transformFilters = (filters) => {
   const reposDate = `created:${startMoment.format()}..${endMoment.format()}`;
   const reposLanguage = filters.language ? `language:${filters.language} ` : '';
 
-  if (filters.token) {
-    transformedFilters.access_token = filters.token;
-  }
-
   transformedFilters.q = reposLanguage + reposDate;
   transformedFilters.sort = 'stars';
   transformedFilters.order = 'desc';
@@ -37,7 +33,10 @@ export const fetchTrending = function (filters) {
     dispatch({ type: PROCESS_FETCH_TRENDING });
 
     axios.get(API_URL, {
-      params: transformFilters(filters)
+      params: transformFilters(filters),
+      headers: {
+        ...(filters.token ? { Authorization: `token ${filters.token}` } : {})
+      }
     }).then(response => {
       dispatch({
         type: FETCH_TRENDING_SUCCESS,
