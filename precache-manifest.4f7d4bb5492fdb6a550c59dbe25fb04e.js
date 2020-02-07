@@ -1,31 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4256145570b6322fbd71860ad4b1214b",
+    "revision": "cf6ab1c25ea85bd4a8506f822534d03f",
     "url": "/githunt/index.html"
   },
   {
-    "revision": "7c558617cdea81944162",
-    "url": "/githunt/static/css/2.d1a9897d.chunk.css"
+    "revision": "3c84a07da31e1b9fb6a3",
+    "url": "/githunt/static/css/2.5a632e4b.chunk.css"
   },
   {
-    "revision": "3b8614acafa2e9e3e0cf",
+    "revision": "8b85cf6552178edde5b2",
     "url": "/githunt/static/css/main.5b277643.chunk.css"
   },
   {
-    "revision": "7c558617cdea81944162",
-    "url": "/githunt/static/js/2.423d9689.chunk.js"
+    "revision": "3c84a07da31e1b9fb6a3",
+    "url": "/githunt/static/js/2.22846e27.chunk.js"
   },
   {
-    "revision": "45faf133abd22b7404f66698cd928c49",
-    "url": "/githunt/static/js/2.423d9689.chunk.js.LICENSE"
+    "revision": "4dfe0d1c0c4999b3ec5db0050d4eb26c",
+    "url": "/githunt/static/js/2.22846e27.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3b8614acafa2e9e3e0cf",
-    "url": "/githunt/static/js/main.daa12810.chunk.js"
+    "revision": "8b85cf6552178edde5b2",
+    "url": "/githunt/static/js/main.80136c9b.chunk.js"
   },
   {
-    "revision": "42e6b907cc11bbc258a6",
-    "url": "/githunt/static/js/runtime-main.fe817508.js"
+    "revision": "2a62761ec38dcfffca38",
+    "url": "/githunt/static/js/runtime-main.32225ef5.js"
   },
   {
     "revision": "674f50d287a8c48dc19ba404d20fe713",
