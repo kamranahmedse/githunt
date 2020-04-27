@@ -86,10 +86,16 @@
 }
 
 .grid-item-container .repo-body p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: 4.5em;
+  line-height: 1.5em;
   font-size: 14px;
   margin-bottom: 0;
   color: #6e7583;
   word-break: break-word;
+  overflow: hidden;
 }
 
 .grid-item-container .repo-footer {
