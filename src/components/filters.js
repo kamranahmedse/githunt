@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Menu, MenuButton, MenuItem, MenuList, Select, Stack } from '@chakra-ui/core';
-import { FaList, FaTable } from 'react-icons/fa';
+import React from "react";
+import { Button, Icon, Menu, MenuButton, MenuItem, MenuList, Select, Stack, Box } from '@chakra-ui/core';
+import { FaList, FaTable } from "react-icons/fa";
 
 import languages from "../data/languages";
 
 export function Filters(props) {
-  const { onViewChange } = props;
-  const [viewType, setViewType] = useState();
-  
-  useEffect(() => {
-    onViewChange(viewType);
-  }, [viewType]);
+  const { onViewChange, viewType, onDateGroupChange, dateGroup, language, onLanguageChange } = props;
 
   return (
     <Stack isInline>
-      <Select>
+      <Select value={language} onChange={(e) => onLanguageChange(e.target.value)}>
         {languages.map((language) => (
           <option key={language.value} value={language.value}>
             {language.label}
@@ -24,24 +19,24 @@ export function Filters(props) {
 
       <Menu>
         <MenuButton
+          textAlign='left'
+          w='250px'
+          justifyContent='flex-start'
           as={Button}
           bg="white"
           borderWidth={1}
-          px="40px"
+          px="15px"
           fontWeight={400}
-          leftIcon="calendar"
-          _focus={{ boxShadow: 'none'}}
+          _focus={{ boxShadow: "none" }}
         >
-          Actions
+          <Icon name='calendar' mr={3} />
+          <Box as='span' textTransform='capitalize'>{ dateGroup }</Box>
         </MenuButton>
         <MenuList>
-          <MenuItem>Download</MenuItem>
-          <MenuItem>Create a Copy</MenuItem>
-          <MenuItem>Mark as Draft</MenuItem>
-          <MenuItem>Delete</MenuItem>
-          <MenuItem as="a" href="#">
-            Attend a Workshop
-          </MenuItem>
+          <MenuItem onClick={() => onDateGroupChange('daily')}>Daily</MenuItem>
+          <MenuItem onClick={() => onDateGroupChange('weekly')}>Weekly</MenuItem>
+          <MenuItem onClick={() => onDateGroupChange('monthly')}>Monthly</MenuItem>
+          <MenuItem onClick={() => onDateGroupChange('yearly')}>Yearly</MenuItem>
         </MenuList>
       </Menu>
 
@@ -56,23 +51,23 @@ export function Filters(props) {
       >
         <Button
           h="100%"
-          onClick={() => setViewType("grid")}
+          onClick={() => onViewChange("grid")}
           fontWeight={400}
           roundedRight={0}
           leftIcon={FaTable}
           bg={viewType === "grid" ? "gray.200" : "white"}
-          _focus={{ boxShadow: 'none'}}
+          _focus={{ boxShadow: "none" }}
         >
           Grid
         </Button>
         <Button
           h="100%"
-          onClick={() => setViewType("list")}
+          onClick={() => onViewChange("list")}
           fontWeight={400}
           roundedLeft={0}
           leftIcon={FaList}
           bg={viewType === "list" ? "gray.200" : "white"}
-          _focus={{ boxShadow: 'none'}}
+          _focus={{ boxShadow: "none" }}
         >
           List
         </Button>
