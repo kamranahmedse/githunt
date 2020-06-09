@@ -5,7 +5,7 @@ import { FaList, FaTable } from "react-icons/fa";
 import languages from "../data/languages";
 
 export function Filters(props) {
-  const { onViewChange, viewType, onDateGroupChange, dateGroup, language, onLanguageChange } = props;
+  const { onViewChange, viewType, onDateJumpChange, dateJump, language, onLanguageChange } = props;
 
   return (
     <Stack isInline>
@@ -30,13 +30,13 @@ export function Filters(props) {
           _focus={{ boxShadow: "none" }}
         >
           <Icon name='calendar' mr={3} />
-          <Box as='span' textTransform='capitalize'>{ dateGroup }</Box>
+          <Box as='span' textTransform='capitalize'>{ dateJump }</Box>
         </MenuButton>
         <MenuList>
-          <MenuItem onClick={() => onDateGroupChange('daily')}>Daily</MenuItem>
-          <MenuItem onClick={() => onDateGroupChange('weekly')}>Weekly</MenuItem>
-          <MenuItem onClick={() => onDateGroupChange('monthly')}>Monthly</MenuItem>
-          <MenuItem onClick={() => onDateGroupChange('yearly')}>Yearly</MenuItem>
+          <MenuItem onClick={() => onDateJumpChange('day')}>Daily</MenuItem>
+          <MenuItem onClick={() => onDateJumpChange('week')}>Weekly</MenuItem>
+          <MenuItem onClick={() => onDateJumpChange('month')}>Monthly</MenuItem>
+          <MenuItem onClick={() => onDateJumpChange('year')}>Yearly</MenuItem>
         </MenuList>
       </Menu>
 

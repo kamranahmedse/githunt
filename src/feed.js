@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import moment from "moment";
+import useFetch from "use-http";
+import React, { useEffect, useState } from "react";
 import { Box, Flex, SimpleGrid, Button } from "@chakra-ui/core";
-import { PageHeader } from "./components/page-header";
-import { GroupTitle } from "./components/group-title";
-import { Filters } from "./components/filters";
 import { Repo } from "./components/repo";
+import { Filters } from "./components/filters";
+import { GroupTitle } from "./components/group-title";
+import { PageHeader } from "./components/page-header";
 
 export function Feed() {
   const [viewType, setViewType] = useState("grid");
-  const [dateGroup, setDateGroup] = useState("daily");
+  const [dateJump, setDateJump] = useState("day");
   const [language, setLanguage] = useState();
 
   return (
@@ -19,9 +21,9 @@ export function Feed() {
         <Filters
           viewType={viewType}
           onViewChange={setViewType}
-          dateGroup={dateGroup}
-          onDateGroupChange={setDateGroup}
-          language={language} 
+          dateJump={dateJump}
+          onDateJumpChange={setDateJump}
+          language={language}
           onLanguageChange={setLanguage}
         />
       </Flex>
