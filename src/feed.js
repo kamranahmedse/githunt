@@ -1,11 +1,9 @@
-import moment from "moment";
-import useFetch from "use-http";
-import React, { useEffect, useState } from "react";
-import { Box, Flex, SimpleGrid, Button } from "@chakra-ui/core";
-import { Repo } from "./components/repo";
-import { Filters } from "./components/filters";
-import { GroupTitle } from "./components/group-title";
-import { PageHeader } from "./components/page-header";
+import React, { useState } from 'react';
+import { Box, Button, Flex, SimpleGrid } from '@chakra-ui/core';
+import { Repo } from './components/repo';
+import { Filters } from './components/filters';
+import { GroupTitle } from './components/group-title';
+import { PageHeader } from './components/page-header';
 
 export function Feed() {
   const [viewType, setViewType] = useState("grid");

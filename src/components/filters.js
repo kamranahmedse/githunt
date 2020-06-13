@@ -5,7 +5,14 @@ import { FaList, FaTable } from "react-icons/fa";
 import languages from "../data/languages";
 
 export function Filters(props) {
-  const { onViewChange, viewType, onDateJumpChange, dateJump, language, onLanguageChange } = props;
+  const {
+    onViewChange,
+    viewType,
+    onDateJumpChange,
+    dateJump,
+    language,
+    onLanguageChange,
+  } = props;
 
   return (
     <Stack isInline>
