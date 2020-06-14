@@ -15,7 +15,7 @@
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-scripts": "3.4.1",
-    "use-http": "^1.0.12"
+    "use-http": "^1.0.13"
   },
   "scripts": {
     "start": "react-scripts start",

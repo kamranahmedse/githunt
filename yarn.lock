@@ -10664,10 +10664,10 @@ use-dark-mode@2.3.1:
     "@use-it/event-listener" "^0.1.2"
     use-persisted-state "^0.3.0"
 
-use-http@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/use-http/-/use-http-1.0.12.tgz#c3167c213ab3659c4c9800e3b6cef15e5f621d0e"
-  integrity sha512-8Kb/jfbJRM7/JIT3ZNvqp29U13HGTF4+RDuJCAQzW7wyP/Shjlv1XL5Y9d3aO7NAot2ijnU3C2sVVpaVr3PGjg==
+use-http@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/use-http/-/use-http-1.0.13.tgz#bc8abb06b7debab6a11c14bf81a1762fed783ee0"
+  integrity sha512-H1pR9DeqDBSbbmssQWc5bXP1wCvKbg0T6B2lIJjZxKc54jcerKTUwLAnT48sxrSEkQiUgdCb1aRqfOCWIkRJ0A==
   dependencies:
     urs "^0.0.7"
     use-ssr "^1.0.22"
