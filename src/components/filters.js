@@ -15,7 +15,7 @@ export function Filters(props) {
   } = props;
 
   return (
-    <Stack isInline>
+    <Stack isInline mt={['15px', '15px', '15px', 0]}>
       <Select value={language} onChange={(e) => onLanguageChange(e.target.value)}>
         {languages.map((language) => (
           <option key={language.value} value={language.value}>
@@ -48,6 +48,7 @@ export function Filters(props) {
       </Menu>
 
       <Stack
+        d={['none', 'none', 'none', 'flex']}
         isInline
         spacing={0}
         borderWidth={1}
