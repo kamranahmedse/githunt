@@ -86,3 +86,18 @@
   width: 92px;
   border-radius: 92px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .list-item-container {
+    border-color: #484f5d;
+  }
+
+  .list-item-container .repo-meta {
+    color: #6c7583 !important;
+  }
+
+  .list-item-container .repo-meta a,
+  .list-item-container .repo-footer a {
+    color: #939baa;
+  }
+}

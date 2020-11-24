@@ -22,3 +22,29 @@
   box-shadow: none;
   outline: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  .date-jump-type,
+  .date-jump-type:hover,
+  .date-jump-type:active {
+    background: #30353E !important;
+    border-color: #30353E !important;
+    color: #bdc3ce !important;
+  }
+
+  .date-jump-wrap .dropdown-menu {
+    background-color: #30353E;
+    border-color: #30353E;
+    box-shadow: 0 3px 12px rgba(27, 31, 35, 0.6);
+  }
+
+  .date-jump-wrap .dropdown-menu .dropdown-item {
+    color: #bdc3ce;
+  }
+
+  .date-jump-wrap .dropdown-menu .dropdown-item:hover,
+  .date-jump-wrap .dropdown-menu .dropdown-item:focus {
+    background-color: #484f5d;
+    color: white;
+  }
+}

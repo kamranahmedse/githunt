@@ -26,3 +26,17 @@
 .view-type button:first-child {
   margin-left: 0;
 }
+
+@media (prefers-color-scheme: dark) {
+  .view-type {
+    background: #30353E;
+  }
+
+  .view-type button {
+    color: #bdc3ce;
+  }
+
+  .view-type button.active, .view-type button:hover {
+    color: white;
+  }
+}

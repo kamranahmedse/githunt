@@ -54,3 +54,11 @@
 .alert-warning {
   background: #ffa;
 }
+
+@media (prefers-color-scheme: dark) {
+  .alert-warning {
+    background: #37455f;
+    border-color: #37455f;
+    color: #bdc3ce;
+  }
+}
