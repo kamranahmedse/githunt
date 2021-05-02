@@ -118,7 +118,7 @@ class LanguageFilter extends React.Component {
   selectLanguage = (selectedIndex) => {
     const filteredLanguages = this.getFilteredLanguages();
     const selectedLanguage = filteredLanguages[selectedIndex];
-    if (!selectedLanguage) {
+    if (!selectedLanguage || selectedLanguage.value === this.props.selectedLanguage) {
       return;
     }
 
