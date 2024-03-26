@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GithubColors  from 'github-colors';
+import GithubColors from 'github-colors';
 
 import './styles.css';
 import moment from 'moment';
@@ -11,21 +11,20 @@ import Issue from "../../icons/issue";
 class ListItem extends React.Component {
   render() {
     const languageColor = GithubColors.get(this.props.repository.language);
-
     return (
       <div className="col-12 list-item-container">
         <div className="list-item-body">
           <div className="repo-header">
             <h3>
-              <a href={ this.props.repository.html_url } rel="noopener noreferrer" target="_blank">
-                <span className="text-normal">{ this.props.repository.owner.login } / </span>
-                { this.props.repository.name }
+              <a href={this.props.repository.html_url} rel="noopener noreferrer" target="_blank">
+                <span className="text-normal">{this.props.repository.owner.login} / </span>
+                {this.props.repository.name}
               </a>
             </h3>
-            <p className="repo-meta text-muted small">Built by &middot; <a href={ this.props.repository.owner.html_url } rel="noopener noreferrer" target="_blank">{ this.props.repository.owner.login }</a> &middot; { moment(this.props.repository.created_at).format('MMMM D YYYY') }</p>
+            <p className="repo-meta text-muted small">Built by &middot; <a href={this.props.repository.owner.html_url} rel="noopener noreferrer" target="_blank">{this.props.repository.owner.login}</a> &middot; {moment(this.props.repository.created_at).format('MMMM D YYYY')}</p>
           </div>
           <div className="repo-body">
-            <p>{ this.props.repository.description || 'No description given.' }</p>
+            <p>{this.props.repository.description || <i>'No description given.' </i>}</p>
           </div>
           <div className="repo-footer">
             {
@@ -35,45 +34,45 @@ class ListItem extends React.Component {
                     backgroundColor: languageColor ? languageColor.color : '#e8e8e8'
                   }}></span>
                   <span itemProp="programmingLanguage">
-                    { this.props.repository.language }
+                    {this.props.repository.language}
                   </span>
                 </span>
               )
             }
             <a className="muted-link d-inline-block mr-3"
-               href={ `${this.props.repository.html_url}/stargazers` }
-               rel="noopener noreferrer"
-               target="_blank">
+              href={`${this.props.repository.html_url}/stargazers`}
+              rel="noopener noreferrer"
+              target="_blank">
               <Star />
-              { this.props.repository.stargazers_count.toLocaleString() }
+              {this.props.repository.stargazers_count.toLocaleString()}
             </a>
             <a className="muted-link d-inline-block mr-3"
-               href={ `${this.props.repository.html_url}/network/members` }
-               rel="noopener noreferrer"
-               target="_blank">
+              href={`${this.props.repository.html_url}/network/members`}
+              rel="noopener noreferrer"
+              target="_blank">
               <Fork />
-              { this.props.repository.forks ? this.props.repository.forks.toLocaleString() : 0 }
+              {this.props.repository.forks ? this.props.repository.forks.toLocaleString() : 0}
             </a>
             <a className="muted-link d-inline-block mr-3"
-               href={ `${this.props.repository.html_url}/issues` }
-               rel="noopener noreferrer"
-               target="_blank">
+              href={`${this.props.repository.html_url}/issues`}
+              rel="noopener noreferrer"
+              target="_blank">
               <Issue />
-              { this.props.repository.open_issues ? this.props.repository.open_issues.toLocaleString() : 0 }
+              {this.props.repository.open_issues ? this.props.repository.open_issues.toLocaleString() : 0}
             </a>
           </div>
         </div>
 
-        <a href={ this.props.repository.owner.html_url }
-           target="_blank"
-           rel="noopener noreferrer"
-           className="author-link d-none d-lg-block d-xl-block d-md-block">
+        <a href={this.props.repository.owner.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="author-link d-none d-lg-block d-xl-block d-md-block">
           <img className='author-img'
-               src={ this.props.repository.owner.avatar_url }
-               onError={ (e) => {
-                 e.target.src = '/img/logo.svg';
-               } }
-               alt={ this.props.repository.owner.login } />
+            src={this.props.repository.owner.avatar_url}
+            onError={(e) => {
+              e.target.src = '/img/logo.svg';
+            }}
+            alt={this.props.repository.owner.login} />
         </a>
       </div>
     );
