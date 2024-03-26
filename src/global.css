@@ -25,3 +25,22 @@ a {
   background: #1157ed;
   border-color: #1157ed;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #24292E;
+    color: #bdc3ce;
+  }
+
+  a {
+    color: #1DADEB;
+  }
+
+  a:hover {
+    color: #2dc0ff;
+  }
+
+  .text-muted {
+    color: #939baa !important;
+  }
+}

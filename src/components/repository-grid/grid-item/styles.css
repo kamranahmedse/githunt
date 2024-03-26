@@ -98,7 +98,6 @@
   bottom: 20px;
   left: 20px;
   right: 25px;
-  background: white;
   padding: 10px;
 }
 
@@ -120,4 +119,25 @@
   top: -2px;
   fill: #6c757d;
   margin-right: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .grid-item-body {
+    background: #30353E;
+    box-shadow: -5px 10px 60px -13px rgba(0, 0, 0, 0.6);
+  }
+
+  .grid-item-container .author-details h5 {
+    color: #bdc3ce;
+  }
+
+  .grid-item-container .repo-header .repo-meta {
+    color: #6c7583 !important;
+  }
+
+  .grid-item-container .repo-header .repo-meta a,
+  .grid-item-container .repo-body p,
+  .grid-item-container .repo-footer a {
+    color: #939baa;
+  }
 }

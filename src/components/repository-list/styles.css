@@ -5,3 +5,10 @@
   border-radius: 8px;
   box-shadow: -5px 10px 60px -13px rgba(0, 0, 0, 0.20);
 }
+
+@media (prefers-color-scheme: dark) {
+  .list-container {
+    background: #30353E;
+    box-shadow: -5px 10px 60px -13px rgba(0, 0, 0, 0.6);
+  }
+}

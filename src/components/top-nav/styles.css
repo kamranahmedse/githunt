@@ -42,3 +42,13 @@
   border-color: #01aced;
 }
 
+@media (prefers-color-scheme: dark) {
+  .top-nav {
+    background: #1B1D23;
+    border-color: #484f5d;
+  }
+
+  .top-nav .logo-text h4 {
+    color: #bdc3ce;
+  }
+}
