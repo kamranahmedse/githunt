@@ -86,6 +86,7 @@
 }
 
 .grid-item-container .repo-body p {
+  height: 80px;
   font-size: 14px;
   margin-bottom: 0;
   color: #6e7583;
